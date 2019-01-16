@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/16 21:30:28 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/16 22:19:55 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,16 @@ int deal_mouse(int button, int a, int b, t_win *win)
 {
 	int x = 50;
 	int y = 50;
-	
+	char *c;
+	char *d;
+mlx_loop
+	c = ft_itoa(a);
+	d = ft_itoa(b);
+	mlx_clear_window(win->mlx_ptr, win->win_ptr);
+	mlx_string_put(win->mlx_ptr, win->win_ptr, 5, 30, 0xD3D3DA, "X = ");
+	mlx_string_put(win->mlx_ptr, win->win_ptr, 40, 30, 0xD3D3DA, c);
+		mlx_string_put(win->mlx_ptr, win->win_ptr, 5, 50, 0xD3D3DA, "Y = ");
+	mlx_string_put(win->mlx_ptr, win->win_ptr, 40, 50, 0xD3D3DA, d);
 	if (a > 340 && a < 360 && b > 340 && b < 360)
 	{
 		if (win->z == RGB(255, 0, 0))
