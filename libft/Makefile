@@ -6,7 +6,7 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 14:10:45 by nvienot           #+#    #+#              #
-#    Updated: 2018/12/14 15:48:36 by nvienot          ###   ########.fr        #
+#    Updated: 2019/01/16 21:26:33 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,3 +45,5 @@ fclean: clean
 	@/bin/rm -f $(NAME)
 
 re: fclean all
+
+recl: all clean
