@@ -44,10 +44,6 @@ static int	map_to_tab_int(t_map *s)
 	int	k;
 
 	i = 0;
-	s->y_max = 0;
-	while (s->map[s->y_max])
-		s->y_max++;
-	s->x_max = count_number(s->map[0]);
 	if (!(s->tab = (int**)malloc(sizeof(int*) * s->y_max)))
 			return (0);
 	while (s->map[i] && !(j = 0))
@@ -58,7 +54,8 @@ static int	map_to_tab_int(t_map *s)
 		while (s->map[i][j])
 		{
 			s->tab[i][k++] = ft_atoi(&s->map[i][j]);
-			while (((s->map[i][j] >= '0' && s->map[i][j] <= '9') || s->map[i][j] == '-') && s->map[i][j])
+			while ((ft_isdigit(s->map[i][j]) || s->map[i][j] == '-')
+				&& s->map[i][j])
 				j++;
 			while (s->map[i][j] == ' ' && s->map[i][j])
 				j++;
@@ -101,7 +98,8 @@ static int	check_error_map(char *line, int len)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] != '-' && line[i] != '\n' && line[i] != ' ' && (line[i] <= '0' && line[i] >= '9'))
+		if (line[i] != '-' && line[i] != '\n' && line[i] != ' '
+				&& ft_isdigit(line[i]))
 			return (0);
 		i++;
 	}
@@ -137,7 +135,7 @@ static char	*get_map(char *av)
 	return (str);
 }
 
-int		main(int ac, char **av)
+int		parse(int ac, char **av)
 {
 	t_map	*s;
 	char	*str;
@@ -151,10 +149,15 @@ int		main(int ac, char **av)
 	if (!(s = (t_map*)malloc(sizeof(t_map))))
 		return (print_error());
 	s->map = ft_strsplit(str, '\n');
+ft_putendl(str);
 	free(str);
+	s->y_max = 0;
+	while (s->map[s->y_max])
+		s->y_max++;
+	s->x_max = count_number(s->map[0]);
 	if (!map_to_tab_int(s))
 		return (0);
 	while (s->map[i])
-		free(s->map[i++])
-	free(map);
+		free(s->map[i++]);
+	free(s->map);
 }
