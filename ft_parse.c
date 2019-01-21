@@ -127,10 +127,11 @@ static int	check_error_map(char *line)
 	while (line[i])
 	{
 		if (!(line[i] == ',' || line[i] == '-' || line[i] == '\n' || line[i] == ' '))
-			if (line[i] < '0' && line[i] > '9')
+			if (!ft_ishexa(line[i]))
 				return (0);
 		i++;
 	}
+	ft_putendl("pas derror");
 	return (1);
 }
 
@@ -170,7 +171,7 @@ t_map		**parse(t_win *win, char *av)
 	win->x_max = 0;
 	win->y_max = 0;
 	i = 0;
-	if ((str = get_map(&av[0])) == 0)
+	if ((str = get_map(&av[0])) == NULL)
 	{
 		ft_exiterror();
 		return (0);
@@ -187,9 +188,9 @@ t_map		**parse(t_win *win, char *av)
 	while (map[i])
 		free(map[i++]);
 	free(map);
-	printf("Valeur de x %d \n",s[2]->x);
-	printf("Valeur de y %d \n",s[2]->y);
-	printf("Valeur de z %d \n",s[2]->z);
-	printf("Valeur de color %d \n",s[2]->color);
+	// printf("Valeur de x %d \n",s[2]->x);
+	// printf("Valeur de y %d \n",s[2]->y);
+	// printf("Valeur de z %d \n",s[2]->z);
+	// printf("Valeur de color %d \n",s[2]->color);
 	return (s);
 }
