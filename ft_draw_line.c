@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 15:17:30 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/21 16:50:52 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,29 @@ int ft_draw_line(t_win *win, int x1, int x2, int y1, int y2)
 		}
 	}
 	return (1);
+}
+
+int		ft_create_2d(t_map **s, t_win *win)
+{
+	int i;
+
+	i = 0;
+	while(s[i]->x)
+	{
+		s[i]->x = (s[i]->x * 10);
+		i++;
+	}
+	i = 0;
+		while(s[i]->y)
+	{
+		s[i]->y = (s[i]->y * 10);
+		i++;
+	}
+	i = 0;
+	while (s[i]->x)
+	{
+		ft_draw_line(win, s[i]->x, s[i+1]->x, s[i]->y, s[i+1]->y);
+		i++;
+	}
+	return(0);
 }

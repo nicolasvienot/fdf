@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 15:36:37 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/21 16:51:45 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ typedef struct		s_map
 t_map				**parse(t_win *win, char *av);
 void				ft_usage(void);
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
+int					ft_create_2d(t_map **s, t_win *win);
 
 #endif
