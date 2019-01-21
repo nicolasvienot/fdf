@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 11:57:44 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/21 16:00:01 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/21 18:32:21 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	map_to_struct(char **map, t_map **s)
 	{
 		while (map[y][x])
 		{
-			if (!(s[i] = (t_map*)malloc(sizeof(t_map*))))
+			if (!(s[i] = (t_map*)malloc(sizeof(t_map))))
 				return (0);
 			s[i]->x = k;
 			s[i]->y = y;

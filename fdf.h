@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 16:51:45 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/21 18:28:44 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct		s_map
 {
 	int				x;
 	int				y;
+	int				xpix;
+	int				ypix;
 	int				z;
 	int				color;
 }					t_map;
