@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 16:50:52 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/21 17:19:04 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,24 +59,56 @@ int ft_draw_line(t_win *win, int x1, int x2, int y1, int y2)
 	return (1);
 }
 
-int		ft_create_2d(t_map **s, t_win *win)
+t_map	**ft_aug_size_pix(t_map	**s, int pix, int max)
 {
 	int i;
 
 	i = 0;
-	while(s[i]->x)
+	while(i < max)
 	{
-		s[i]->x = (s[i]->x * 10);
+		s[i]->x = (s[i]->x * pix);
 		i++;
 	}
 	i = 0;
-		while(s[i]->y)
+		while(i < max)
 	{
-		s[i]->y = (s[i]->y * 10);
+		s[i]->y = (s[i]->y * pix);
+		i++;
+	}
+	return (s);
+}
+
+t_map	**ft_pos_depart(t_map	**s, int x, int y, int max)
+{
+	int i;
+
+	i = 0;
+	while(i < max)
+	{
+		s[i]->x = (s[i]->x + x);
 		i++;
 	}
 	i = 0;
-	while (s[i]->x)
+		while(i < max)
+	{
+		s[i]->y = (s[i]->y + y);
+		i++;
+	}
+	return (s);
+}
+
+int		ft_create_2d(t_map **s, t_win *win)
+{
+	int pix;
+	int i;
+	int max;
+
+	pix = 150;
+	i = 0;
+	max = (win->x_max * win->y_max) - 1;
+	s = ft_aug_size_pix(s, pix, max);
+	s = ft_pos_depart(s, 75, 75, max);
+	while (i < 15)
 	{
 		ft_draw_line(win, s[i]->x, s[i+1]->x, s[i]->y, s[i+1]->y);
 		i++;
