@@ -126,9 +126,12 @@ static int	check_error_map(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (!(line[i] == ',' || line[i] == '-' || line[i] == '\n' || line[i] == ' '))
+		if (!(line[i] == ',' || line[i] == '-' || line[i] == '\n' || line[i] == ' ' || line[i] == 'x'))
 			if (!ft_ishexa(line[i]))
+			{
+				printf("STOP ICI %c\n", line[i]);
 				return (0);
+			}
 		i++;
 	}
 	ft_putendl("pas derror");

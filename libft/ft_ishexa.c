@@ -12,8 +12,7 @@
 
 #include "libft.h"
 
-int ft_ishexa(int c)
+int 	ft_ishexa(int c)
 {
-	return (ft_isdigit(c) || ((c >= 'A' && c <= 'F')
-		&& (c >= 'a' && c <= 'f')));
+	return ((ft_isdigit(c)) || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f'));
 }
