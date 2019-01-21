@@ -128,13 +128,9 @@ static int	check_error_map(char *line)
 	{
 		if (!(line[i] == ',' || line[i] == '-' || line[i] == '\n' || line[i] == ' ' || line[i] == 'x'))
 			if (!ft_ishexa(line[i]))
-			{
-				printf("STOP ICI %c\n", line[i]);
 				return (0);
-			}
 		i++;
 	}
-	ft_putendl("pas derror");
 	return (1);
 }
 
@@ -179,21 +175,28 @@ t_map		**parse(t_win *win, char *av)
 		ft_exiterror();
 		return (0);
 	}
+	ft_putendl("ton pere");
 	map = ft_strsplit(str, '\n');
 	free(str);
 	while (map[win->y_max])
 		win->y_max++;
 	win->x_max = count_number(map[0]);
+
+	ft_putendl("ton pere");
 	if (!(s = (t_map**)malloc(sizeof(t_map*) * (win->x_max * win->y_max))))
 		return (0);
 	if (!map_to_struct(map, s))
 		return (0);
+
+	ft_putendl("ton pere");
 	while (map[i])
 		free(map[i++]);
 	free(map);
-	// printf("Valeur de x %d \n",s[2]->x);
-	// printf("Valeur de y %d \n",s[2]->y);
-	// printf("Valeur de z %d \n",s[2]->z);
-	// printf("Valeur de color %d \n",s[2]->color);
+	i = 15;
+	printf("Valeur de x_max %d y_max %d et *2 %d\n",win->x_max, win->y_max, (win->y_max * win->x_max));
+	printf("Valeur de x %d \n",s[i]->x);
+	printf("Valeur de y %d \n",s[i]->y);
+	printf("Valeur de z %d \n",s[i]->z);
+	printf("Valeur de color %d \n",s[i]->color);
 	return (s);
 }
