@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 20:31:00 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 21:06:46 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct		s_map
 	int				y_pix;
 	int				z;
 	int				color;
+	int				zok;
 }					t_map;
 
 typedef struct		s_win
@@ -69,6 +70,7 @@ typedef struct		s_win
 	int				pix;
 	int				hor;
 	int				ver;
+	int				top;
 }					t_win;
 
 
@@ -80,5 +82,7 @@ int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
 int 				ft_init_pix(t_win *win);
 int 				ft_init_pos(t_win *win);
+int 				ft_init_top(t_win *win);
+int 				ft_init_zok(t_win *win);
 
 #endif

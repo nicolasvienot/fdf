@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 20:30:33 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 21:12:24 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,54 @@
 
 int	deal_key(int keycode, t_win *win)
 {
-	// int x;
-	// int y;
-
-	// x = 0;
 	if (keycode == ARROW_UP)
 	{
-	// 	if (win->proj == 1)
-			win->x_max = 2;
-	// 	else
-	// 		win->proj = 1;
-	// 	mlx_clear_window(win->mlx_ptr, win->win_ptr);
-	// 	while (x < 1000)
-	// 	{
-	// 		y = 0;
-	// 		while (y < 1000)
-	// 		{
-	// 			mlx_pixel_put(win->mlx_ptr, win->win_ptr, x, y, RGB(255, 0, 0));
-	// 			y++;
-	// 		}
-	// 		x++;
-	// 	}
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		win->ver += 10;
+		ft_init_map(win);
+	}
+	if (keycode == ARROW_DOWN)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		win->ver -= 10;
+		ft_init_map(win);
+	}
+	if (keycode == ARROW_RIGHT)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		win->hor -= 10;
+		ft_init_map(win);
+	}
+	if (keycode == ARROW_LEFT)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		win->hor += 10;
+		ft_init_map(win);
+	}
+	if (keycode == TOUCH_PLUS)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		win->pix += 5;
+		ft_init_map(win);
+	}
+	if (keycode == TOUCH_LESS)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		if (win->pix > 5)
+			win->pix -= 5;
+		ft_init_map(win);
+	}
+	if (keycode == PAGE_UP)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		win->top = 1;
+		ft_init_map(win);
+	}
+	if (keycode == PAGE_DOWN)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		win->top = -1;
+		ft_init_map(win);
 	}
 	return (1);
 }
@@ -60,13 +87,14 @@ int main(int ac, char **av)
 	if (!(win = (t_win*)malloc(sizeof(t_win))))
 		return (0);
 	parse(win, av[1]);
-	win->color = RGB(255, 255, 0);
 	win->mlx_ptr = mlx_init();
 	win->win_ptr = mlx_new_window(win->mlx_ptr, 1500, 1000, "FDP");
 	ft_init_pix(win);
 	ft_init_pos(win);
 	ft_init_map(win);
-	// // mlx_key_hook(win->win_ptr, deal_key, win);
+	ft_init_top(win);
+	ft_init_zok(win);
+	mlx_key_hook(win->win_ptr, deal_key, win);
 	// // mlx_mouse_hook(win->win_ptr, deal_mouse, win);
 	// // mlx_expose_hook(win->win_ptr, deal_expose, win);
 	mlx_loop(win->mlx_ptr);

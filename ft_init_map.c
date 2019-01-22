@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 20:30:20 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 21:07:05 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_move_pos(t_win *win)
 	i = 0;
 	while(i <= win->pos_max)
 	{
-		win->s[i]->x_pix = (win->s[i]->x_pix + win->ver);
-		win->s[i]->y_pix = (win->s[i]->y_pix + win->hor);
+		win->s[i]->x_pix = (win->s[i]->x_pix + win->hor);
+		win->s[i]->y_pix = (win->s[i]->y_pix + win->ver);
 		i++;
 	}
 	return (1);
@@ -61,8 +61,10 @@ int	ft_create_isometric_projection_with_z(t_win *win, int pix)
 	i = 0;
 	while (i <= win->pos_max)
 	{
+		if (win->s[i]->zok == 1)
+			win->s[i]->z += win->top;
 		win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * pix;
-		win->s[i]->y_pix = (win->s[i]->z * -2)+ (win->s[i]->y + win->s[i]->x) * (pix / 2);
+		win->s[i]->y_pix = ((win->s[i]->z) * -2)+ (win->s[i]->y + win->s[i]->x) * (pix / 2);
 		i++;
 	}
 	return (1);
@@ -89,8 +91,30 @@ int ft_init_pix(t_win *win)
 
 int ft_init_pos(t_win *win)
 {
-	win->ver = 750;
-	win->hor = 200;
+	win->hor = 750;
+	win->ver = 200;
+	return (1);
+}
+
+int ft_init_top(t_win *win)
+{
+	win->top = 0;
+	return (1);
+}
+
+int ft_init_zok(t_win *win)
+{
+	int i;
+
+	i = 0;
+	while (i <= win->pos_max)
+	{
+		if (win->s[i]->z != 0)
+			win->s[i]->zok = 1;
+		else
+			win->s[i]->zok = 0;
+		i++;
+	}
 	return (1);
 }
 
