@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 18:53:16 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:26:42 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,15 @@ int ft_draw_line(t_win *win, int x1, int x2, int y1, int y2)
 	return (1);
 }
 
-t_map	**ft_pos_depart(t_map **s, int x, int y, int max)
+t_map	**ft_pos_start(t_map **s, int x, int y, int max)
 {
 	int i;
 
 	i = 0;
-	while(i < max + 1)
+	while(i <= max)
 	{
-		s[i]->xpix = (s[i]->xpix + x);
-		s[i]->ypix = (s[i]->ypix + y);
+		s[i]->x_pix = (s[i]->x_pix + x);
+		s[i]->y_pix = (s[i]->y_pix + y);
 		i++;
 	}
 	return (s);
@@ -78,10 +78,10 @@ t_map	**ft_aug_size_pix(t_map	**s, int pix, int max)
 	int i;
 
 	i = 0;
-	while (i < max + 1)
+	while (i <= max)
 	{
-		s[i]->xpix = (s[i]->x * pix);
-		s[i]->ypix = (s[i]->y * pix);
+		s[i]->x_pix = (s[i]->x * pix);
+		s[i]->y_pix = (s[i]->y * pix);
 		i++;
 	}
 	return (s);
@@ -91,25 +91,23 @@ int		ft_create_2d(t_map **s, t_win *win)
 {
 	int pix;
 	int i;
-	int max;
 
-	pix = 10;
+	pix = 9;
 	i = 0;
-	max = (win->x_max * win->y_max) - 1;
-	s = ft_aug_size_pix(s, pix, max);
-	s = ft_pos_depart(s, 10, 10, max);
-	while (i < max)
+	s = ft_aug_size_pix(s, pix, win->pos_max);
+	s = ft_pos_start(s, 100, 100, win->pos_max);
+	while (i < win->pos_max)
 	{
 		if (s[i]->x == ((win->x_max) - 1) && s[i]->y == ((win->y_max) - 1))
 			break ;
 		if (s[i]->x == ((win->x_max) - 1))
-			ft_draw_line(win, s[i]->xpix, s[i+(win->x_max)]->xpix, s[i]->ypix, s[i+(win->x_max)]->ypix);
+			ft_draw_line(win, s[i]->x_pix, s[i+(win->x_max)]->x_pix, s[i]->y_pix, s[i+(win->x_max)]->y_pix);
 		if (s[i]->y == ((win->y_max) - 1))
-			ft_draw_line(win, s[i]->xpix, s[i+1]->xpix, s[i]->ypix, s[i+1]->ypix);
+			ft_draw_line(win, s[i]->x_pix, s[i+1]->x_pix, s[i]->y_pix, s[i+1]->y_pix);
 		if (s[i]->y != ((win->y_max) - 1) && s[i]->x != ((win->x_max) - 1))
 		{
-			ft_draw_line(win, s[i]->xpix, s[i+1]->xpix, s[i]->ypix, s[i+1]->ypix);
-			ft_draw_line(win, s[i]->xpix, s[i+(win->x_max)]->xpix, s[i]->ypix, s[i+(win->x_max)]->ypix);
+			ft_draw_line(win, s[i]->x_pix, s[i+1]->x_pix, s[i]->y_pix, s[i+1]->y_pix);
+			ft_draw_line(win, s[i]->x_pix, s[i+(win->x_max)]->x_pix, s[i]->y_pix, s[i+(win->x_max)]->y_pix);
 		}
 		i++;
 	}

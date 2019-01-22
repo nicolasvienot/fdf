@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 16:51:21 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:04:53 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,11 @@ int main(int ac, char **av)
 	s = parse(win, av[1]);
 	win->color = RGB(255, 255, 0);
 	win->mlx_ptr = mlx_init();
-	win->win_ptr = mlx_new_window(win->mlx_ptr, 500, 500, "");
-	while (x < 500)
+	win->win_ptr = mlx_new_window(win->mlx_ptr, 1000, 1000, "FDP");
+	while (x < 1000)
 	{
 		y = 0;
-		while (y < 500)
+		while (y < 1000)
 		{
 			mlx_pixel_put(win->mlx_ptr, win->win_ptr, x, y, win->color);
 			y++;

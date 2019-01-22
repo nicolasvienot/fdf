@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 11:57:44 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/21 18:32:21 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:18:05 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,20 +175,17 @@ t_map		**parse(t_win *win, char *av)
 		ft_exiterror();
 		return (0);
 	}
-	ft_putendl("ton pere");
 	map = ft_strsplit(str, '\n');
 	free(str);
 	while (map[win->y_max])
 		win->y_max++;
 	win->x_max = count_number(map[0]);
-
-	ft_putendl("ton pere");
+	win->pos_max = (win->x_max * win->y_max) - 1;
 	if (!(s = (t_map**)malloc(sizeof(t_map*) * (win->x_max * win->y_max))))
 		return (0);
 	if (!map_to_struct(map, s))
 		return (0);
 
-	ft_putendl("ton pere");
 	while (map[i])
 		free(map[i++]);
 	free(map);

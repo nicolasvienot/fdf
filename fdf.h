@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 18:28:44 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 11:12:56 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ typedef struct		s_win
 	int				color;
 	int				x_max;
 	int				y_max;
-	struct s_win	*next;
+	int				pos_max;
 }					t_win;
 
 typedef struct		s_map
 {
 	int				x;
 	int				y;
-	int				xpix;
-	int				ypix;
+	int				x_pix;
+	int				y_pix;
 	int				z;
 	int				color;
 }					t_map;
