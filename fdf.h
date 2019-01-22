@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 14:01:58 by auguyon          ###   ########.fr       */
+/*   Updated: 2019/01/22 18:57:11 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,21 @@
 # define GREEN 65280
 # define RED 16711680
 
+# define TOUCH_ESC 53
+# define ARROW_LEFT 123
+# define ARROW_DOWN 125
+# define ARROW_RIGHT 124
+# define ARROW_UP 126
+# define TOUCH_O 31
+# define TOUCH_PLUS 69
+# define TOUCH_LESS 78
+# define TOUCH_P 35
+# define TOUCH_I 34
+# define TOUCH_R 15
+# define TOUCH_T 17
+# define PAGE_DOWN 121
+# define PAGE_UP 116
+
 typedef struct		s_map
 {
 	int				x;
@@ -47,17 +62,17 @@ typedef struct		s_win
 	void			*win_ptr;
 	void			*img_ptr;
 	int				color;
+	int				proj;
 	int				x_max;
 	int				y_max;
 	int				pos_max;
 }					t_win;
 
+
 void				ft_usage(void);
 void				ft_exit_error(void);
-
-int parse(t_win *win, char *av);
+int 				parse(t_win *win, char *av);
 char				*get_map(char *av);
-
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
 
