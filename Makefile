@@ -6,13 +6,13 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/01/21 15:45:46 by nvienot          ###   ########.fr        #
+#    Updated: 2019/01/22 12:06:11 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fdf
 
-SRCS	=	main.c ft_draw_line.c ft_parse.c
+SRCS	=	main.c ft_draw_line.c ft_parse.c ft_init_draw.c
 
 CC		=	gcc
 

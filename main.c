@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 11:04:53 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 12:31:03 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int main(int ac, char **av)
 		}
 		x++;
 	}
-	ft_create_2d(s, win);
+	ft_init_map(s, win);
 	// mlx_key_hook(win->win_ptr, deal_key, win);
 	// mlx_mouse_hook(win->win_ptr, deal_mouse, win);
 	// mlx_expose_hook(win->win_ptr, deal_expose, win);
