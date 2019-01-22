@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 21:12:24 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 22:06:12 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,35 @@ int	deal_key(int keycode, t_win *win)
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
 		win->ver += 10;
 		ft_init_map(win);
+		print_menu(win);
 	}
 	if (keycode == ARROW_DOWN)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
 		win->ver -= 10;
 		ft_init_map(win);
+		print_menu(win);
 	}
 	if (keycode == ARROW_RIGHT)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
 		win->hor -= 10;
 		ft_init_map(win);
+		print_menu(win);
 	}
 	if (keycode == ARROW_LEFT)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
 		win->hor += 10;
 		ft_init_map(win);
+		print_menu(win);
 	}
 	if (keycode == TOUCH_PLUS)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
 		win->pix += 5;
 		ft_init_map(win);
+		print_menu(win);
 	}
 	if (keycode == TOUCH_LESS)
 	{
@@ -50,18 +55,37 @@ int	deal_key(int keycode, t_win *win)
 		if (win->pix > 5)
 			win->pix -= 5;
 		ft_init_map(win);
+		print_menu(win);
 	}
 	if (keycode == PAGE_UP)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
 		win->top = 1;
 		ft_init_map(win);
+		print_menu(win);
+		ft_init_top(win);
 	}
 	if (keycode == PAGE_DOWN)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
 		win->top = -1;
 		ft_init_map(win);
+		print_menu(win);
+		ft_init_top(win);
+	}
+	if (keycode == TOUCH_O)
+	{
+		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		ft_init_pix(win);
+		ft_init_pos(win);
+		ft_init_top(win);
+		ft_init_zok(win);
+		ft_init_map(win);
+		print_menu(win);
+	}
+	if (keycode == TOUCH_ESC)
+	{
+		exit(EXIT_SUCCESS);
 	}
 	return (1);
 }
@@ -91,9 +115,10 @@ int main(int ac, char **av)
 	win->win_ptr = mlx_new_window(win->mlx_ptr, 1500, 1000, "FDP");
 	ft_init_pix(win);
 	ft_init_pos(win);
-	ft_init_map(win);
 	ft_init_top(win);
 	ft_init_zok(win);
+	ft_init_map(win);
+	print_menu(win);
 	mlx_key_hook(win->win_ptr, deal_key, win);
 	// // mlx_mouse_hook(win->win_ptr, deal_mouse, win);
 	// // mlx_expose_hook(win->win_ptr, deal_expose, win);

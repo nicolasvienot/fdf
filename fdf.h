@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 21:06:46 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 21:30:00 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ int 				ft_init_pix(t_win *win);
 int 				ft_init_pos(t_win *win);
 int 				ft_init_top(t_win *win);
 int 				ft_init_zok(t_win *win);
+int					print_menu(t_win *win);
 
 #endif
