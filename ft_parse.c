@@ -72,15 +72,15 @@ static int	map_to_struct(char **map, t_map **s, int i, int y)
 			s[i]->z = ft_atoi(&map[y][x]);
 			while (map[y][x] == ' ' && map[y][x])
 				x++;
-			while ((ft_isdigit(map[y][x]) || map[y][x] == '-') && map[y][x])
-				x++;
-			if (k++ && map[y][x] == ',')
-				x += 3;
-			if (map[y][x - 3] == ',')
-				s[i]->color = ft_atoi_base(&map[y][x], 16);
 			while (map[y][x] != ' ' && map[y][x])
+			{
+				if (map[y][x] == ',')
+					s[i]->color = ft_atoi_base(&map[y][x + 3], 16);
 				x++;
+			}
 			i++;
+			if (k++ && map[y][x + 1] == '\0')
+				break ;
 		}
 		y++;
 	}
