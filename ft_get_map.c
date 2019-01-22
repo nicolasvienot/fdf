@@ -75,7 +75,6 @@ char		*get_map(char *av)
 		}
 		concat_str(line, &str);
 	}
-	free(line);
 	close(fd);
 	return (str);
 }

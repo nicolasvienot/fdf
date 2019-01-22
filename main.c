@@ -105,9 +105,9 @@ int ft_draw(t_win *win)
 	return (1);
 }
 
+
 int main(int ac, char **av)
 {
-	t_map	**s;
 	t_win	*win;
 	int x = 0;
 	int y = 0;
@@ -116,10 +116,11 @@ int main(int ac, char **av)
 		ft_usage();
 	if (!(win = (t_win*)malloc(sizeof(t_win))))
 		return (0);
-	s = parse(win, av[1]);
+	parse(win, av[1]);
 	win->color = RGB(255, 255, 0);
 	win->mlx_ptr = mlx_init();
 	win->win_ptr = mlx_new_window(win->mlx_ptr, 1000, 1000, "FDP");
+	x = 0;
 	while (x < 1000)
 	{
 		y = 0;
@@ -130,10 +131,10 @@ int main(int ac, char **av)
 		}
 		x++;
 	}
-	ft_init_map(s, win);
-	// mlx_key_hook(win->win_ptr, deal_key, win);
-	// mlx_mouse_hook(win->win_ptr, deal_mouse, win);
-	// mlx_expose_hook(win->win_ptr, deal_expose, win);
+	ft_init_map(win);
+	// // mlx_key_hook(win->win_ptr, deal_key, win);
+	// // mlx_mouse_hook(win->win_ptr, deal_mouse, win);
+	// // mlx_expose_hook(win->win_ptr, deal_expose, win);
 	mlx_loop(win->mlx_ptr);
 	return (0);
 }

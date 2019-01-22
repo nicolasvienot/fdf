@@ -48,17 +48,17 @@ static int	check_error(t_win *win, char **map)
 	return (1);
 }
 
-static int	init_struct(t_map **s, int k, int y, int i)
+static int	init_struct(t_win *win, int k, int y, int i)
 {
-	if (!(s[i] = (t_map*)malloc(sizeof(t_map))))
+	if (!(win->s[i] = (t_map*)malloc(sizeof(t_map))))
 		return (0);
-	s[i]->x = k;
-	s[i]->y = y;
-	s[i]->color = 0;
+	win->s[i]->x = k;
+	win->s[i]->y = y;
+	win->s[i]->color = 0;
 	return (0);
 }
 
-static int	map_to_struct(char **map, t_map **s, int i, int y)
+static int	map_to_struct(char **map, t_win *win, int i, int y)
 {
 	int	x;
 	int k;
@@ -68,14 +68,14 @@ static int	map_to_struct(char **map, t_map **s, int i, int y)
 		k = 0;
 		while (map[y][x])
 		{
-			init_struct(s, k, y, i);
-			s[i]->z = ft_atoi(&map[y][x]);
+			init_struct(win, k, y, i);
+			win->s[i]->z = ft_atoi(&map[y][x]);
 			while (map[y][x] == ' ' && map[y][x])
 				x++;
 			while (map[y][x] != ' ' && map[y][x])
 			{
 				if (map[y][x] == ',')
-					s[i]->color = ft_atoi_base(&map[y][x + 3], 16);
+					win->s[i]->color = ft_atoi_base(&map[y][x + 3], 16);
 				x++;
 			}
 			i++;
@@ -87,9 +87,8 @@ static int	map_to_struct(char **map, t_map **s, int i, int y)
 	return (1);
 }
 
-t_map		**parse(t_win *win, char *av)
+int 	parse(t_win *win, char *av)
 {
-	t_map	**s;
 	char	**map;
 	char	*str;
 	int		i;
@@ -106,12 +105,12 @@ t_map		**parse(t_win *win, char *av)
 	if (!check_error(win, map))
 		ft_exit_error();
 	win->pos_max = ((win->x_max * win->y_max) - 1);
-	if (!(s = (t_map**)malloc(sizeof(t_map*) * (win->pos_max + 1))))
+	if (!(win->s = (t_map**)malloc(sizeof(t_map*) * (win->pos_max + 1))))
 		return (0);
-	if (!map_to_struct(map, s, 0, 0))
+	if (!map_to_struct(map, win, 0, 0))
 		return (0);
 	while (map[i])
 		free(map[i++]);
 	free(map);
-	return (s);
+	return (1);
 }

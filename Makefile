@@ -12,7 +12,7 @@
 
 NAME	=	fdf
 
-SRCS	=	main.c ft_draw_line.c ft_parse.c ft_init_draw.c ft_get_map.c\
+SRCS	=	main.c ft_draw_line.c ft_parse.c ft_init_map.c ft_get_map.c\
 			ft_error.c
 
 CC		=	gcc

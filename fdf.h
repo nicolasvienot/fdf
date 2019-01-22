@@ -30,17 +30,6 @@
 # define GREEN 65280
 # define RED 16711680
 
-typedef struct		s_win
-{
-	void			*mlx_ptr;
-	void			*win_ptr;
-	void			*img_ptr;
-	int				color;
-	int				x_max;
-	int				y_max;
-	int				pos_max;
-}					t_win;
-
 typedef struct		s_map
 {
 	int				x;
@@ -50,13 +39,26 @@ typedef struct		s_map
 	int				z;
 	int				color;
 }					t_map;
+
+typedef struct		s_win
+{
+	t_map			**s;
+	void			*mlx_ptr;
+	void			*win_ptr;
+	void			*img_ptr;
+	int				color;
+	int				x_max;
+	int				y_max;
+	int				pos_max;
+}					t_win;
+
 void				ft_usage(void);
 void				ft_exit_error(void);
 
-t_map				**parse(t_win *win, char *av);
+int parse(t_win *win, char *av);
 char				*get_map(char *av);
 
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
-int					ft_init_map(t_map **s, t_win *win);
+int					ft_init_map(t_win *win);
 
 #endif
