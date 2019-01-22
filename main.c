@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 22:06:12 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 22:23:30 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int	deal_key(int keycode, t_win *win)
 		ft_init_pix(win);
 		ft_init_pos(win);
 		ft_init_top(win);
-		ft_init_zok(win);
+		ft_init_z_and_zok(win);
+		ft_init_xypix(win);
 		ft_init_map(win);
 		print_menu(win);
 	}
@@ -116,7 +117,7 @@ int main(int ac, char **av)
 	ft_init_pix(win);
 	ft_init_pos(win);
 	ft_init_top(win);
-	ft_init_zok(win);
+	ft_init_z_and_zok(win);
 	ft_init_map(win);
 	print_menu(win);
 	mlx_key_hook(win->win_ptr, deal_key, win);

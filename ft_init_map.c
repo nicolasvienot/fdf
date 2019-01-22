@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 21:07:05 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 22:23:55 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,15 @@ int	ft_create_isometric_projection_with_z(t_win *win, int pix)
 	while (i <= win->pos_max)
 	{
 		if (win->s[i]->zok == 1)
-			win->s[i]->z += win->top;
-		win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * pix;
-		win->s[i]->y_pix = ((win->s[i]->z) * -2)+ (win->s[i]->y + win->s[i]->x) * (pix / 2);
+		{
+			win->s[i]->z_pix = win->s[i]->z_pix + win->top;
+			win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * pix;
+			win->s[i]->y_pix = ((win->s[i]->z_pix) * -2)+ (win->s[i]->y + win->s[i]->x) * (pix / 2);
+		}
+		else
+		{	win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * pix;
+			win->s[i]->y_pix = ((win->s[i]->z) * -2)+ (win->s[i]->y + win->s[i]->x) * (pix / 2);
+		}
 		i++;
 	}
 	return (1);
@@ -102,7 +108,7 @@ int ft_init_top(t_win *win)
 	return (1);
 }
 
-int ft_init_zok(t_win *win)
+int ft_init_z_and_zok(t_win *win)
 {
 	int i;
 
@@ -113,6 +119,21 @@ int ft_init_zok(t_win *win)
 			win->s[i]->zok = 1;
 		else
 			win->s[i]->zok = 0;
+		win->s[i]->z_pix = win->s[i]->z;
+		i++;
+	}
+	return (1);
+}
+
+int ft_init_xypix(t_win *win)
+{
+	int i;
+
+	i = 0;
+	while (i <= win->pos_max)
+	{
+		win->s[i]->x_pix = 0;
+		win->s[i]->y_pix = 0;
 		i++;
 	}
 	return (1);
