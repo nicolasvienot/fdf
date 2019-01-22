@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 18:52:12 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 20:30:33 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	deal_key(int keycode, t_win *win)
 int main(int ac, char **av)
 {
 	t_win	*win;
-	int x = 0;
-	int y = 0;
+	// int x = 0;
+	// int y = 0;
 	
 	if (ac != 2)
 		ft_usage();
@@ -62,17 +62,9 @@ int main(int ac, char **av)
 	parse(win, av[1]);
 	win->color = RGB(255, 255, 0);
 	win->mlx_ptr = mlx_init();
-	win->win_ptr = mlx_new_window(win->mlx_ptr, 1000, 1000, "FDP");
-	while (x < 1000)
-	{
-		y = 0;
-		while (y < 1000)
-		{
-			mlx_pixel_put(win->mlx_ptr, win->win_ptr, x, y, win->color);
-			y++;
-		}
-		x++;
-	}
+	win->win_ptr = mlx_new_window(win->mlx_ptr, 1500, 1000, "FDP");
+	ft_init_pix(win);
+	ft_init_pos(win);
 	ft_init_map(win);
 	// // mlx_key_hook(win->win_ptr, deal_key, win);
 	// // mlx_mouse_hook(win->win_ptr, deal_mouse, win);

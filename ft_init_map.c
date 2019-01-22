@@ -6,21 +6,21 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 12:37:19 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 20:30:20 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_move_pos(t_win *win, int x, int y)
+int	ft_move_pos(t_win *win)
 {
 	int i;
 
 	i = 0;
 	while(i <= win->pos_max)
 	{
-		win->s[i]->x_pix = (win->s[i]->x_pix + x);
-		win->s[i]->y_pix = (win->s[i]->y_pix + y);
+		win->s[i]->x_pix = (win->s[i]->x_pix + win->ver);
+		win->s[i]->y_pix = (win->s[i]->y_pix + win->hor);
 		i++;
 	}
 	return (1);
@@ -54,6 +54,19 @@ int	ft_create_isometric_projection(t_win *win, int pix)
 	return (1);
 }
 
+int	ft_create_isometric_projection_with_z(t_win *win, int pix)
+{
+	int i;
+
+	i = 0;
+	while (i <= win->pos_max)
+	{
+		win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * pix;
+		win->s[i]->y_pix = (win->s[i]->z * -2)+ (win->s[i]->y + win->s[i]->x) * (pix / 2);
+		i++;
+	}
+	return (1);
+}
 int	ft_create_orthographic_projection(t_win *win, int pix)
 {
 	int i;
@@ -68,17 +81,40 @@ int	ft_create_orthographic_projection(t_win *win, int pix)
 	return (1);
 }
 
+int ft_init_pix(t_win *win)
+{
+	win->pix = 15;
+	return (1);
+}
+
+int ft_init_pos(t_win *win)
+{
+	win->ver = 750;
+	win->hor = 200;
+	return (1);
+}
+
 int		ft_init_map(t_win *win)
 {
-	int pix;
 	int i;
 
-	pix = 50;
 	i = 0;
-	//ft_ceate_orthographic_projection(win, pix);
-	ft_create_isometric_projection(win, pix);
-	ft_move_pos(win, 500, 200);
-	// //ft_increase_pix_vertical(win, 200);
+	// if (proj == 1)
+	// {
+	// 	s = ft_create_orthographic_projection(s, pix, win->pos_max);
+	// 	s = ft_move_pos(s, 100, 100, win->pos_max);
+	// 	// s = ft_increase_pix(s, 10, win->pos_max);
+	// }
+	// else
+	// {
+	// 	s = ft_create_isometric_projection(s, pix, win->pos_max);
+	// 	s = ft_move_pos(s, 500, 200, win->pos_max);
+	// 	// s = ft_increase_pix(s, 200, win->pos_max);
+	// }
+	
+	ft_create_isometric_projection_with_z(win, win->pix);
+	ft_move_pos(win);
+
 	while (i < win->pos_max)
 	{
 		if (win->s[i]->x == ((win->x_max) - 1) && win->s[i]->y == ((win->y_max) - 1))

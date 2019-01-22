@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 18:57:11 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 20:31:00 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ typedef struct		s_win
 	int				x_max;
 	int				y_max;
 	int				pos_max;
+	int				pix;
+	int				hor;
+	int				ver;
 }					t_win;
 
 
@@ -75,5 +78,7 @@ int 				parse(t_win *win, char *av);
 char				*get_map(char *av);
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
+int 				ft_init_pix(t_win *win);
+int 				ft_init_pos(t_win *win);
 
 #endif
