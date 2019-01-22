@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 12:31:17 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/22 14:01:58 by auguyon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,6 @@
 # define GREEN 65280
 # define RED 16711680
 
-// typedef struct		s_gnl
-// {
-// 	char			*tab;
-// 	int				fd;
-// 	struct s_gnl	*next;
-// }					t_gnl;
-
 typedef struct		s_win
 {
 	void			*mlx_ptr;
@@ -57,9 +50,12 @@ typedef struct		s_map
 	int				z;
 	int				color;
 }					t_map;
+void				ft_usage(void);
+void				ft_exit_error(void);
 
 t_map				**parse(t_win *win, char *av);
-void				ft_usage(void);
+char				*get_map(char *av);
+
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_map **s, t_win *win);
 
