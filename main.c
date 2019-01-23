@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 22:23:30 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/23 18:17:27 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,22 @@ int	deal_key(int keycode, t_win *win)
 	if (keycode == TOUCH_PLUS)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
-		win->pix += 5;
+		win->pix += 3;
 		ft_init_map(win);
 		print_menu(win);
 	}
 	if (keycode == TOUCH_LESS)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
-		if (win->pix > 5)
-			win->pix -= 5;
+		if (win->pix > 3)
+			win->pix -= 3;
 		ft_init_map(win);
 		print_menu(win);
 	}
 	if (keycode == PAGE_UP)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
-		win->top = 1;
+		win->top = 2;
 		ft_init_map(win);
 		print_menu(win);
 		ft_init_top(win);
@@ -68,7 +68,7 @@ int	deal_key(int keycode, t_win *win)
 	if (keycode == PAGE_DOWN)
 	{
 		mlx_clear_window(win->mlx_ptr, win->win_ptr);
-		win->top = -1;
+		win->top = -2;
 		ft_init_map(win);
 		print_menu(win);
 		ft_init_top(win);
@@ -113,9 +113,10 @@ int main(int ac, char **av)
 		return (0);
 	parse(win, av[1]);
 	win->mlx_ptr = mlx_init();
-	win->win_ptr = mlx_new_window(win->mlx_ptr, 1500, 1000, "FDP");
-	ft_init_pix(win);
+	win->win_ptr = mlx_new_window(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE, "FDF");
 	ft_init_pos(win);
+	ft_init_pix(win);
+	// ft_init_pix_orthographic_projection(win);
 	ft_init_top(win);
 	ft_init_z_and_zok(win);
 	ft_init_map(win);

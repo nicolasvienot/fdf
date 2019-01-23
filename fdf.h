@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/22 22:22:55 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/23 18:10:09 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@
 # define BLUE 255
 # define GREEN 65280
 # define RED 16711680
+
+# define WIN_HOR_SIZE 1500
+# define WIN_VER_SIZE 1000
 
 # define TOUCH_ESC 53
 # define ARROW_LEFT 123
@@ -79,6 +82,7 @@ void				ft_usage(void);
 void				ft_exit_error(void);
 int 				parse(t_win *win, char *av);
 char				*get_map(char *av);
+int					ft_create_isometric_projection_with_z(t_win *win);
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
 int 				ft_init_pix(t_win *win);
@@ -86,6 +90,7 @@ int 				ft_init_pos(t_win *win);
 int 				ft_init_top(t_win *win);
 int 				ft_init_z_and_zok(t_win *win);
 int 				ft_init_xypix(t_win *win);
+int					ft_init_pix_orthographic_projection(t_win *win);
 int					print_menu(t_win *win);
 
 #endif
