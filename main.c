@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/23 19:53:08 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/23 20:57:57 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,8 @@ int main(int ac, char **av)
 	win->win_ptr = mlx_new_window(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE, "FDF");
 	// ft_init_pos(win);
 	// ft_init_pix(win);
-	ft_init_pix_and_pos_orthographic_projection(win);
+	// ft_init_pix_and_pos_orthographic_projection(win);
+	ft_init_pix_and_pos_isometric_projection(win);
 	ft_init_top(win);
 	ft_init_z_and_zok(win);
 	ft_init_map(win);
