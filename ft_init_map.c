@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/23 18:18:59 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/23 20:46:31 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	ft_create_isometric_projection_with_z(t_win *win)
 			if (win->top == -2)
 				win->s[i]->z_pix = win->s[i]->z_pix / 2;
 			win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * win->pix;
-			win->s[i]->y_pix = ((win->s[i]->z_pix) * -2)+ (win->s[i]->y + win->s[i]->x) * (win->pix / 2);
+			win->s[i]->y_pix = ((win->s[i]->z_pix) * -2) + (win->s[i]->y + win->s[i]->x) * (win->pix / 2);
 		// }
 		// else
 		// {	win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * pix;
@@ -78,6 +78,39 @@ int	ft_create_isometric_projection_with_z(t_win *win)
 	}
 	return (1);
 }
+
+int	ft_create_orthographic_projection_with_z(t_win *win)
+{
+	int i;
+
+	i = 0;
+	while (i <= win->pos_max)
+	{
+		if (win->top == 2)
+			win->s[i]->z_pix = win->s[i]->z_pix * 1.5;
+		if (win->top == -2)
+			win->s[i]->z_pix = win->s[i]->z_pix / 1.5;
+		if (win->s[i]->z_pix != 0)
+		{
+			win->s[i]->x_pix = (win->s[i]->x + win->s[i]->z_pix * 0.1) * win->pix;
+			win->s[i]->y_pix = (win->s[i]->y + (win->s[i]->z_pix * -0.1 / 2)) * win->pix;
+		}
+		else
+		{
+			win->s[i]->x_pix = (win->s[i]->x * win->pix);
+			win->s[i]->y_pix = (win->s[i]->y * win->pix);
+		}
+		i++;
+	}
+	return (1);
+}
+
+int ft_init_pix(t_win *win)
+{
+	win->pix = 15;
+	return (1);
+}
+
 int	ft_create_orthographic_projection(t_win *win)
 {
 	int i;
@@ -92,32 +125,28 @@ int	ft_create_orthographic_projection(t_win *win)
 	return (1);
 }
 
-int ft_init_pix(t_win *win)
-{
-	win->pix = 15;
-	return (1);
-}
-
-int ft_init_pix_orthographic_projection(t_win *win)
+int ft_init_pix_and_pos_orthographic_projection(t_win *win)
 {
 	int a;
 	int b;
 
-	a = (WIN_HOR_SIZE - (win->hor)) / win->x_max;
-	b = (WIN_VER_SIZE - (win->ver)) / win->y_max;
+	a = (WIN_HOR_SIZE - (WIN_HOR_SIZE / 10)) / win->x_max;
+	b = (WIN_VER_SIZE - (WIN_VER_SIZE / 10)) / win->y_max;
 	if (a <= b)
 		win->pix = a;
 	else
 		win->pix = b; 
+	win->hor = (WIN_HOR_SIZE - ((win->x_max  - 1) * win->pix)) / 2;
+	win->ver = (WIN_VER_SIZE - ((win->y_max - 1) * win->pix)) / 2;
 	return (1);
 }
 
 int ft_init_pos(t_win *win)
 {
-	win->hor = 750;
-	win->ver = 200;
-	// win->hor = 100;
-	// win->ver = 100;
+	// win->hor = 750;
+	// win->ver = 200;
+	win->hor = 100;
+	win->ver = 100;
 	return (1);
 }
 
@@ -176,7 +205,8 @@ int		ft_init_map(t_win *win)
 	// 	// s = ft_increase_pix(s, 200, win->pos_max);
 	// }
 	// ft_create_orthographic_projection(win);
-	ft_create_isometric_projection_with_z(win);
+	ft_create_orthographic_projection_with_z(win);
+	// ft_create_isometric_projection_with_z(win);
 	ft_move_pos(win);
 
 	while (i < win->pos_max)

@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/23 18:10:09 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/23 20:39:10 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct		s_map
 	int				x_pix;
 	int				y_pix;
 	int				z;
-	int				z_pix;
+	float			z_pix;
 	int				color;
 	int				zok;
 }					t_map;
@@ -83,6 +83,7 @@ void				ft_exit_error(void);
 int 				parse(t_win *win, char *av);
 char				*get_map(char *av);
 int					ft_create_isometric_projection_with_z(t_win *win);
+int					ft_create_orthographic_projection_with_z(t_win *win);
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
 int 				ft_init_pix(t_win *win);
@@ -90,7 +91,8 @@ int 				ft_init_pos(t_win *win);
 int 				ft_init_top(t_win *win);
 int 				ft_init_z_and_zok(t_win *win);
 int 				ft_init_xypix(t_win *win);
-int					ft_init_pix_orthographic_projection(t_win *win);
+// int					ft_init_pix_orthographic_projection(t_win *win);
+int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
 int					print_menu(t_win *win);
 
 #endif
