@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/23 20:58:24 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/24 19:18:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ typedef struct		s_map
 {
 	int				x;
 	int				y;
+	int				z;
 	int				x_pix;
 	int				y_pix;
-	int				z;
 	float			z_pix;
 	int				color;
 	int				zok;
@@ -75,6 +75,7 @@ typedef struct		s_win
 	int				hor;
 	int				ver;
 	int				top;
+	int				start;
 }					t_win;
 
 
@@ -93,7 +94,8 @@ int 				ft_init_z_and_zok(t_win *win);
 int 				ft_init_xypix(t_win *win);
 // int					ft_init_pix_orthographic_projection(t_win *win);
 int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
-int 				ft_init_pix_and_pos_isometric_projection(t_win *win);
+int 				ft_init_pos_isometric_projection(t_win *win);
+int 				ft_init_pix_isometric_projection(t_win *win);
 int					print_menu(t_win *win);
 
 #endif
