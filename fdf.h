@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/25 11:58:52 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 15:37:02 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,9 @@ int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2, int i);
 int					ft_init_map(t_win *win);
-int 				ft_init_pix(t_win *win);
-int 				ft_init_pos(t_win *win);
 int 				ft_init_top(t_win *win);
 int 				ft_init_z_and_zok(t_win *win);
 int 				ft_init_xypix(t_win *win);
-// int					ft_init_pix_orthographic_projection(t_win *win);
 int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
 int 				ft_init_pos_isometric_projection(t_win *win);
 int 				ft_init_pix_isometric_projection(t_win *win);

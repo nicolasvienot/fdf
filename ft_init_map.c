@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/25 15:22:20 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 15:34:41 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,6 @@ int	ft_increase_pix(t_win *win, int pix)
 	{
 		win->s[i]->x_pix = (win->s[i]->x_pix + pix);
 		win->s[i]->y_pix = (win->s[i]->y_pix + pix);
-		i++;
-	}
-	return (1);
-}
-
-int	ft_create_isometric_projection(t_win *win, int pix)
-{
-	int i;
-
-	i = 0;
-	while (i <= win->pos_max)
-	{
-		win->s[i]->x_pix = (win->s[i]->x - win->s[i]->y) * pix;
-		win->s[i]->y_pix = (win->s[i]->y + win->s[i]->x) * (pix / 2);
 		i++;
 	}
 	return (1);
@@ -93,26 +79,6 @@ int	ft_create_orthographic_projection_with_z(t_win *win)
 			win->s[i]->x_pix = (win->s[i]->x * win->pix);
 			win->s[i]->y_pix = (win->s[i]->y * win->pix);
 		}
-		i++;
-	}
-	return (1);
-}
-
-int ft_init_pix(t_win *win)
-{
-	win->pix = 15;
-	return (1);
-}
-
-int	ft_create_orthographic_projection(t_win *win)
-{
-	int i;
-
-	i = 0;
-	while (i <= win->pos_max)
-	{
-		win->s[i]->x_pix = (win->s[i]->x * win->pix);
-		win->s[i]->y_pix = (win->s[i]->y * win->pix);
 		i++;
 	}
 	return (1);
@@ -195,13 +161,12 @@ int		ft_get_color(t_win *win)
 	i = 0;
 	while (i <= win->pos_max)
 	{
-		ft_putnbr(win->s[i]->color);
-		ft_putstr(" ");
-		if (win->s[i]->color == 0)
+		if (win->s[i]->z != 0)
+			win->s[i]->color = RGB(255, 0, 255) - (win->s[i]->z_pix) / 10;
+		else
 			win->s[i]->color = RGB(255, 0, 255);
 		i++;
 	}
-
 	return (1);
 }
 

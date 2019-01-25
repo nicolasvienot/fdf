@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/24 19:29:41 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 15:35:33 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,6 @@ int	deal_key(int keycode, t_win *win)
 int main(int ac, char **av)
 {
 	t_win	*win;
-	// int x = 0;
-	// int y = 0;
 	
 	if (ac != 2)
 		ft_usage();
@@ -143,8 +141,8 @@ int main(int ac, char **av)
 	ft_init_map(win);
 	print_menu(win);
 	mlx_key_hook(win->win_ptr, deal_key, win);
-	// // mlx_mouse_hook(win->win_ptr, deal_mouse, win);
-	// // mlx_expose_hook(win->win_ptr, deal_expose, win);
+	// mlx_mouse_hook(win->win_ptr, deal_mouse, win);
+	// mlx_expose_hook(win->win_ptr, deal_expose, win);
 	mlx_loop(win->mlx_ptr);
 	return (0);
 }
