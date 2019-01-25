@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/24 19:18:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 11:58:52 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int 				parse(t_win *win, char *av);
 char				*get_map(char *av);
 int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
-int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
+int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2, int i);
 int					ft_init_map(t_win *win);
 int 				ft_init_pix(t_win *win);
 int 				ft_init_pos(t_win *win);

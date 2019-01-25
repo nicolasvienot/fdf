@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 11:57:44 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/22 11:18:05 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 15:27:59 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,10 @@ int 	parse(t_win *win, char *av)
 	while (map[i])
 		free(map[i++]);
 	free(map);
+	i = 0;
+	while (i <= win->pos_max)
+	{
+		printf("Valeur de color: %d \n", win->s[i++]->color);
+	}
 	return (1);
 }
