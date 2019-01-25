@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/25 15:37:02 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 19:21:26 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,10 @@ typedef struct		s_win
 	int				ver;
 	int				top;
 	int				start;
+	char			*data;
+	int				bpp;
+	int				sizeline;
+	int				endian;
 }					t_win;
 
 
@@ -85,7 +89,7 @@ int 				parse(t_win *win, char *av);
 char				*get_map(char *av);
 int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
-int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2, int i);
+int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
 int 				ft_init_top(t_win *win);
 int 				ft_init_z_and_zok(t_win *win);
@@ -94,5 +98,6 @@ int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
 int 				ft_init_pos_isometric_projection(t_win *win);
 int 				ft_init_pix_isometric_projection(t_win *win);
 int					print_menu(t_win *win);
+void				mlx_put_pixel_to_image(t_win *win, int x, int y);
 
 #endif

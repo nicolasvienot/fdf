@@ -6,9 +6,11 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 15:02:50 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 15:13:39 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 15:40:57 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static int	ft_base(int nb, int base)
 {
@@ -41,8 +43,7 @@ int	ft_atoi_base(const char *str, int base)
 		neg++;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while ((str[i] >= '0' && str[i] <= '9') && (str[i] >= 'a' && str[i] <= 'f')
-				&& (str[i] >= 'A' && str[i] <= 'F'))
+	while (ft_ishexa(str[i]))
 	{
 		nb = nb * base + (ft_base(str[i], base));
 		i++;

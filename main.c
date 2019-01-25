@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/25 15:35:33 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/25 19:34:41 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,66 +16,92 @@ int	deal_key(int keycode, t_win *win)
 {
 	if (keycode == ARROW_UP)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->ver += 10;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == ARROW_DOWN)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->ver -= 10;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == ARROW_RIGHT)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->hor -= 10;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == ARROW_LEFT)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->hor += 10;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == TOUCH_PLUS)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->pix += 3;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == TOUCH_LESS)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
-		if (win->pix > 3)
-			win->pix -= 3;
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
+		if (win->pix > 1)
+			win->pix -= 1;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == PAGE_UP)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->top = 2;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 		ft_init_top(win);
 	}
 	if (keycode == PAGE_DOWN)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->top = -2;
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 		ft_init_top(win);
 	}
 	if (keycode == TOUCH_O)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->start = 0;
 		if (win->proj == 1)
 			ft_init_pix_and_pos_orthographic_projection(win);
@@ -85,11 +111,14 @@ int	deal_key(int keycode, t_win *win)
 		ft_init_z_and_zok(win);
 		ft_init_xypix(win);
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == TOUCH_P)
 	{
-		mlx_clear_window(win->mlx_ptr, win->win_ptr);
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 		win->start = 0;
 		if (win->proj == 1)
 			win->proj = 2;
@@ -103,6 +132,7 @@ int	deal_key(int keycode, t_win *win)
 		ft_init_z_and_zok(win);
 		ft_init_xypix(win);
 		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
 	}
 	if (keycode == TOUCH_ESC)
@@ -135,10 +165,13 @@ int main(int ac, char **av)
 	win->win_ptr = mlx_new_window(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE, "FDF");
 	win->start = 0;
 	win->proj = 1;
+	win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+	win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 	ft_init_pix_and_pos_orthographic_projection(win);
 	ft_init_top(win);
 	ft_init_z_and_zok(win);
 	ft_init_map(win);
+	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 	print_menu(win);
 	mlx_key_hook(win->win_ptr, deal_key, win);
 	// mlx_mouse_hook(win->win_ptr, deal_mouse, win);
