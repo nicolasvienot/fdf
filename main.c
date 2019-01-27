@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/25 19:34:41 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/27 01:35:56 by Nico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,18 @@ int	deal_key(int keycode, t_win *win)
 // 	return (1);
 // }
 
+int	loop_hook(t_win *win)
+{
+	mlx_key_hook(win->win_ptr, deal_key, win);
+	return (1);
+}
+
+int			ft_exit(t_win *win)
+{
+	win->color=2;
+	exit(0);
+}
+
 int main(int ac, char **av)
 {
 	t_win	*win;
@@ -173,9 +185,12 @@ int main(int ac, char **av)
 	ft_init_map(win);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 	print_menu(win);
-	mlx_key_hook(win->win_ptr, deal_key, win);
+	// mlx_key_hook(win->win_ptr, deal_key, win);
+	mlx_hook(win->win_ptr, 2, 1L << 0, deal_key, win);
+	// mlx_hook(win->win_ptr, 17, 1l > 17, ft_exit, win);
 	// mlx_mouse_hook(win->win_ptr, deal_mouse, win);
 	// mlx_expose_hook(win->win_ptr, deal_expose, win);
+	// mlx_loop_hook(win->mlx_ptr, loop_hook, win);
 	mlx_loop(win->mlx_ptr);
 	return (0);
 }
