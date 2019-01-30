@@ -22,19 +22,31 @@
 // 	return (1);
 // }
 
-int	loop_hook(t_win *win)
+void	free_struct(t_win *win)
+{
+	int i;
+
+	i = 0;
+	while (i <= win->pos_max)
+		free(win->s[i++]);
+	free(win->s);
+	free(win->data);
+	free(win);
+}
+
+int		loop_hook(t_win *win)
 {
 	mlx_key_hook(win->win_ptr, deal_key, win);
 	return (1);
 }
 
-int			ft_exit(t_win *win)
+int		ft_exit(t_win *win)
 {
 	win->color=2;
 	exit(0);
 }
 
-int main(int ac, char **av)
+int 	main(int ac, char **av)
 {
 	t_win	*win;
 	
@@ -62,5 +74,6 @@ int main(int ac, char **av)
 	// mlx_expose_hook(win->win_ptr, deal_expose, win);
 	// mlx_loop_hook(win->mlx_ptr, loop_hook, win);
 	mlx_loop(win->mlx_ptr);
+	free_struct(win);
 	return (0);
 }

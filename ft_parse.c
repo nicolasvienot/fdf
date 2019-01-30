@@ -87,7 +87,7 @@ static int	map_to_struct(char **map, t_win *win, int i, int y)
 	return (1);
 }
 
-int 	parse(t_win *win, char *av)
+int			parse(t_win *win, char *av)
 {
 	char	**map;
 	char	*str;

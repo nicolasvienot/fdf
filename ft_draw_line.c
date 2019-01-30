@@ -13,7 +13,6 @@
 #include "fdf.h"
 
 int ft_draw_line(t_win *win, int x1, int x2, int y1, int y2)
-
 {
 	int x = 0;
 	int y = 0;

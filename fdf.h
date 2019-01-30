@@ -99,5 +99,6 @@ int 				ft_init_pos_isometric_projection(t_win *win);
 int 				ft_init_pix_isometric_projection(t_win *win);
 int					print_menu(t_win *win);
 void				mlx_put_pixel_to_image(t_win *win, int x, int y);
+int					deal_key(int keycode, t_win *win);
 
 #endif
