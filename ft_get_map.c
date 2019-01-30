@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auguyon <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 11:55:30 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/22 11:55:34 by auguyon          ###   ########.fr       */
+/*   Updated: 2019/01/30 16:25:00 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	concat_str(char *line, char **str)
+static void	concat_str(char **line, char **str)
 {
 	char	*tmp;
 	char	*n_str;
@@ -23,19 +23,19 @@ static void	concat_str(char *line, char **str)
 	tmp = *str;
 	if (*str != NULL)
 		s_len = ft_strlen(*str);
-	l_len = ft_strlen(line);
+	l_len = ft_strlen(*line);
 	if (!(n_str = ft_memalloc((s_len + l_len) + 2)))
 		return ;
 	if (*str == NULL)
-		ft_strcpy(n_str, line);
+		ft_strcpy(n_str, *line);
 	else
-		ft_strcat((ft_strcpy(n_str, *str)), line);
+		ft_strcat((ft_strcpy(n_str, *str)), *line);
 	n_str[s_len + l_len] = '\n';
 	n_str[s_len + l_len + 1] = '\0';
 	*str = n_str;
 	if (tmp != NULL)
 		free(tmp);
-	free(line);
+	free(*line);
 }
 
 static int	check_error_map(char *line)
@@ -73,8 +73,9 @@ char		*get_map(char *av)
 			free(line);
 			return (NULL);
 		}
-		concat_str(line, &str);
+		concat_str(&line, &str);
 	}
+	free(line);
 	close(fd);
 	return (str);
 }

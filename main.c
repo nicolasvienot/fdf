@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/27 01:35:56 by Nico             ###   ########.fr       */
+/*   Updated: 2019/01/30 16:25:35 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	free_struct(t_win *win)
 	int i;
 
 	i = 0;
-	while (i <= win->pos_max)
+	while (i <= (win->pos_max + 1))
 		free(win->s[i++]);
 	free(win->s);
-	free(win->data);
+	// free(win->data);
 	free(win);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_key.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auguyon <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/30 02:16:42 by auguyon          ###   ########.fr       */
+/*   Updated: 2019/01/30 13:09:58 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,10 +119,10 @@ int	deal_key(int keycode, t_win *win)
 		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline,
 			&win->endian);
 		if (keycode == TOUCH_PLUS)
-			win->pix += 3;
+			win->pix += 2;
 		if (keycode == TOUCH_LESS)
-			if (win->pix > 1)
-				win->pix -= 1;
+			if (win->pix > 2)
+				win->pix -= 2;
 		ft_init_map(win);
 		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);
