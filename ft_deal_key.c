@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/30 13:09:58 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/30 19:32:49 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	deal_key_p(t_win *win)
 	win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline,
 		&win->endian);
 	win->start = 0;
+	win->rota = 0;
 	if (win->proj == 1)
 		win->proj = 2;
 	else
@@ -45,6 +46,7 @@ int	deal_key_o(int keycode, t_win *win)
 		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline,
 			&win->endian);
 		win->start = 0;
+		win->rota = 0;
 		if (win->proj == 1)
 			ft_init_pix_and_pos_orthographic_projection(win);
 		else
@@ -121,8 +123,22 @@ int	deal_key(int keycode, t_win *win)
 		if (keycode == TOUCH_PLUS)
 			win->pix += 2;
 		if (keycode == TOUCH_LESS)
-			if (win->pix > 2)
+			if (win->pix > 4)
 				win->pix -= 2;
+		ft_init_map(win);
+		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
+		print_menu(win);
+	}
+	if (keycode == TOUCH_R || keycode == TOUCH_T)
+	{
+		mlx_destroy_image(win->mlx_ptr, win->img_ptr);
+		win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
+		win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline,
+			&win->endian);
+		if (keycode == TOUCH_T)
+			win->rota += 1;
+		if (keycode == TOUCH_R)
+			win->rota -= 1;
 		ft_init_map(win);
 		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 0, 0);
 		print_menu(win);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/27 01:36:59 by Nico             ###   ########.fr       */
+/*   Updated: 2019/01/30 18:41:40 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@
 
 # define BUFF_SIZE 9999
 # define BUF_SIZE 1000
+
+# define PI 3.14
+# define THETA (10 * PI / 180)
 
 # define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 
@@ -53,6 +56,7 @@ typedef struct		s_map
 	int				x;
 	int				y;
 	int				z;
+	int				x_pix_temp;
 	int				x_pix;
 	int				y_pix;
 	float			z_pix;
@@ -75,6 +79,7 @@ typedef struct		s_win
 	int				hor;
 	int				ver;
 	int				top;
+	int				rota;
 	int				start;
 	char			*data;
 	int				bpp;

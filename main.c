@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/30 16:25:35 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/30 19:27:59 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int 	main(int ac, char **av)
 	win->win_ptr = mlx_new_window(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE, "FDF");
 	win->start = 0;
 	win->proj = 1;
+	win->rota = 0;
 	win->img_ptr = mlx_new_image(win->mlx_ptr, WIN_HOR_SIZE, WIN_VER_SIZE);
 	win->data = mlx_get_data_addr(win->img_ptr, &win->bpp, &win->sizeline, &win->endian);
 	ft_init_pix_and_pos_orthographic_projection(win);

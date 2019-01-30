@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/25 19:15:18 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/30 19:55:55 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,32 @@ int	ft_move_pos(t_win *win)
 		win->s[i]->y_pix = (win->s[i]->y_pix + win->ver);
 		i++;
 	}
+	return (1);
+}
+
+int	ft_rotate(t_win *win)
+{
+	int i;
+	int a;
+	int b;
+
+	a = WIN_HOR_SIZE / 8;
+	b = WIN_VER_SIZE / 8;
+	i = 0;
+	while(i <= win->pos_max)
+	{
+		win->s[i]->x_pix_temp = win->s[i]->x_pix;
+		win->s[i]->x_pix = a + (win->s[i]->x_pix - a) * cos(THETA * win->rota) - (win->s[i]->y_pix - b) * sin(THETA * win->rota);
+		win->s[i]->y_pix = b + (win->s[i]->x_pix_temp - a) * sin(THETA * win->rota) + (win->s[i]->y_pix - b) * cos(THETA * win->rota);
+		i++;
+	}
+	// while(i <= win->pos_max)
+	// {
+	// 	win->s[i]->x_pix_temp = win->s[i]->x_pix;
+	// 	win->s[i]->x_pix = win->s[i]->x_pix * cos(THETA * win->rota) - win->s[i]->y_pix * sin(THETA * win->rota);
+	// 	win->s[i]->y_pix = win->s[i]->x_pix_temp * sin(THETA * win->rota) + win->s[i]->y_pix * cos(THETA * win->rota);
+	// 	i++;
+	// }
 	return (1);
 }
 
@@ -183,8 +209,8 @@ int		ft_init_map(t_win *win)
 	}
 	else
 		ft_create_orthographic_projection_with_z(win);
+	ft_rotate(win);
 	ft_move_pos(win);
-
 	while (i < win->pos_max)
 	{
 		if (win->s[i]->x == ((win->x_max) - 1) && win->s[i]->y == ((win->y_max) - 1))
