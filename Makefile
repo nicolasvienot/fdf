@@ -13,7 +13,7 @@
 NAME	=	fdf
 
 SRCS	=	main.c ft_draw_line.c ft_parse.c ft_init_map.c ft_get_map.c \
-			ft_error.c ft_print.c ft_put_pix_to_im.c
+			ft_error.c ft_print.c ft_put_pix_to_im.c ft_deal_key.c \
 
 CC		=	gcc
 
