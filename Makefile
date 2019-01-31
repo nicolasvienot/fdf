@@ -6,14 +6,15 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/01/25 19:02:44 by nvienot          ###   ########.fr        #
+#    Updated: 2019/01/31 19:02:56 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fdf
 
-SRCS	=	main.c ft_draw_line.c ft_parse.c ft_init_map.c ft_get_map.c \
+SRCS	=	main.c ft_draw_line.c ft_parse.c ft_init_proj.c ft_get_map.c \
 			ft_error.c ft_print.c ft_put_pix_to_im.c ft_deal_key.c \
+			ft_transform.c ft_utilities.c ft_create_proj.c
 
 CC		=	gcc
 

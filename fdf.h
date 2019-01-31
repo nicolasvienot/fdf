@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/30 18:41:40 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/31 19:44:41 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@
 # define GREEN 65280
 # define RED 16711680
 
-# define WIN_HOR_SIZE 1500
-# define WIN_VER_SIZE 1000
+
+# define WIN_HOR_SIZE 1700
+# define WIN_VER_SIZE 1100
+# define IMG_HOR_SIZE 1100
+# define IMG_VER_SIZE 800
 
 # define TOUCH_ESC 53
 # define ARROW_LEFT 123
@@ -56,10 +59,10 @@ typedef struct		s_map
 	int				x;
 	int				y;
 	int				z;
-	int				x_pix_temp;
 	int				x_pix;
 	int				y_pix;
 	float			z_pix;
+	int				xpix2;
 	int				color;
 	int				zok;
 }					t_map;
@@ -70,6 +73,7 @@ typedef struct		s_win
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
+	void			*img_fond;
 	int				color;
 	int				proj;
 	int				x_max;
@@ -96,7 +100,6 @@ int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
 int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
-int 				ft_init_top(t_win *win);
 int 				ft_init_z_and_zok(t_win *win);
 int 				ft_init_xypix(t_win *win);
 int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
@@ -105,5 +108,14 @@ int 				ft_init_pix_isometric_projection(t_win *win);
 int					print_menu(t_win *win);
 void				mlx_put_pixel_to_image(t_win *win, int x, int y);
 int					deal_key(int keycode, t_win *win);
+int					ft_move_pos(t_win *win);
+int					ft_rotate(t_win *win);
+int					ft_increase_pix(t_win *win, int pix);
+int					ft_get_color(t_win *win);
+void				free_struct(t_win *win);
+int					ft_create_isometric_projection_with_z(t_win *win);
+int					ft_create_orthographic_projection_with_z(t_win *win);
+int					ft_init_map(t_win *win);
+
 
 #endif
