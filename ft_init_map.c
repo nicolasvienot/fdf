@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/30 19:55:55 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/31 15:41:54 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,27 @@ int	ft_rotate(t_win *win)
 	int a;
 	int b;
 
-	a = WIN_HOR_SIZE / 8;
-	b = WIN_VER_SIZE / 8;
+	if (win->proj == 1)
+	{
+		a = (win->s[win->x_max - 1]->x_pix - win->s[0]->x_pix) / 2;
+		b = (win->s[(win->pos_max - win->x_max - 1)]->y_pix - win->s[0]->y_pix) / 2;
+	}
+	else
+	{
+		a = (win->s[win->pos_max]->x_pix - win->s[0]->x_pix) / 2;
+		b = ((win->s[(win->pos_max - (win->x_max - 1))]->y_pix) - win->s[(win->x_max - 1)]->y_pix) / 2;
+	}
+	
 	i = 0;
-	while(i <= win->pos_max)
+	while (i <= win->pos_max)
 	{
 		win->s[i]->x_pix_temp = win->s[i]->x_pix;
 		win->s[i]->x_pix = a + (win->s[i]->x_pix - a) * cos(THETA * win->rota) - (win->s[i]->y_pix - b) * sin(THETA * win->rota);
 		win->s[i]->y_pix = b + (win->s[i]->x_pix_temp - a) * sin(THETA * win->rota) + (win->s[i]->y_pix - b) * cos(THETA * win->rota);
 		i++;
 	}
+
+
 	// while(i <= win->pos_max)
 	// {
 	// 	win->s[i]->x_pix_temp = win->s[i]->x_pix;
@@ -91,6 +102,7 @@ int	ft_create_orthographic_projection_with_z(t_win *win)
 	i = 0;
 	while (i <= win->pos_max)
 	{
+		// CEST LE BORDEL FDPPPPPPPP
 		if (win->top == 2)
 			win->s[i]->z_pix = win->s[i]->z_pix * 1.5;
 		if (win->top == -2)
