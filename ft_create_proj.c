@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 17:11:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/31 20:35:02 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/01/31 21:16:03 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	ft_create_isometric_projection_with_z(t_win *win)
 		if (win->top == -2)
 			win->s[i]->z_pix = win->s[i]->z_pix / 2;
 		win->s[i]->x_pix = (win->s[i]->x + win->s[i]->y) * win->pix;
-		win->s[i]->y_pix = ((win->s[i]->z_pix * win->pix) * -2) + (win->s[i]->y - win->s[i]->x) * (win->pix / 2);
+		win->s[i]->y_pix = ((win->s[i]->z_pix * win->pix) * -2) \
+		+ (win->s[i]->y - win->s[i]->x) * (win->pix / 2);
 		i++;
 	}
 	return (1);
@@ -57,11 +58,10 @@ int	ft_create_orthographic_projection_with_z(t_win *win)
 	return (1);
 }
 
+
+
 int		ft_init_map(t_win *win)
 {
-	int i;
-
-	i = 0;
 	ft_get_color(win);
 	if (win->proj == 2)
 	{
@@ -74,20 +74,6 @@ int		ft_init_map(t_win *win)
 		ft_create_orthographic_projection_with_z(win);
 	ft_rotate(win);
 	ft_move_pos(win);
-	while (i < win->pos_max)
-	{
-		if (win->s[i]->x == ((win->x_max) - 1) && win->s[i]->y == ((win->y_max) - 1))
-			break ;
-		if (win->s[i]->x == ((win->x_max) - 1))
-			ft_draw_line(win, win->s[i]->x_pix, win->s[i+(win->x_max)]->x_pix, win->s[i]->y_pix, win->s[i+(win->x_max)]->y_pix);
-		if (win->s[i]->y == ((win->y_max) - 1))
-			ft_draw_line(win, win->s[i]->x_pix, win->s[i + 1]->x_pix, win->s[i]->y_pix, win->s[i+1]->y_pix);
-		if (win->s[i]->y != ((win->y_max) - 1) && win->s[i]->x != ((win->x_max) - 1))
-		{
-			ft_draw_line(win, win->s[i]->x_pix, win->s[i+(win->x_max)]->x_pix, win->s[i]->y_pix, win->s[i+(win->x_max)]->y_pix);
-			ft_draw_line(win, win->s[i]->x_pix, win->s[i+1]->x_pix, win->s[i]->y_pix, win->s[i+1]->y_pix);
-		}
-		i++;
-	}
+	ft_draw(win);
 	return (0);
 }
