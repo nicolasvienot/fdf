@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 11:57:44 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/30 16:04:59 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/01 15:49:04 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static int	map_to_struct(char **map, t_win *win, int i, int y)
 	return (1);
 }
 
-int			parse(t_win *win, char *av)
+int			ft_parse(t_win *win, char *av)
 {
 	char	**map;
 	char	*str;

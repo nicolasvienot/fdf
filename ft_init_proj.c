@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/31 21:14:49 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/01 15:31:11 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int		ft_init_pix_and_pos_orthographic_projection(t_win *win)
 	int a;
 	int b;
 
-	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 10)) / win->x_max;
-	b = (IMG_VER_SIZE - (IMG_VER_SIZE / 10)) / win->y_max;
+	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 5)) / win->x_max;
+	b = (IMG_VER_SIZE - (IMG_VER_SIZE / 5)) / win->y_max;
 	if (a <= b)
 		win->pix = a;
 	else
@@ -33,8 +33,8 @@ int		ft_init_pix_isometric_projection(t_win *win)
 	int a;
 	int b;
 
-	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 3)) / win->x_max;
-	b = (IMG_VER_SIZE - (IMG_HOR_SIZE / 6)) / win->y_max;
+	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 2)) / win->x_max;
+	b = (IMG_VER_SIZE - (IMG_HOR_SIZE / 3)) / win->y_max;
 	if (a <= b)
 		win->pix = a;
 	else

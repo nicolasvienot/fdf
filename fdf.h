@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/31 20:52:47 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/01 16:37:39 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define BLUE 255
 # define GREEN 65280
 # define RED 16711680
+# define PURPLE RGB(255, 0, 255)
 
 
 # define WIN_HOR_SIZE 1700
@@ -94,7 +95,7 @@ typedef struct		s_win
 
 void				ft_usage(void);
 void				ft_exit_error(void);
-int 				parse(t_win *win, char *av);
+int 				ft_parse(t_win *win, char *av);
 char				*get_map(char *av);
 int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
@@ -105,7 +106,7 @@ int 				ft_init_xypix(t_win *win);
 int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
 int 				ft_init_pos_isometric_projection(t_win *win);
 int 				ft_init_pix_isometric_projection(t_win *win);
-int					print_menu(t_win *win);
+int					ft_print_menu(t_win *win);
 void				mlx_put_pixel_to_image(t_win *win, int x, int y);
 int					deal_key(int keycode, t_win *win);
 int					ft_move_pos(t_win *win);
@@ -117,6 +118,9 @@ int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
 int					ft_init_map(t_win *win);
 int					ft_draw(t_win *win);
-
+void				ft_refresh_img(t_win *win);
+void				ft_init_img(t_win *win);
+void				ft_init_start(t_win *win);
+void				ft_init_refresh(t_win *win);
 
 #endif
