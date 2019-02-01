@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/31 21:15:45 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/01 16:59:58 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int		ft_rotate(t_win *win)
 	int i;
 	int a;
 	int b;
-
+	if (win->rota >= 36 || win->rota <= -36)
+		win->rota = 0;
 	if (win->proj == 1)
 	{
 		a = (win->s[win->x_max - 1]->x_pix - win->s[0]->x_pix) / 2;
@@ -55,21 +56,6 @@ int		ft_rotate(t_win *win)
 	}
 	return (1);
 }
-
-// int		ft_increase_pix(t_win *win, int pix)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (i <= win->pos_max)
-// 	{
-// 		win->s[i]->x_pix = (win->s[i]->x_pix + pix);
-// 		win->s[i]->y_pix = (win->s[i]->y_pix + pix);
-// 		win->s[i]->z_pix = (win->s[i]->z_pix + pix);
-// 		i++;
-// 	}
-// 	return (1);
-// }
 
 int		ft_get_color(t_win *win)
 {
