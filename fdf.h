@@ -90,6 +90,10 @@ typedef struct		s_win
 	int				bpp;
 	int				sizeline;
 	int				endian;
+	int				x1;
+	int				x2;
+	int				y1;
+	int				y2;
 }					t_win;
 
 
@@ -99,7 +103,6 @@ int 				ft_parse(t_win *win, char *av);
 char				*get_map(char *av);
 int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
-int 				ft_draw_line(t_win *win, int x1, int x2, int y1, int y2);
 int					ft_init_map(t_win *win);
 int 				ft_init_z_and_zok(t_win *win);
 int 				ft_init_xypix(t_win *win);
