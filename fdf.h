@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/01 16:37:39 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/06 17:13:19 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,13 @@
 
 typedef struct		s_map
 {
-	int				x;
-	int				y;
-	int				z;
-	int				x_pix;
-	int				y_pix;
+	float				x;
+	float				y;
+	float				z;
+	float			x_pix;
+	float			y_pix;
 	float			z_pix;
-	int				xpix2;
+	float			xpix2;
 	int				color;
 	int				zok;
 }					t_map;
@@ -74,13 +74,13 @@ typedef struct		s_win
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
-	void			*img_fond;
+	void			*img_background;
 	int				color;
 	int				proj;
 	int				x_max;
 	int				y_max;
 	int				pos_max;
-	int				pix;
+	float			pix;
 	int				hor;
 	int				ver;
 	int				top;
@@ -94,6 +94,10 @@ typedef struct		s_win
 	int				x2;
 	int				y1;
 	int				y2;
+	int				aff_x;
+	int				aff_y;
+	int				z_min;
+	int				z_max;
 }					t_win;
 
 
@@ -110,7 +114,7 @@ int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
 int 				ft_init_pos_isometric_projection(t_win *win);
 int 				ft_init_pix_isometric_projection(t_win *win);
 int					ft_print_menu(t_win *win);
-void				mlx_put_pixel_to_image(t_win *win, int x, int y);
+void				mlx_put_pixel_to_image(t_win *win, int x, int y, int i);
 int					deal_key(int keycode, t_win *win);
 int					ft_move_pos(t_win *win);
 int					ft_rotate(t_win *win);
@@ -125,5 +129,8 @@ void				ft_refresh_img(t_win *win);
 void				ft_init_img(t_win *win);
 void				ft_init_start(t_win *win);
 void				ft_init_refresh(t_win *win);
+int					ft_print_menu_2(t_win *win);
+void				ft_refresh_background(t_win *win);
+int					altitude_color(t_win *win, int i);
 
 #endif

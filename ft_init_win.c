@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:46:19 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/01 15:52:51 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/05 18:04:30 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ft_init_start(t_win *win)
 	win->proj = 1;
 	win->rota = 0;
 	win->top = 1;
+	win->aff_x = 0;
+	win->aff_y = 0;
 }
 
 void	ft_init_refresh(t_win *win)
@@ -27,4 +29,6 @@ void	ft_init_refresh(t_win *win)
 	win->start = 0;
 	win->rota = 0;
 	win->top = 1;
+	win->aff_x = 0;
+	win->aff_y = 0;
 }

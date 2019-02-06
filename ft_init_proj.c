@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/01 17:35:08 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/06 02:55:39 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int		ft_init_pix_and_pos_orthographic_projection(t_win *win)
 
 	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 5)) / win->x_max;
 	b = (IMG_VER_SIZE - (IMG_VER_SIZE / 5)) / win->y_max;
-	if (a <= b)
+	if (a <= b && a > 2)
 		win->pix = a;
-	else
+	if (a >= b && b > 2)
 		win->pix = b;
+	if (a < 2 && b < 2)
+		win->pix = 2;
 	win->hor = (IMG_HOR_SIZE - ((win->x_max - 1) * win->pix)) / 2;
 	win->ver = (IMG_VER_SIZE - ((win->y_max - 1) * win->pix)) / 2;
 	return (1);
@@ -35,10 +37,12 @@ int		ft_init_pix_isometric_projection(t_win *win)
 
 	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 2)) / win->x_max;
 	b = (IMG_VER_SIZE - (IMG_HOR_SIZE / 3)) / win->y_max;
-	if (a <= b)
+	if (a <= b && a > 2)
 		win->pix = a;
-	else
+	if (b <= a && b > 2)
 		win->pix = b;
+	if (a < 2 && b < 2)
+		win->pix = 2;
 	return (1);
 }
 
@@ -59,8 +63,7 @@ int		ft_init_z_and_zok(t_win *win)
 	i = 0;
 	while (i <= win->pos_max)
 	{
-		win->s[i]->z_pix = win->s[i]->z / 3;
-		// a verif
+		win->s[i]->z_pix = win->s[i]->z;
 		i++;
 	}
 	return (1);

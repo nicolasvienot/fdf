@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/01 17:31:30 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/06 02:54:49 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,10 @@ int	deal_key(int keycode, t_win *win)
 	{
 		ft_refresh_img(win);
 		if (keycode == TOUCH_PLUS)
-			win->pix += 2;
+			win->pix = win->pix * 1.2;
 		if (keycode == TOUCH_LESS)
-			if (win->pix > 4)
-				win->pix -= 2;
+			if (win->pix >= 2.4)
+				win->pix = win->pix / 1.2;
 		ft_init_map(win);
 		mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 300, 150);;
 	}

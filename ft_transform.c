@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/01 16:59:58 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/06 02:57:51 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int		ft_move_pos(t_win *win)
 int		ft_rotate(t_win *win)
 {
 	int i;
-	int a;
-	int b;
+	float a;
+	float b;
+
 	if (win->rota >= 36 || win->rota <= -36)
 		win->rota = 0;
 	if (win->proj == 1)
