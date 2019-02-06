@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/06 02:54:44 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/06 20:22:29 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int deal_mouse(int button, int a, int b, t_win *win)
 	if (button == 5)
 		win->pix = win->pix * 1.2;
 	if (button == 4)
-		if (win->pix >= 2.4)
-			win->pix = win->pix / 1.2;
+		win->pix = win->pix / 1.2;
 	ft_putnbr(win->pix);
 	ft_putchar('\n');
 	ft_init_map(win);
