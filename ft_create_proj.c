@@ -6,13 +6,13 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 17:11:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/07 19:43:42 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/07 20:18:59 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_create_isometric_projection_with_z(t_win *win)
+int		ft_create_isometric_projection_with_z(t_win *win)
 {
 	int i;
 
@@ -28,7 +28,7 @@ int	ft_create_isometric_projection_with_z(t_win *win)
 	return (1);
 }
 
-int	ft_create_orthographic_projection_with_z(t_win *win)
+int		ft_create_orthographic_projection_with_z(t_win *win)
 {
 	int i;
 
@@ -38,8 +38,10 @@ int	ft_create_orthographic_projection_with_z(t_win *win)
 		win->s[i]->z_pix = win->s[i]->z * win->zix;
 		if (win->s[i]->z_pix != 0)
 		{
-			win->s[i]->x_pix = (win->s[i]->x + win->s[i]->z_pix * COEF_Z) * win->pix;
-			win->s[i]->y_pix = (win->s[i]->y + (win->s[i]->z_pix * COEF_Z / 2)) * win->pix;
+			win->s[i]->x_pix = (win->s[i]->x \
+				+ win->s[i]->z_pix * COEF_Z) * win->pix;
+			win->s[i]->y_pix = (win->s[i]->y \
+				+ (win->s[i]->z_pix * COEF_Z / 2)) * win->pix;
 		}
 		else
 		{
