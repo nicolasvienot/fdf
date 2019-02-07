@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/06 02:57:51 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/07 20:16:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		ft_move_pos(t_win *win)
 
 int		ft_rotate(t_win *win)
 {
-	int i;
-	float a;
-	float b;
+	int		i;
+	float	a;
+	float	b;
 
 	if (win->rota >= 36 || win->rota <= -36)
 		win->rota = 0;
@@ -68,6 +68,29 @@ int		ft_get_color(t_win *win)
 		if (win->s[i]->color == 0)
 			win->s[i]->color = RGB(255, 0, 255);
 		i++;
+	}
+	return (1);
+}
+
+int		ft_altitude(t_win *win, int a)
+{
+	if (a == 1)
+	{
+		if (win->zix >= 0.01)
+			win->zix = win->zix * COEF_ALT;
+		if (win->zix > -0.01 && win->zix < 0.01)
+			win->zix = 0.011;
+		if (win->zix <= 0.01)
+			win->zix = win->zix / COEF_ALT;
+	}
+	if (a == 2)
+	{
+		if (win->zix >= 0.01)
+			win->zix = win->zix / COEF_ALT;
+		if (win->zix < 0.01 && win->zix > -0.01)
+			win->zix = -0.011;
+		if (win->zix <= -0.01)
+			win->zix = win->zix * COEF_ALT;
 	}
 	return (1);
 }

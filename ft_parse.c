@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 11:57:44 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/01 15:49:04 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/07 18:08:57 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ static int	count_number(char *map)
 
 	count = 0;
 	i = 0;
-	while (map[i])
+	while (map && map[i])
 	{
-		if (map[i] == '-')
+		if (map[i] && map[i] == '-')
 			i++;
-		if (ft_isdigit(map[i]))
+		if (map[i] && ft_isdigit(map[i]))
 			count++;
-		while ((ft_ishexa(map[i]) || map[i] == 'x' || map[i] == ',')
-				&& map[i])
+		while (map[i] && (ft_ishexa(map[i]) || map[i] == 'x' || map[i] == ','))
 			i++;
-		while (!ft_isdigit(map[i]) && map[i])
+		while (map[i] && !ft_isdigit(map[i]))
 			i++;
 	}
 	return (count);
@@ -101,7 +100,8 @@ int			ft_parse(t_win *win, char *av)
 	free(str);
 	while (map[win->y_max])
 		win->y_max++;
-	win->x_max = count_number(map[0]);
+	if (!(win->x_max = count_number(map[0])))
+		ft_exit_error();
 	if (!check_error(win, map))
 		ft_exit_error();
 	win->pos_max = ((win->x_max * win->y_max) - 1);

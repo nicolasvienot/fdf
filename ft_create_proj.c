@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 17:11:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/06 02:44:53 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/07 19:43:42 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,9 @@ int	ft_create_isometric_projection_with_z(t_win *win)
 	i = 0;
 	while (i <= win->pos_max)
 	{
-		if (win->top == 2)
-			win->s[i]->z_pix = win->s[i]->z_pix * 1.2;
-		if (win->top == -2)
-			win->s[i]->z_pix = win->s[i]->z_pix / 1.2;
+		win->s[i]->z_pix = win->s[i]->z * win->zix;
 		win->s[i]->x_pix = (win->s[i]->x + win->s[i]->y) * win->pix;
-		win->s[i]->y_pix = (((win->s[i]->z_pix) * -2) \
+		win->s[i]->y_pix = (((win->s[i]->z_pix * COEF_Z) * -2) \
 		+ (win->s[i]->y - win->s[i]->x)) * (win->pix / 2);
 		i++;
 	}
@@ -38,14 +35,11 @@ int	ft_create_orthographic_projection_with_z(t_win *win)
 	i = 0;
 	while (i <= win->pos_max)
 	{
-		if (win->top == 2)
-			win->s[i]->z_pix = win->s[i]->z_pix * 1.2;
-		if (win->top == -2)
-			win->s[i]->z_pix = win->s[i]->z_pix / 1.2;
+		win->s[i]->z_pix = win->s[i]->z * win->zix;
 		if (win->s[i]->z_pix != 0)
 		{
-			win->s[i]->x_pix = (win->s[i]->x + win->s[i]->z_pix) * win->pix;
-			win->s[i]->y_pix = (win->s[i]->y + (win->s[i]->z_pix / 2)) * win->pix;
+			win->s[i]->x_pix = (win->s[i]->x + win->s[i]->z_pix * COEF_Z) * win->pix;
+			win->s[i]->y_pix = (win->s[i]->y + (win->s[i]->z_pix * COEF_Z / 2)) * win->pix;
 		}
 		else
 		{
@@ -56,8 +50,6 @@ int	ft_create_orthographic_projection_with_z(t_win *win)
 	}
 	return (1);
 }
-
-
 
 int		ft_init_map(t_win *win)
 {

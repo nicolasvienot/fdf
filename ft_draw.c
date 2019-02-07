@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/06 20:38:59 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/07 20:12:00 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,15 @@ int			ft_draw(t_win *win)
 	int i;
 
 	i = 0;
-	while (i < win->pos_max && win->s[i]->x <= ((win->x_max) - 1) && win->s[i]->y <= ((win->y_max) - 1))
-	{	
+	while (i < win->pos_max && win->s[i]->x <= ((win->x_max) - 1) \
+		&& win->s[i]->y <= ((win->y_max) - 1))
+	{
 		if (win->s[i]->x == ((win->x_max) - 1))
 			ft_draw_line(win, i);
 		if (win->s[i]->y == ((win->y_max) - 1))
 			ft_draw_line(win, i);
-		if (win->s[i]->y != ((win->y_max) - 1) && win->s[i]->x != ((win->x_max) - 1))
+		if (win->s[i]->y != ((win->y_max) - 1) \
+			&& win->s[i]->x != ((win->x_max) - 1))
 		{
 			win->x2 = win->s[i + (win->x_max)]->x_pix;
 			win->y2 = win->s[i + (win->x_max)]->y_pix;

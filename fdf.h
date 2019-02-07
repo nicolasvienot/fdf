@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/06 19:59:12 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/07 20:16:55 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 
 # define PI 3.14
 # define THETA (10 * PI / 180)
+# define COEF_ZOOM 1.2
+# define SIZE_MOV 10
+# define COEF_ALT 1.2
+# define COEF_Z 0.2
 
 # define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 
@@ -62,10 +66,9 @@ typedef struct		s_map
 	float				z;
 	float			x_pix;
 	float			y_pix;
-	float			z_pix;
+	float 			z_pix;
 	float			xpix2;
 	int				color;
-	int				zok;
 }					t_map;
 
 typedef struct		s_win
@@ -83,7 +86,6 @@ typedef struct		s_win
 	float			pix;
 	int				hor;
 	int				ver;
-	int				top;
 	int				rota;
 	int				start;
 	char			*data;
@@ -98,6 +100,7 @@ typedef struct		s_win
 	int				aff_y;
 	int				z_min;
 	int				z_max;
+	float			zix;
 }					t_win;
 
 
@@ -108,7 +111,6 @@ char				*get_map(char *av);
 int					ft_create_isometric_projection_with_z(t_win *win);
 int					ft_create_orthographic_projection_with_z(t_win *win);
 int					ft_init_map(t_win *win);
-int 				ft_init_z_and_zok(t_win *win);
 int 				ft_init_xypix(t_win *win);
 int 				ft_init_pix_and_pos_orthographic_projection(t_win *win);
 int 				ft_init_pos_isometric_projection(t_win *win);
@@ -132,5 +134,6 @@ void				ft_init_refresh(t_win *win);
 int					ft_print_menu_2(t_win *win);
 void				ft_refresh_background(t_win *win);
 int					altitude_color(t_win *win, int i);
+int					ft_altitude(t_win *win, int a);
 
 #endif

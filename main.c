@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/06 20:22:29 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/07 19:42:17 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ int deal_mouse(int button, int a, int b, t_win *win)
 	ft_refresh_background(win);
 	ft_print_menu(win);
 	if (button == 5)
-		win->pix = win->pix * 1.2;
+		win->pix = win->pix * COEF_ZOOM;
 	if (button == 4)
-		win->pix = win->pix / 1.2;
-	ft_putnbr(win->pix);
-	ft_putchar('\n');
+		win->pix = win->pix / COEF_ZOOM;
 	ft_init_map(win);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 300, 150);
 	return (1);
@@ -35,14 +33,14 @@ int deal_mouse(int button, int a, int b, t_win *win)
 // 	return (1);
 // }
 
-int		loop_hook(t_win *win)
+void		ft_hook(t_win *win)
 {
-	mlx_key_hook(win->win_ptr, deal_key, win);
-	// mlx_hook(win->win_ptr, 17, 1l > 17, ft_exit, win);
-	// mlx_mouse_hook(win->win_ptr, deal_mouse, win);
-	// mlx_expose_hook(win->win_ptr, deal_expose, win);
-	// mlx_loop_hook(win->mlx_ptr, loop_hook, win);
-	return (1);
+	mlx_hook(win->win_ptr, 2, 1L << 0, deal_key, win);
+	// ajouter fonction pour gerer seulement x touches
+	mlx_mouse_hook(win->win_ptr, deal_mouse, win);
+	// mlx_expose_hook(env->win, &print_title, &env->mlx);
+	// mlx_hook(env->win, 17, 1l > 17, ft_exit, env);
+	mlx_loop(win->mlx_ptr);
 }
 
 int 	main(int ac, char **av)
@@ -56,17 +54,14 @@ int 	main(int ac, char **av)
 	ft_parse(win, av[1]);
 	ft_init_start(win);
 	ft_init_img(win);
-	win->proj = 2;
-	ft_init_pix_isometric_projection(win);
-	// ft_init_pix_and_pos_orthographic_projection(win);
-	ft_init_z_and_zok(win);
+	win->proj = 1;
+	// ft_init_pix_isometric_projection(win);
+	ft_init_pix_and_pos_orthographic_projection(win);
 	ft_init_map(win);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_background, 0, 0);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 300, 150);
 	ft_print_menu(win);
-	mlx_hook(win->win_ptr, 2, 1L << 0, deal_key, win);
-	mlx_mouse_hook(win->win_ptr, deal_mouse, win);
-	mlx_loop(win->mlx_ptr);
+	ft_hook(win);
 	free_struct(win);
 	return (0);
 }
