@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_is_present.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/22 11:48:56 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/08 15:18:12 by nvienot          ###   ########.fr       */
+/*   Created: 2019/02/08 15:30:00 by nvienot           #+#    #+#             */
+/*   Updated: 2019/02/08 15:30:20 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
-void	ft_exit_error(void)
+int		ft_is_present(char *str, char c)
 {
-	write(1, "error\n", 6);
-	exit(EXIT_FAILURE);
-}
+	int i;
 
-void	ft_usage(void)
-{
-	write(1, "usage: ./fillit file\n", 21);
-	exit(EXIT_FAILURE);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }

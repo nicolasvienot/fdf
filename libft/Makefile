@@ -6,7 +6,7 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 14:10:45 by nvienot           #+#    #+#              #
-#    Updated: 2019/01/21 15:07:58 by nvienot          ###   ########.fr        #
+#    Updated: 2019/02/08 15:30:47 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,10 @@ ft_strequ.c ft_strnequ.c ft_itoa.c ft_striter.c ft_striteri.c ft_strmap.c \
 ft_strmapi.c ft_strjoin.c ft_strsub.c ft_strtrim.c ft_strsplit.c ft_lstadd.c \
 ft_isnumber.c ft_lstiter.c ft_lstdel.c ft_lstdelone.c ft_lstmap.c ft_swap.c \
 ft_lstnew.c ft_iswhitespace.c ft_strlcpy.c ft_sortinttab.c ft_strndup.c \
-ft_str_is_alpha.c ft_str_is_lowercase.c ft_str_is_numeric.c \
+ft_str_is_alpha.c ft_str_is_lowercase.c ft_str_is_numeric.c ft_ishexa.c \
 ft_str_is_printable.c ft_str_is_uppercase.c ft_strcapitalize.c \
 ft_strupcase.c ft_strlowcase.c ft_isupper.c ft_islower.c \
-ft_strsplit_at_first_c.c get_next_line.c ft_atoi_base.c ft_ishexa.c
+ft_strsplit_at_first_c.c get_next_line.c ft_atoi_base.c ft_is_present.c 
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/06 17:24:08 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/08 15:34:51 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	free_struct(t_win *win)
 	free(win);
 }
 
-void			get_z(t_win *win)
+void	get_z(t_win *win)
 {
 	int i;
 
@@ -38,7 +38,7 @@ void			get_z(t_win *win)
 	}
 }
 
-int				altitude_color(t_win *win, int i)
+int		altitude_color(t_win *win, int i)
 {
 	float		delta;
 	float		deltab;
@@ -59,17 +59,17 @@ int				altitude_color(t_win *win, int i)
 	return (ret);
 }
 
-// char		*get_file_name(char *av1)
-// {
-// 	char	*str;
+char	*get_file_name(char *av1)
+{
+	char	*str;
 
-// 	str = NULL;
-// 	if (ft_is_present(av1, '/') == 1)
-// 	{
-// 		str = ft_strrchr(av1, '/');
-// 		str++;
-// 	}
-// 	else
-// 		str = av1;
-// 	return (ft_strsub(str, 0, ft_strlen(str) - 4));
-// }
+	str = NULL;
+	if (ft_is_present(av1, '/') == 1)
+	{
+		str = ft_strrchr(av1, '/');
+		str++;
+	}
+	else
+		str = av1;
+	return (ft_strsub(str, 0, ft_strlen(str) - 4));
+}

@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:19:26 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 15:16:48 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/08 15:31:49 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int					ft_iswhitespace(int c);
 int					ft_isnumber(int c);
 int					ft_isupper(int c);
 int					ft_islower(int c);
+int					ft_is_present(char *str, char c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_strequ(char const *s1, char const *s2);
