@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/07 20:16:55 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/08 16:51:15 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@
 # define TOUCH_I 34
 # define TOUCH_R 15
 # define TOUCH_T 17
+# define TOUCH_M 46
 # define PAGE_DOWN 121
 # define PAGE_UP 116
 
@@ -101,6 +102,8 @@ typedef struct		s_win
 	int				z_min;
 	int				z_max;
 	float			zix;
+	int				menu;
+	char			*filename;
 }					t_win;
 
 
@@ -129,11 +132,13 @@ int					ft_init_map(t_win *win);
 int					ft_draw(t_win *win);
 void				ft_refresh_img(t_win *win);
 void				ft_init_img(t_win *win);
-void				ft_init_start(t_win *win);
+void				ft_init_start(t_win *win, char *av1);
 void				ft_init_refresh(t_win *win);
 int					ft_print_menu_2(t_win *win);
 void				ft_refresh_background(t_win *win);
 int					altitude_color(t_win *win, int i);
 int					ft_altitude(t_win *win, int a);
+void				ft_display_menu(t_win *win);
+char				*ft_get_file_name(char *av1);
 
 #endif

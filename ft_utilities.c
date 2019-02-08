@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/08 15:34:51 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/08 16:47:27 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		altitude_color(t_win *win, int i)
 	return (ret);
 }
 
-char	*get_file_name(char *av1)
+char	*ft_get_file_name(char *av1)
 {
 	char	*str;
 
@@ -72,4 +72,14 @@ char	*get_file_name(char *av1)
 	else
 		str = av1;
 	return (ft_strsub(str, 0, ft_strlen(str) - 4));
+}
+
+void		ft_display_menu(t_win *win)
+{
+	if (win->menu == 0)
+		win->menu = 1;
+	else
+		win->menu = 0;		
+	ft_refresh_background(win);
+	ft_print_menu(win);
 }
