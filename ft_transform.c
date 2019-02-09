@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_transform.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/07 20:16:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/09 14:52:53 by Nico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		ft_altitude(t_win *win, int a)
 {
 	if (a == 1)
 	{
-		if (win->zix >= 0.01)
+		if (win->zix >= 0.01 && win->zix < MAX_ALT)
 			win->zix = win->zix * COEF_ALT;
 		if (win->zix > -0.01 && win->zix < 0.01)
 			win->zix = 0.011;
@@ -89,7 +89,7 @@ int		ft_altitude(t_win *win, int a)
 			win->zix = win->zix / COEF_ALT;
 		if (win->zix < 0.01 && win->zix > -0.01)
 			win->zix = -0.011;
-		if (win->zix <= -0.01)
+		if (win->zix <= -0.01 && win->zix > MIN_ALT)
 			win->zix = win->zix * COEF_ALT;
 	}
 	return (1);

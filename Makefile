@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
+#    By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/02/06 17:55:31 by nvienot          ###   ########.fr        #
+#    Updated: 2019/02/09 13:59:48 by Nico             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,14 +63,6 @@ $(NAME)	:	$(OBJS)
 			echo "$(_YELLOW)                                                                  __/ |		"
 			echo "$(_WHITE)    $(_RED)By $(_PURPLE)auguyon $(_BLUE)&& $(_CYAN)nvienot $(_GREEN)2019 $(_YELLOW)!$(_WHITE)!$(_END)		  	         |___/"
 			echo "\n"
-
-
-		echo "$(_RED)d88888b d8888b. d88888b      d888888b .d8888.      d8888b. d88888b  .d8b.  d8888b. db    db 	"
-		echo "$(_BLUE)88'     88   8D 88'             88'   88'  YP      88   8D 88'     d8'  8b 88   8D  8b  d8' 	"
-		echo "$(_PURPLE)88ooo   88   88 88ooo           88     8bo.        88oobY' 88ooooo 88ooo88 88   88   8bd8'  "
-		echo "$(_CYAN)88~~~   88   88 88~~~           88       Y8b.      88 8b   88~~~~~ 88~~~88 88   88    88    	"
-		echo "$(_GREEN)88      88  .8D 88             .88.   db   8D      88  88. 88.     88   88 88  .8D    88    	"
-		echo "$(_YELLOW)YP      Y8888D' YP           Y888888P  8888Y'      88   YD Y88888P YP   YP Y8888D'    YP    "
 
 clean	:
 			@$(RM) $(OBJS)

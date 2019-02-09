@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_key.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/08 17:04:31 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/09 14:09:26 by Nico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ int		deal_key(int keycode, t_win *win)
 	ft_refresh_img(win);
 	if (keycode == TOUCH_PLUS)
 		win->pix = win->pix * COEF_ZOOM;
-	if (keycode == TOUCH_LESS)
+	if (keycode == TOUCH_LESS && win->pix > MIN_ZOOM)
 		win->pix = win->pix / COEF_ZOOM;
 	if (keycode == TOUCH_T)
-		win->rota += 1;
+		win->rota += COEF_ROTA;
 	if (keycode == TOUCH_R)
-		win->rota -= 1;
-	if (keycode == ARROW_UP)
+		win->rota -= COEF_ROTA;
+	if (keycode == ARROW_UP && win->s[win->x_max - 1]->y_pix < IMG_VER_SIZE)
 		win->ver += SIZE_MOV;
-	if (keycode == ARROW_DOWN)
+	if (keycode == ARROW_DOWN && win->s[win->pos_max - (win->x_max - 1)]->y_pix > 0)
 		win->ver -= SIZE_MOV;
-	if (keycode == ARROW_RIGHT)
+	if (keycode == ARROW_RIGHT && win->s[win->pos_max]->x_pix > 0)
 		win->hor -= SIZE_MOV;
-	if (keycode == ARROW_LEFT)
+	if (keycode == ARROW_LEFT && win->s[0]->x_pix < IMG_HOR_SIZE)
 		win->hor += SIZE_MOV;
 	deal_key_2(keycode, win);
 	if (keycode == TOUCH_P || keycode == TOUCH_I || keycode == TOUCH_O)

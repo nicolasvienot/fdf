@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/08 16:51:15 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/09 14:54:03 by Nico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,13 @@
 # define PI 3.14
 # define THETA (10 * PI / 180)
 # define COEF_ZOOM 1.2
+# define COEF_ROTA 1
 # define SIZE_MOV 10
 # define COEF_ALT 1.2
 # define COEF_Z 0.2
+# define MIN_ZOOM 0.01
+# define MAX_ALT 10
+# define MIN_ALT -10
 
 # define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
 

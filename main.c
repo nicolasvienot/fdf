@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/08 16:51:26 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/09 14:08:24 by Nico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		deal_mouse(int button, int a, int b, t_win *win)
 	ft_print_menu(win);
 	if (button == 5)
 		win->pix = win->pix * COEF_ZOOM;
-	if (button == 4)
+	if (button == 4 && win->pix > MIN_ZOOM)
 		win->pix = win->pix / COEF_ZOOM;
 	ft_init_map(win);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 300, 150);
