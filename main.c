@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/09 14:08:24 by Nico             ###   ########.fr       */
+/*   Updated: 2019/02/11 17:59:59 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int		main(int ac, char **av)
 		ft_usage();
 	if (!(win = (t_win*)malloc(sizeof(t_win))))
 		return (0);
-	ft_init_start(&win, av[1]);
 	ft_parse(&win, av[1]);
+	ft_init_start(&win, av[1]);
 	ft_init_img(&win);
 	win->proj = 1;
 	// ft_init_pix_isometric_projection(win);
