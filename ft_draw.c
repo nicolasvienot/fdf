@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/07 20:12:00 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/11 23:14:39 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_draw_line_2(t_win **win, int i)
 	if ((*win)->y2 <= (*win)->y1 && ((*win)->y1 - (*win)->y2) >= abs((*win)->x1 - (*win)->x2))
 	{
 		y = (*win)->y2;
-		while (y < (*win)->y1)
+		while (y <= (*win)->y1 && ((*win)->y1 - (*win)->y2) != 0)
 		{
 			mlx_put_pixel_to_image(win, (*win)->x2 + (((*win)->x1 - (*win)->x2) \
 				* (y - (*win)->y2)) / ((*win)->y1 - (*win)->y2), y, i);
@@ -30,7 +30,7 @@ static int	ft_draw_line_2(t_win **win, int i)
 	if ((*win)->y1 <= (*win)->y2 && ((*win)->y2 - (*win)->y1) >= abs((*win)->x2 - (*win)->x1))
 	{
 		y = (*win)->y1;
-		while (y < (*win)->y2)
+		while (y <= (*win)->y2 && ((*win)->y2 - (*win)->y1) != 0)
 		{
 			mlx_put_pixel_to_image(win, (*win)->x1 + (((*win)->x2 - (*win)->x1) \
 				* (y - (*win)->y1)) / ((*win)->y2 - (*win)->y1), y, i);
@@ -48,7 +48,7 @@ static int	ft_draw_line_1(t_win **win, int i)
 	if ((*win)->x1 <= (*win)->x2 && ((*win)->x2 - (*win)->x1) >= abs((*win)->y2 - (*win)->y1))
 	{
 		x = (*win)->x1;
-		while (x < (*win)->x2)
+		while (x <= (*win)->x2 && ((*win)->x2 - (*win)->x1) != 0)
 		{
 			mlx_put_pixel_to_image(win, x, (*win)->y1 + (((*win)->y2 - (*win)->y1) \
 				* (x - (*win)->x1)) / ((*win)->x2 - (*win)->x1), i);
@@ -58,7 +58,7 @@ static int	ft_draw_line_1(t_win **win, int i)
 	if ((*win)->x2 <= (*win)->x1 && ((*win)->x1 - (*win)->x2) >= abs((*win)->y1 - (*win)->y2))
 	{
 		x = (*win)->x2;
-		while (x < (*win)->x1)
+		while (x < (*win)->x1 && ((*win)->x1 - (*win)->x2) != 0)
 		{
 			if (((*win)->x1 - (*win)->x2) > 0)
 				mlx_put_pixel_to_image(win, x, (*win)->y2 + (((*win)->y1 - (*win)->y2) \
@@ -93,6 +93,8 @@ int			ft_draw(t_win **win)
 	int i;
 
 	i = 0;
+	if ((*win)->pos_max == 0)
+		mlx_put_pixel_to_image(win, (*win)->s[i]->x_pix, (*win)->s[i]->y_pix, i);
 	while (i < (*win)->pos_max && (*win)->s[i]->x <= (((*win)->x_max) - 1) \
 		&& (*win)->s[i]->y <= (((*win)->y_max) - 1))
 	{

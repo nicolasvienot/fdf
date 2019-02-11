@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/11 19:11:48 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/11 22:41:41 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	free_struct(t_win **win)
 	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_ptr);
 	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 	mlx_destroy_window((*win)->mlx_ptr, (*win)->win_ptr);
-	while (i <= ((*win)->pos_max + 1))
+	// while (i <= ((*win)->pos_max + 1))
+	while (i <= ((*win)->pos_max))
 		free((*win)->s[i++]);
 	free((*win)->s);
 	// free((*win)->data);
 	free((*win)->filename);
 	free(*win);
-	// free(*win)?
+	// free(win);
 }
 
 void	get_z(t_win **win)

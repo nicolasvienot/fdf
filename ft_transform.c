@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/11 18:57:47 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/11 23:38:58 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,24 @@ int		ft_rotate(t_win **win, int i, float a, float b)
 {
 	if ((*win)->rota >= 36 || (*win)->rota <= -36)
 		(*win)->rota = 0;
-	if ((*win)->proj == 1)
+	a = 0;
+	b = 0;
+	if ((*win)->proj == 1 && (*win)->pos_max > 0)
 	{
-		a = ((*win)->s[(*win)->x_max - 1]->x_pix - (*win)->s[0]->x_pix) / 2;
-		b = ((*win)->s[((*win)->pos_max - (*win)->x_max - 1)]->y_pix \
-		- (*win)->s[0]->y_pix) / 2;
+		if ((*win)->x_max > 1 && (*win)->y_max > 1)
+		{
+			a = ((*win)->s[(*win)->x_max - 1]->x_pix - (*win)->s[0]->x_pix) / 2;
+			b = ((*win)->s[((*win)->pos_max - (*win)->x_max - 1)]->y_pix \
+			- (*win)->s[0]->y_pix) / 2;
+		}
 	}
-	else
+	else if ((*win)->proj == 0 && (*win)->pos_max > 0)
 	{
-		a = (((*win)->s[(*win)->pos_max]->x_pix - (*win)->s[0]->x_pix) / 2);
-		b = (*win)->s[0]->y;
+		if ((*win)->x_max > 1 && (*win)->y_max > 1)
+		{
+			a = (((*win)->s[(*win)->pos_max]->x_pix - (*win)->s[0]->x_pix) / 2);
+			b = (*win)->s[0]->y;
+		}
 	}
 	while (i <= (*win)->pos_max)
 	{
