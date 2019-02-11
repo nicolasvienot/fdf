@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:46:19 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/08 16:52:39 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/11 18:20:38 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_init_start(t_win **win, char *av1)
 	(*win)->aff_y = 0;
 	(*win)->zix = 1;
 	(*win)->menu = 0;
+	ft_init_pix_and_pos_orthographic_projection(win);
 }
 
 void	ft_init_refresh(t_win **win)

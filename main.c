@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/11 17:59:59 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/11 18:19:16 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,6 @@ int		main(int ac, char **av)
 	ft_parse(&win, av[1]);
 	ft_init_start(&win, av[1]);
 	ft_init_img(&win);
-	win->proj = 1;
-	// ft_init_pix_isometric_projection(win);
-	ft_init_pix_and_pos_orthographic_projection(&win);
 	ft_init_map(&win);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
 		win->img_background, 0, 0);
