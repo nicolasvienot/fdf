@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_key.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/09 14:09:26 by Nico             ###   ########.fr       */
+/*   Updated: 2019/02/11 19:09:15 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ void	deal_key_2(int keycode, t_win **win)
 	if (keycode == PAGE_DOWN)
 		ft_altitude(win, 2);
 	if (keycode == TOUCH_ESC)
+	{
+		free_struct(win);
 		exit(EXIT_SUCCESS);
+	}
 	if (keycode == TOUCH_M)
 		ft_display_menu(win);
 }
