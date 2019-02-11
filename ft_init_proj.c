@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 12:04:55 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/11 23:32:14 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/11 23:49:47 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ int		ft_init_pix_and_pos_orthographic_projection(t_win **win)
 		(*win)->pix = a;
 	if (b < a)
 		(*win)->pix = b;
-	ft_putnbr((*win)->x_max);
-	ft_putchar('\n');
-	ft_putnbr((*win)->y_max);
 	if ((*win)->x_max == 1 && (*win)->y_max != 1)
 	{
 		(*win)->hor = (IMG_HOR_SIZE - (((*win)->x_max - 1) * (*win)->pix)) / 2;

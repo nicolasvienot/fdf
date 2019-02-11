@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:29:22 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/08 16:59:32 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/11 23:48:40 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int			ft_print_menu_1(t_win **win)
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 500, PURPLE,\
 			"Less alt : Page down");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 520, PURPLE,\
-			"Zoom up : +");
+			"Zoom up : + / Scroll");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 540, PURPLE,\
-			"Zoom down : -");
+			"Zoom down : - / Scroll");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 560, PURPLE,\
 			"Move : Arrow keys");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 580, PURPLE,\
