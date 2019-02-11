@@ -21,6 +21,7 @@ void	free_struct(t_win *win)
 		free(win->s[i++]);
 	free(win->s);
 	free(win->data);
+	free(win->filename);
 	free(win);
 }
 

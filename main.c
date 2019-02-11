@@ -51,8 +51,8 @@ int		main(int ac, char **av)
 		ft_usage();
 	if (!(win = (t_win*)malloc(sizeof(t_win))))
 		return (0);
-	ft_parse(win, av[1]);
 	ft_init_start(win, av[1]);
+	ft_parse(win, av[1]);
 	ft_init_img(win);
 	win->proj = 1;
 	// ft_init_pix_isometric_projection(win);
