@@ -74,12 +74,12 @@ char	*ft_get_file_name(char *av1)
 	return (ft_strsub(str, 0, ft_strlen(str) - 4));
 }
 
-void		ft_display_menu(t_win *win)
+void	ft_display_menu(t_win *win)
 {
 	if (win->menu == 0)
 		win->menu = 1;
 	else
-		win->menu = 0;		
+		win->menu = 0;
 	ft_refresh_background(win);
 	ft_print_menu(win);
 }

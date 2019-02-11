@@ -126,7 +126,7 @@ int					ft_print_menu(t_win *win);
 void				mlx_put_pixel_to_image(t_win *win, int x, int y, int i);
 int					deal_key(int keycode, t_win *win);
 int					ft_move_pos(t_win *win);
-int					ft_rotate(t_win *win);
+int					ft_rotate(t_win *win, int i, float a, float b);
 int					ft_increase_pix(t_win *win, int pix);
 int					ft_get_color(t_win *win);
 void				free_struct(t_win *win);

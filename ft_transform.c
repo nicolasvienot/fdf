@@ -26,12 +26,8 @@ int		ft_move_pos(t_win *win)
 	return (1);
 }
 
-int		ft_rotate(t_win *win)
+int		ft_rotate(t_win *win, int i, float a, float b)
 {
-	int		i;
-	float	a;
-	float	b;
-
 	if (win->rota >= 36 || win->rota <= -36)
 		win->rota = 0;
 	if (win->proj == 1)
@@ -45,7 +41,6 @@ int		ft_rotate(t_win *win)
 		a = ((win->s[win->pos_max]->x_pix - win->s[0]->x_pix) / 2);
 		b = win->s[0]->y;
 	}
-	i = 0;
 	while (i <= win->pos_max)
 	{
 		win->s[i]->xpix2 = win->s[i]->x_pix;

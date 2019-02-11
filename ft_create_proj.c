@@ -65,7 +65,7 @@ int		ft_init_map(t_win *win)
 	}
 	else
 		ft_create_orthographic_projection_with_z(win);
-	ft_rotate(win);
+	ft_rotate(win, 0, 0, 0);
 	ft_move_pos(win);
 	ft_draw(win);
 	return (0);

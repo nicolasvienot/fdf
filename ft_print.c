@@ -28,7 +28,8 @@ int			ft_print_menu_2(t_win *win)
 	mlx_string_put(win->mlx_ptr, win->win_ptr, 1500, 30, PURPLE, \
 			"or hide the menu");
 	mlx_string_put(win->mlx_ptr, win->win_ptr, 920, 970, PURPLE, "MAP NAME :");
-	mlx_string_put(win->mlx_ptr, win->win_ptr, 1030, 970, PURPLE, win->filename);
+	mlx_string_put(win->mlx_ptr, win->win_ptr, 1030, 970, PURPLE, \
+		win->filename);
 	free(x);
 	free(y);
 	return (1);

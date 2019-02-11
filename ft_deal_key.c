@@ -51,7 +51,8 @@ int		deal_key(int keycode, t_win *win)
 		win->rota -= COEF_ROTA;
 	if (keycode == ARROW_UP && win->s[win->x_max - 1]->y_pix < IMG_VER_SIZE)
 		win->ver += SIZE_MOV;
-	if (keycode == ARROW_DOWN && win->s[win->pos_max - (win->x_max - 1)]->y_pix > 0)
+	if (keycode == ARROW_DOWN && win->s[win->pos_max - \
+		(win->x_max - 1)]->y_pix > 0)
 		win->ver -= SIZE_MOV;
 	if (keycode == ARROW_RIGHT && win->s[win->pos_max]->x_pix > 0)
 		win->hor -= SIZE_MOV;
