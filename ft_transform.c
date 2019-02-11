@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_transform.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/09 14:52:53 by Nico             ###   ########.fr       */
+/*   Updated: 2019/02/11 18:57:47 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ int		ft_rotate(t_win **win, int i, float a, float b)
 	}
 	while (i <= (*win)->pos_max)
 	{
-		(*win)->s[i]->xpix2 = (*win)->s[i]->x_pix;
-		(*win)->s[i]->x_pix = a + ((*win)->s[i]->x_pix - a) * cos(THETA * (*win)->rota) \
-		- ((*win)->s[i]->y_pix - b) * sin(THETA * (*win)->rota);
-		(*win)->s[i]->y_pix = b + ((*win)->s[i]->xpix2 - a) * sin(THETA * (*win)->rota) \
-		+ ((*win)->s[i]->y_pix - b) * cos(THETA * (*win)->rota);
+		(*win)->s[i]->x_pix_temp = (*win)->s[i]->x_pix;
+		(*win)->s[i]->x_pix = a + ((*win)->s[i]->x_pix - a) * cos(THETA \
+		* (*win)->rota)	- ((*win)->s[i]->y_pix - b) * sin(THETA * (*win)->rota);
+		(*win)->s[i]->y_pix = b + ((*win)->s[i]->x_pix_temp - a) * sin(THETA \
+		* (*win)->rota) + ((*win)->s[i]->y_pix - b) * cos(THETA * (*win)->rota);
 		i++;
 	}
 	return (1);

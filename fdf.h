@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/09 14:54:03 by Nico             ###   ########.fr       */
+/*   Updated: 2019/02/11 19:00:06 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@
 
 typedef struct		s_map
 {
-	float				x;
-	float				y;
-	float				z;
-	float			x_pix;
-	float			y_pix;
-	float 			z_pix;
-	float			xpix2;
+	int				x;
+	int				y;
+	int				z;
+	int				x_pix;
+	int				y_pix;
+	int 			z_pix;
+	int				x_pix_temp;
 	int				color;
 }					t_map;
 
@@ -87,27 +87,27 @@ typedef struct		s_win
 	int				proj;
 	int				x_max;
 	int				y_max;
+	int				z_max;
+	int				z_min;
 	int				pos_max;
 	float			pix;
+	float			zix;
 	int				hor;
 	int				ver;
 	int				rota;
 	int				start;
-	char			*data;
-	int				bpp;
 	int				sizeline;
-	int				endian;
 	int				x1;
 	int				x2;
 	int				y1;
 	int				y2;
 	int				aff_x;
 	int				aff_y;
-	int				z_min;
-	int				z_max;
-	float			zix;
 	int				menu;
 	char			*filename;
+	char			*data;
+	int				bpp;
+	int				endian;
 }					t_win;
 
 
