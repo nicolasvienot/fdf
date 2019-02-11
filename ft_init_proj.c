@@ -12,55 +12,55 @@
 
 #include "fdf.h"
 
-int		ft_init_pix_and_pos_orthographic_projection(t_win *win)
+int		ft_init_pix_and_pos_orthographic_projection(t_win **win)
 {
 	float a;
 	float b;
 
-	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 4)) / win->x_max;
-	b = (IMG_VER_SIZE - (IMG_VER_SIZE / 4)) / win->y_max;
+	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 4)) / (*win)->x_max;
+	b = (IMG_VER_SIZE - (IMG_VER_SIZE / 4)) / (*win)->y_max;
 	if (a <= b)
-		win->pix = a;
+		(*win)->pix = a;
 	if (b < a)
-		win->pix = b;
-	win->hor = (IMG_HOR_SIZE - ((win->x_max - 1) * win->pix)) / 2;
-	win->ver = (IMG_VER_SIZE - ((win->y_max - 1) * win->pix)) / 2;
+		(*win)->pix = b;
+	(*win)->hor = (IMG_HOR_SIZE - (((*win)->x_max - 1) * (*win)->pix)) / 2;
+	(*win)->ver = (IMG_VER_SIZE - (((*win)->y_max - 1) * (*win)->pix)) / 2;
 	return (1);
 }
 
-int		ft_init_pix_isometric_projection(t_win *win)
+int		ft_init_pix_isometric_projection(t_win **win)
 {
 	float a;
 	float b;
 
-	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 3)) / win->x_max;
-	b = (IMG_VER_SIZE - (IMG_HOR_SIZE / 5)) / win->y_max;
+	a = (IMG_HOR_SIZE - (IMG_HOR_SIZE / 3)) / (*win)->x_max;
+	b = (IMG_VER_SIZE - (IMG_HOR_SIZE / 5)) / (*win)->y_max;
 	if (a <= b)
-		win->pix = a;
+		(*win)->pix = a;
 	if (b < a)
-		win->pix = b;
+		(*win)->pix = b;
 	return (1);
 }
 
-int		ft_init_pos_isometric_projection(t_win *win)
+int		ft_init_pos_isometric_projection(t_win **win)
 {
-	win->hor = (IMG_HOR_SIZE - (win->s[win->pos_max]->x_pix \
-		- win->s[0]->x_pix)) / 2;
-	win->ver = (IMG_VER_SIZE - (win->s[(win->pos_max \
-		- (win->x_max - 1))]->y_pix) \
-			- win->s[(win->x_max - 1)]->y_pix) / 2;
+	(*win)->hor = (IMG_HOR_SIZE - ((*win)->s[(*win)->pos_max]->x_pix \
+		- (*win)->s[0]->x_pix)) / 2;
+	(*win)->ver = (IMG_VER_SIZE - ((*win)->s[((*win)->pos_max \
+		- ((*win)->x_max - 1))]->y_pix) \
+			- (*win)->s[((*win)->x_max - 1)]->y_pix) / 2;
 	return (1);
 }
 
-int		ft_init_xypix(t_win *win)
+int		ft_init_xypix(t_win **win)
 {
 	int i;
 
 	i = 0;
-	while (i <= win->pos_max)
+	while (i <= (*win)->pos_max)
 	{
-		win->s[i]->x_pix = 0;
-		win->s[i]->y_pix = 0;
+		(*win)->s[i]->x_pix = 0;
+		(*win)->s[i]->y_pix = 0;
 		i++;
 	}
 	return (1);

@@ -12,34 +12,34 @@
 
 #include "fdf.h"
 
-void	free_struct(t_win *win)
+void	free_struct(t_win **win)
 {
 	int i;
 
 	i = 0;
-	while (i <= (win->pos_max + 1))
-		free(win->s[i++]);
-	free(win->s);
-	free(win->data);
-	free(win->filename);
+	while (i <= ((*win)->pos_max + 1))
+		free((*win)->s[i++]);
+	free((*win)->s);
+	free((*win)->data);
+	free((*win)->filename);
 	free(win);
 }
 
-void	get_z(t_win *win)
+void	get_z(t_win **win)
 {
 	int i;
 
 	i = 0;
-	while (i < win->pos_max)
+	while (i < (*win)->pos_max)
 	{
-		if (win->z_min > win->s[i]->z_pix)
-			win->z_min = win->s[i]->z_pix;
-		if (win->z_max < win->s[i]->z_pix)
-			win->z_max = win->s[i]->z_pix;
+		if ((*win)->z_min > (*win)->s[i]->z_pix)
+			(*win)->z_min = (*win)->s[i]->z_pix;
+		if ((*win)->z_max < (*win)->s[i]->z_pix)
+			(*win)->z_max = (*win)->s[i]->z_pix;
 	}
 }
 
-int		altitude_color(t_win *win, int i)
+int		altitude_color(t_win **win, int i)
 {
 	float		delta;
 	float		deltab;
@@ -48,8 +48,8 @@ int		altitude_color(t_win *win, int i)
 	uintmax_t	ret;
 
 	get_z(win);
-	delta = (float)win->s[i]->z_pix - win->z_min;
-	deltab = (float)win->z_max - win->z_min;
+	delta = (float)(*win)->s[i]->z_pix - (*win)->z_min;
+	deltab = (float)(*win)->z_max - (*win)->z_min;
 	if (deltab <= 0.0)
 		return (RGB(255, 255, 255));
 	delta = (float)delta / deltab;
@@ -75,12 +75,12 @@ char	*ft_get_file_name(char *av1)
 	return (ft_strsub(str, 0, ft_strlen(str) - 4));
 }
 
-void	ft_display_menu(t_win *win)
+void	ft_display_menu(t_win **win)
 {
-	if (win->menu == 0)
-		win->menu = 1;
+	if ((*win)->menu == 0)
+		(*win)->menu = 1;
 	else
-		win->menu = 0;
+		(*win)->menu = 0;
 	ft_refresh_background(win);
 	ft_print_menu(win);
 }
