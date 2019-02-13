@@ -21,14 +21,11 @@ void	free_struct(t_win **win)
 	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background2);
 	mlx_destroy_window((*win)->mlx_ptr, (*win)->win_ptr);
-	// while (i <= ((*win)->pos_max + 1))
 	while (i <= ((*win)->pos_max))
 		free((*win)->s[i++]);
 	free((*win)->s);
-	// free((*win)->data);
 	free((*win)->filename);
 	free(*win);
-	// free(win);
 }
 
 void	get_z(t_win **win)

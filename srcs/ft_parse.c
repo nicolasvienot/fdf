@@ -95,20 +95,20 @@ int			ft_parse(t_win **win, char *av)
 	i = 0;
 	(*win)->y_max = 0;
 	if ((str = get_map(&av[0])) == NULL)
-		ft_exit_error();
+		ft_free_n_exit_str(str, win, -2);
 	map = ft_strsplit(str, '\n');
 	free(str);
 	while (map[(*win)->y_max])
 		(*win)->y_max++;
 	if (!((*win)->x_max = count_number(map[0])))
-		ft_exit_error();
+		ft_free_n_exit_map(map, win, -2);
 	if (!check_error(win, map))
-		ft_exit_error();
+		ft_free_n_exit_map(map, win, -1);
 	(*win)->pos_max = (((*win)->x_max * (*win)->y_max) - 1);
 	if (!((*win)->s = (t_map**)malloc(sizeof(t_map*) * ((*win)->pos_max + 1))))
-		return (0);
+		ft_free_n_exit_map(map, win, -42);
 	if (!map_to_struct(map, win, 0, 0))
-		return (0);
+		ft_free_n_exit_map(map, win, -2);
 	while (map[i])
 		free(map[i++]);
 	free(map);
