@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/13 21:02:09 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 23:07:22 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	deal_key_p_i_o(int keycode, t_win **win)
 		ft_init_pix_and_pos_orthographic_projection(win);
 	else
 		ft_init_pix_isometric_projection(win);
-	(*win)->i = 0;
+	if (keycode == TOUCH_O)
+		(*win)->img = 0;
 	ft_anim_background(win);
-	// ft_refresh_background(win);
 	ft_print_menu(win);
 	ft_init_xypix(win);
 }
@@ -45,10 +45,10 @@ void	deal_key_2(int keycode, t_win **win)
 		ft_display_menu(win);
 	if (keycode == TOUCH_STAR)
 	{
-		if ((*win)->i == 12)
-			(*win)->i = 0;
+		if ((*win)->img == 12)
+			(*win)->img = 0;
 		else
-			(*win)->i = (*win)->i + 1;
+			(*win)->img = (*win)->img + 1;
 		ft_anim_background(win);
 	}
 }

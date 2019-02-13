@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:02:49 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 19:15:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 23:04:52 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,109 +18,49 @@ void		ft_refresh_img(t_win **win)
 	(*win)->img_ptr = mlx_new_image((*win)->mlx_ptr, IMG_HOR_SIZE, IMG_VER_SIZE);
 }
 
-// void		ft_refresh_background(t_win **win)
-// {
-// 	if ((*win)->proj == 1)
-// 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-// 			(*win)->img_background, 0, 0);
-// 	else
-// 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-// 			(*win)->img_background2, 0, 0);
-// }
-
 void		ft_anim_background(t_win **win)
 {
-		if ((*win)->i == 0)
-		{
+		if ((*win)->img == 0)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 1)
-		{
+		if ((*win)->img == 1)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background2, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 2)
-		{
+		if ((*win)->img == 2)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background3, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 3)
-		{
+		if ((*win)->img == 3)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background4, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 4)
-		{
+		if ((*win)->img == 4)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background5, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 5)
-		{
+		if ((*win)->img == 5)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background6, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 6)
-		{
+		if ((*win)->img == 6)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background7, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 7)
-		{
+		if ((*win)->img == 7)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background8, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 8)
-		{
+		if ((*win)->img == 8)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background9, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 9)
-		{
+		if ((*win)->img == 9)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background10, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 10)
-		{
+		if ((*win)->img == 10)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background11, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 11)
-		{
+		if ((*win)->img == 11)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background12, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}
-		if ((*win)->i == 12)
-		{
+		if ((*win)->img == 12)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background13, 0, 0);
-			ft_print_menu(win);
-			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}	
+		ft_print_menu(win);
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
 }
 
 void		ft_init_img(t_win **win)
@@ -128,8 +68,8 @@ void		ft_init_img(t_win **win)
 	int	a;
 	int b;
 
-	a = 1700;
-	b = 1100;
+	a = WIN_HOR_SIZE;
+	b = WIN_VER_SIZE;
 	(*win)->img_background = mlx_new_image((*win)->mlx_ptr, 1700, 1100);
 	(*win)->img_background = mlx_xpm_file_to_image((*win)->mlx_ptr, \
 		"imgs/fdf.xpm", &a, &b);

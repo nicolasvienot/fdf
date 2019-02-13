@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 21:59:32 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 23:03:15 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ typedef struct		s_win
 	char			*data;
 	int				bpp;
 	int				endian;
-	int 			i;
+	int 			img;
 }					t_win;
 
 
