@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 23:21:54 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 00:12:17 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,8 @@ typedef struct		s_win
 	int				x2;
 	int				y1;
 	int				y2;
+	int				z1;
+	int				z2;
 	int				aff_x;
 	int				aff_y;
 	int				menu;
@@ -122,6 +124,7 @@ typedef struct		s_win
 	int				bpp;
 	int				endian;
 	int 			img;
+	int 			z;
 }					t_win;
 
 void				ft_usage(void);
@@ -152,7 +155,7 @@ void				ft_init_start(t_win **win, char *av1);
 void				ft_init_refresh(t_win **win);
 int					ft_print_menu_2(t_win **win);
 void				ft_refresh_background(t_win **win);
-int					altitude_color(t_win **win, int i);
+int					altitude_color(t_win **win);
 int					ft_altitude(t_win **win, int a);
 void				ft_display_menu(t_win **win);
 char				*ft_get_file_name(char *av1);

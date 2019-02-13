@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:02:49 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 23:04:52 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 00:19:31 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,12 @@ void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
 	int		octet;
 	int		a;
 
+	i = 0;
 	octet = (*win)->bpp / 8;
-	a = (*win)->s[i]->color;
+	// if ((*win)->z == 0)
+	// 	a = (*win)->s[i]->color;
+	// else
+		a = altitude_color(win);
 	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
 	{
 		ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], &a, octet);

@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/11 23:14:39 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 00:23:28 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ static int	ft_draw_line_2(t_win **win, int i)
 {
 	int y;
 
-	y = 0;
 	if ((*win)->y2 <= (*win)->y1 && ((*win)->y1 - (*win)->y2) >= abs((*win)->x1 - (*win)->x2))
 	{
 		y = (*win)->y2;
@@ -32,6 +31,7 @@ static int	ft_draw_line_2(t_win **win, int i)
 		y = (*win)->y1;
 		while (y <= (*win)->y2 && ((*win)->y2 - (*win)->y1) != 0)
 		{
+			(*win)->z = (*win)->z1 + (y - (*win)->y1) * ((*win)->z2 - (*win)->z1) / ((*win)->y2 - (*win)->y1);
 			mlx_put_pixel_to_image(win, (*win)->x1 + (((*win)->x2 - (*win)->x1) \
 				* (y - (*win)->y1)) / ((*win)->y2 - (*win)->y1), y, i);
 			y++;
@@ -44,12 +44,12 @@ static int	ft_draw_line_1(t_win **win, int i)
 {
 	int x;
 
-	x = 0;
 	if ((*win)->x1 <= (*win)->x2 && ((*win)->x2 - (*win)->x1) >= abs((*win)->y2 - (*win)->y1))
 	{
 		x = (*win)->x1;
 		while (x <= (*win)->x2 && ((*win)->x2 - (*win)->x1) != 0)
 		{
+			(*win)->z = (*win)->z1 + (x - (*win)->x1) * ((*win)->z2 - (*win)->z1) / ((*win)->x2 - (*win)->x1);
 			mlx_put_pixel_to_image(win, x, (*win)->y1 + (((*win)->y2 - (*win)->y1) \
 				* (x - (*win)->x1)) / ((*win)->x2 - (*win)->x1), i);
 			x++;
@@ -73,15 +73,18 @@ static int	ft_draw_line(t_win **win, int i)
 {
 	(*win)->x1 = (*win)->s[i]->x_pix;
 	(*win)->y1 = (*win)->s[i]->y_pix;
+	(*win)->z1 = (*win)->s[i]->z;
 	if ((*win)->s[i]->x == (((*win)->x_max) - 1))
 	{
 		(*win)->x2 = (*win)->s[i + ((*win)->x_max)]->x_pix;
 		(*win)->y2 = (*win)->s[i + ((*win)->x_max)]->y_pix;
+		(*win)->z2 = (*win)->s[i + ((*win)->x_max)]->z;
 	}
 	if ((*win)->s[i]->y == (((*win)->y_max) - 1))
 	{
 		(*win)->x2 = (*win)->s[i + 1]->x_pix;
 		(*win)->y2 = (*win)->s[i + 1]->y_pix;
+		(*win)->z2 = (*win)->s[i + 1]->z;
 	}
 	ft_draw_line_1(win, i);
 	ft_draw_line_2(win, i);

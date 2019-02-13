@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 19:18:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 00:20:41 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,19 @@ void	get_z(t_win **win)
 	int i;
 
 	i = 0;
+	(*win)->z_min = 0;
+	(*win)->z_max = 0;
 	while (i < (*win)->pos_max)
 	{
-		if ((*win)->z_min > (*win)->s[i]->z_pix)
-			(*win)->z_min = (*win)->s[i]->z_pix;
-		if ((*win)->z_max < (*win)->s[i]->z_pix)
-			(*win)->z_max = (*win)->s[i]->z_pix;
+		if ((*win)->z_min > (*win)->s[i]->z)
+			(*win)->z_min = (*win)->s[i]->z;
+		if ((*win)->z_max < (*win)->s[i]->z)
+			(*win)->z_max = (*win)->s[i]->z;
+		i++;
 	}
 }
 
-int		altitude_color(t_win **win, int i)
+int		altitude_color(t_win **win)
 {
 	float		delta;
 	float		deltab;
@@ -51,8 +54,8 @@ int		altitude_color(t_win **win, int i)
 	uintmax_t	ret;
 
 	get_z(win);
-	delta = (float)(*win)->s[i]->z_pix - (*win)->z_min;
-	deltab = (float)(*win)->z_max - (*win)->z_min;
+	delta = (float)(*win)->z - (float)(*win)->z_min;
+	deltab = (float)(*win)->z_max - (float)(*win)->z_min;
 	if (deltab <= 0.0)
 		return (RGB(255, 255, 255));
 	delta = (float)delta / deltab;
