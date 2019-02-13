@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 19:11:13 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 23:22:43 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		deal_mouse(int button, int a, int b, t_win **win)
 	(*win)->aff_y = b;
 	ft_refresh_img(win);
 	ft_anim_background(win);
-	// ft_refresh_background(win);
 	ft_print_menu(win);
 	if (button == 5)
 		(*win)->pix = (*win)->pix * COEF_ZOOM;

@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 23:03:15 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 23:21:54 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,6 @@ typedef struct		s_win
 
 
 void				ft_usage(void);
-void				ft_exit_error(void);
 int 				ft_parse(t_win **win, char *av);
 char				*get_map(char *av);
 int					ft_create_isometric_projection_with_z(t_win **win);
@@ -159,5 +158,8 @@ int					ft_altitude(t_win **win, int a);
 void				ft_display_menu(t_win **win);
 char				*ft_get_file_name(char *av1);
 void				ft_anim_background(t_win **win);
+void                ft_exit_error(int error);
+void                ft_free_n_exit_str(char *map, t_win **win, int error);
+void                ft_free_n_exit_map(char **map, t_win **win, int error);
 
 #endif
