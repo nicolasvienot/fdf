@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 11:48:56 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/11 18:26:13 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 23:41:53 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_exit_error(int error)
 
 void	ft_usage(void)
 {
-	write(1, "usage: ./fdf file\n", 21);
+	write(1, "usage: ./fdf file\n", 18);
 	exit(EXIT_FAILURE);
 }
 
