@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/11 23:38:58 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 21:01:45 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int		ft_altitude(t_win **win, int a)
 	}
 	if (a == 2)
 	{
-		if ((*win)->zix >= 0.01)
+		if ((*win)->zix >= 0.05)
 			(*win)->zix = (*win)->zix / COEF_ALT;
-		if ((*win)->zix < 0.01 && (*win)->zix > -0.01)
+		if ((*win)->zix < 0.05 && (*win)->zix > -0.001)
 			(*win)->zix = -0.011;
 		if ((*win)->zix <= -0.01 && (*win)->zix > MIN_ALT)
 			(*win)->zix = (*win)->zix * COEF_ALT;
