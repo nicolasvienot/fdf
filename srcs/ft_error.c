@@ -29,11 +29,9 @@ void	ft_usage(void)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_free_n_exit_str(char *map, t_win **win, int error)
+void	ft_free_n_exit_str(t_win **win, int error)
 {
-	if (map)
-		free(map);
-	free(win);
+	free(*win);
 	ft_exit_error(error);
 }
 
@@ -45,6 +43,6 @@ void	ft_free_n_exit_map(char **map, t_win **win, int error)
 	if (map[i])
 		free(map[i++]);
 	free(map);
-	free(win);
+	free(*win);
 	ft_exit_error(error);
 }

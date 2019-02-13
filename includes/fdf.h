@@ -124,7 +124,6 @@ typedef struct		s_win
 	int 			img;
 }					t_win;
 
-
 void				ft_usage(void);
 int 				ft_parse(t_win **win, char *av);
 char				*get_map(char *av);
@@ -159,7 +158,7 @@ void				ft_display_menu(t_win **win);
 char				*ft_get_file_name(char *av1);
 void				ft_anim_background(t_win **win);
 void                ft_exit_error(int error);
-void                ft_free_n_exit_str(char *map, t_win **win, int error);
+void                ft_free_n_exit_str(t_win **win, int error);
 void                ft_free_n_exit_map(char **map, t_win **win, int error);
 
 #endif

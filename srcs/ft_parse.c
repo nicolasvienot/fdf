@@ -95,7 +95,7 @@ int			ft_parse(t_win **win, char *av)
 	i = 0;
 	(*win)->y_max = 0;
 	if ((str = get_map(&av[0])) == NULL)
-		ft_free_n_exit_str(str, win, -2);
+		ft_free_n_exit_str(win, -2);
 	map = ft_strsplit(str, '\n');
 	free(str);
 	while (map[(*win)->y_max])
