@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 18:50:01 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 21:59:32 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <math.h>
 # include <stdio.h>
 # include <unistd.h>
-# include <time.h>
 
 # define BUFF_SIZE 9999
 # define BUF_SIZE 1000
@@ -160,7 +159,5 @@ int					ft_altitude(t_win **win, int a);
 void				ft_display_menu(t_win **win);
 char				*ft_get_file_name(char *av1);
 void				ft_anim_background(t_win **win);
-// void		ft_anim_background2(t_win **win);
-// void		ft_anim_background3(t_win **win);
 
 #endif
