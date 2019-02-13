@@ -3,23 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Nico <Nico@student.42.fr>                  +#+  +:+       +#+         #
+#    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/02/09 13:59:48 by Nico             ###   ########.fr        #
+#    Updated: 2019/02/13 18:55:00 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fdf
 
-SRCS	=	main.c ft_draw.c ft_parse.c ft_init_proj.c ft_get_map.c \
-			ft_error.c ft_print.c ft_init_img.c ft_deal_key.c \
-			ft_transform.c ft_utilities.c ft_create_proj.c \
-			ft_init_win.c
+SRCS	=	srcs/main.c srcs/ft_draw.c srcs/ft_parse.c srcs/ft_init_proj.c srcs/ft_get_map.c \
+			srcs/ft_error.c srcs/ft_print.c srcs/ft_init_img.c srcs/ft_deal_key.c \
+			srcs/ft_transform.c srcs/ft_utilities.c srcs/ft_create_proj.c \
+			srcs/ft_init_win.c
 
 CC		=	gcc
 
-CFLAGS	= 	-Wall -Werror -Wextra
+INCLUDES = -I libft/ -I includes -I mlx/
+
+FLAGS	= 	-Wall -Werror -Wextra
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -51,7 +53,7 @@ $(NAME)	:	$(OBJS)
 			make -C libft/
 			echo "$(_RED)Libft ! $(_GREEN)OK$(_END)"
 			make -C mlx/
-			@$(CC) $(CFLAGS) $(OBJS) $(LIB) $(F.WORK) -o $(NAME)
+			$(CC) -o $(NAME) $(OBJS) $(LIB) $(F.WORK)
 			
 			echo "\n"
 			echo "$(_RED)    ______ ______ ______    _        ______                   _          _ 	"
@@ -63,6 +65,9 @@ $(NAME)	:	$(OBJS)
 			echo "$(_YELLOW)                                                                  __/ |		"
 			echo "$(_WHITE)    $(_RED)By $(_PURPLE)auguyon $(_BLUE)&& $(_CYAN)nvienot $(_GREEN)2019 $(_YELLOW)!$(_WHITE)!$(_END)		  	         |___/"
 			echo "\n"
+
+$(OBJS)	: 	%.o: %.c
+			$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean	:
 			@$(RM) $(OBJS)

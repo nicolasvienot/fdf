@@ -6,12 +6,11 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 23:58:53 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/21 15:18:38 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 18:52:12 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../fdf.h"
 #include <unistd.h>
 #include <stdlib.h>
 
