@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/12 16:09:09 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 19:18:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ void	ft_display_menu(t_win **win)
 		(*win)->menu = 1;
 	else
 		(*win)->menu = 0;
-	ft_refresh_background(win);
+	ft_anim_background(win);
 	ft_print_menu(win);
 }

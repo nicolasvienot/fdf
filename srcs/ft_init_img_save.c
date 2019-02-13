@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:02:49 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 19:15:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/13 19:12:15 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,22 @@ void		ft_refresh_img(t_win **win)
 	(*win)->img_ptr = mlx_new_image((*win)->mlx_ptr, IMG_HOR_SIZE, IMG_VER_SIZE);
 }
 
-// void		ft_refresh_background(t_win **win)
-// {
-// 	if ((*win)->proj == 1)
-// 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-// 			(*win)->img_background, 0, 0);
-// 	else
-// 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-// 			(*win)->img_background2, 0, 0);
-// }
+void		ft_refresh_background(t_win **win)
+{
+	if ((*win)->proj == 1)
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+			(*win)->img_background, 0, 0);
+	else
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+			(*win)->img_background2, 0, 0);
+	
+}
 
 void		ft_anim_background(t_win **win)
 {
 		if ((*win)->i == 0)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background, 0, 0);
 			ft_print_menu(win);
@@ -39,6 +41,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 1)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background2, 0, 0);
 			ft_print_menu(win);
@@ -46,6 +49,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 2)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background2);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background3, 0, 0);
 			ft_print_menu(win);
@@ -53,6 +57,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 3)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background4, 0, 0);
 			ft_print_menu(win);
@@ -60,6 +65,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 4)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background5, 0, 0);
 			ft_print_menu(win);
@@ -67,6 +73,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 5)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background6, 0, 0);
 			ft_print_menu(win);
@@ -74,6 +81,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 6)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background7, 0, 0);
 			ft_print_menu(win);
@@ -81,6 +89,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 7)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background8, 0, 0);
 			ft_print_menu(win);
@@ -88,6 +97,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 8)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background9, 0, 0);
 			ft_print_menu(win);
@@ -95,6 +105,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 9)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background10, 0, 0);
 			ft_print_menu(win);
@@ -102,6 +113,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 10)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background11, 0, 0);
 			ft_print_menu(win);
@@ -109,6 +121,7 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 11)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background12, 0, 0);
 			ft_print_menu(win);
@@ -116,12 +129,88 @@ void		ft_anim_background(t_win **win)
 		}
 		if ((*win)->i == 12)
 		{
+			// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background13, 0, 0);
 			ft_print_menu(win);
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
-		}	
+		}
+	// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background2, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background2);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background3, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background3);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background4, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background4);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background5, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background6, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background7, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background8, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background9, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background10, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background11, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background12, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background13, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);	
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	// 	(*win)->img_background, 0, 0);
+	// ft_print_menu(win);
+	// mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);	
 }
+
+// void		ft_anim_background2(t_win **win)
+// {
+// 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+// 		(*win)->img_background2, 0, 0);
+// 	ft_print_menu(win);
+// 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+// 	sleep(1);
+// 	ft_anim_background3(win);
+// }
+
+// void		ft_anim_background3(t_win **win)
+// {
+// 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+// 		(*win)->img_background3, 0, 0);
+// 	ft_print_menu(win);
+// 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+// 	sleep(1);
+// }
 
 void		ft_init_img(t_win **win)
 {
