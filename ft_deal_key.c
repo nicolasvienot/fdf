@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/11 19:09:15 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/12 21:30:52 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ int		deal_key(int keycode, t_win **win)
 		(*win)->rota += COEF_ROTA;
 	if (keycode == TOUCH_R)
 		(*win)->rota -= COEF_ROTA;
-	if (keycode == ARROW_UP && (*win)->s[(*win)->x_max - 1]->y_pix < IMG_VER_SIZE)
+	if (keycode == ARROW_DOWN && (*win)->s[(*win)->x_max - 1]->y_pix < IMG_VER_SIZE)
 		(*win)->ver += SIZE_MOV;
-	if (keycode == ARROW_DOWN && (*win)->s[(*win)->pos_max - \
+	if (keycode == ARROW_UP && (*win)->s[(*win)->pos_max - \
 		((*win)->x_max - 1)]->y_pix > 0)
 		(*win)->ver -= SIZE_MOV;
-	if (keycode == ARROW_RIGHT && (*win)->s[(*win)->pos_max]->x_pix > 0)
+	if (keycode == ARROW_LEFT && (*win)->s[(*win)->pos_max]->x_pix > 0)
 		(*win)->hor -= SIZE_MOV;
-	if (keycode == ARROW_LEFT && (*win)->s[0]->x_pix < IMG_HOR_SIZE)
+	if (keycode == ARROW_RIGHT && (*win)->s[0]->x_pix < IMG_HOR_SIZE)
 		(*win)->hor += SIZE_MOV;
 	deal_key_2(keycode, win);
 	if (keycode == TOUCH_P || keycode == TOUCH_I || keycode == TOUCH_O)
