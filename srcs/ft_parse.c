@@ -12,40 +12,40 @@
 
 #include "fdf.h"
 
-static int	count_number(char *map)
-{
-	int		i;
-	int		count;
+// static int	count_number(char *map)
+// {
+// 	int		i;
+// 	int		count;
 
-	count = 0;
-	i = 0;
-	while (map && map[i])
-	{
-		if (map[i] && map[i] == '-')
-			i++;
-		if (map[i] && ft_isdigit(map[i]))
-			count++;
-		while (map[i] && (ft_ishexa(map[i]) || map[i] == 'x' || map[i] == ','))
-			i++;
-		while (map[i] && !ft_isdigit(map[i]))
-			i++;
-	}
-	return (count);
-}
+// 	count = 0;
+// 	i = 0;
+// 	while (map && map[i])
+// 	{
+// 		if (map[i] && map[i] == '-')
+// 			i++;
+// 		if (map[i] && ft_isdigit(map[i]))
+// 			count++;
+// 		while (map[i] && (ft_ishexa(map[i]) || map[i] == 'x' || map[i] == ','))
+// 			i++;
+// 		while (map[i] && !ft_isdigit(map[i]))
+// 			i++;
+// 	}
+// 	return (count);
+// }
 
-static int	check_error(t_win **win, char **map)
-{
-	int i;
+// static int	check_error(t_win **win, char **map)
+// {
+// 	int i;
 
-	i = 0;
-	while (map[i])
-	{
-		if ((*win)->x_max != count_number(map[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
+// 	i = 0;
+// 	while (map[i])
+// 	{
+// 		if ((*win)->x_max != count_number(map[i]))
+// 			return (0);
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 static int	init_struct(t_win **win, int k, int y, int i)
 {
@@ -94,17 +94,10 @@ int			ft_parse(t_win **win, char *av)
 
 	i = 0;
 	(*win)->y_max = 0;
-	if ((str = get_map(&av[0])) == NULL)
-		ft_free_n_exit_str(win, -2);
+	if ((str = get_map(&av[0], win)) == NULL)
+		ft_free_n_exit(win, -2);
 	map = ft_strsplit(str, '\n');
 	free(str);
-	while (map[(*win)->y_max])
-		(*win)->y_max++;
-	if (!((*win)->x_max = count_number(map[0])))
-		ft_free_n_exit_map(map, win, -2);
-	if (!check_error(win, map))
-		ft_free_n_exit_map(map, win, -1);
-	(*win)->pos_max = (((*win)->x_max * (*win)->y_max) - 1);
 	if (!((*win)->s = (t_map**)malloc(sizeof(t_map*) * ((*win)->pos_max + 1))))
 		ft_free_n_exit_map(map, win, -42);
 	if (!map_to_struct(map, win, 0, 0))

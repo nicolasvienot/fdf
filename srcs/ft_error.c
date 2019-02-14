@@ -29,7 +29,7 @@ void	ft_usage(void)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_free_n_exit_str(t_win **win, int error)
+void	ft_free_n_exit(t_win **win, int error)
 {
 	free(*win);
 	ft_exit_error(error);
