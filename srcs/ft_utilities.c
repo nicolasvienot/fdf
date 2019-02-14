@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 00:20:41 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 16:13:05 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	free_struct(t_win **win)
 	free(*win);
 }
 
-void	get_z(t_win **win)
+void	ft_get_z(t_win **win)
 {
 	int i;
 
@@ -45,24 +45,27 @@ void	get_z(t_win **win)
 	}
 }
 
-int		altitude_color(t_win **win)
+int		altitude_color(t_win **win, int i)
 {
 	float		delta;
 	float		deltab;
 	float			g;
 	int			color;
-	float	ret;
+	float		ret;
 
-	get_z(win);
+	if ((*win)->choosecolor == 1)
+		return((*win)->s[i]->color);
 	delta = (*win)->z - (*win)->z_min;
 	deltab = (*win)->z_max - (*win)->z_min;
-	if (deltab <= 0.0)
+	if ((*win)->z == (*win)->z_min)
 		return (RGB(0, 0, 0));
 	delta = delta / deltab;
 	g = 255;
 	g = (255 + delta * g);
 	color = 0xFF;
-	ret = RGB(g, 255, (int)(color + delta * (255)));
+	ret = RGB((int)(color + delta * (255)), g, 255);
+	if (ret == RGB(255, 255, 255))
+		return (RGB(0, 0, 0));
 	return (ret);
 }
 

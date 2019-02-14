@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:29:22 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 22:15:52 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 16:15:48 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ int			ft_print_menu_1(t_win **win)
 			"Move : Arrow keys");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 580, PURPLE,\
 			"Rotate : R & T");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 600, PURPLE, "Quit : Esc");
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 600, PURPLE,\
+			"Change color type : C");
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 620, PURPLE, "Quit : Esc");
 	return (1);
 }
 

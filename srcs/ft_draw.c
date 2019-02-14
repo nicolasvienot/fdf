@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 00:23:28 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 15:14:15 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	ft_draw_line_2(t_win **win, int i)
 		y = (*win)->y2;
 		while (y <= (*win)->y1 && ((*win)->y1 - (*win)->y2) != 0)
 		{
+			(*win)->z = (*win)->z2 + (y - (*win)->y2) * ((*win)->z1 - (*win)->z2) / ((*win)->y1 - (*win)->y2);
 			mlx_put_pixel_to_image(win, (*win)->x2 + (((*win)->x1 - (*win)->x2) \
 				* (y - (*win)->y2)) / ((*win)->y1 - (*win)->y2), y, i);
 			y++;
@@ -60,6 +61,7 @@ static int	ft_draw_line_1(t_win **win, int i)
 		x = (*win)->x2;
 		while (x < (*win)->x1 && ((*win)->x1 - (*win)->x2) != 0)
 		{
+			(*win)->z = (*win)->z2 + (x - (*win)->x2) * ((*win)->z1 - (*win)->z2) / ((*win)->x1 - (*win)->x2);
 			if (((*win)->x1 - (*win)->x2) > 0)
 				mlx_put_pixel_to_image(win, x, (*win)->y2 + (((*win)->y1 - (*win)->y2) \
 					* (x - (*win)->x2)) / ((*win)->x1 - (*win)->x2), i);

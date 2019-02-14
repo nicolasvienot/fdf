@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 00:12:17 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 16:14:51 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,21 @@
 # define TOUCH_R 15
 # define TOUCH_T 17
 # define TOUCH_M 46
+# define TOUCH_C 8
 # define TOUCH_STAR 67
 # define PAGE_DOWN 121
 # define PAGE_UP 116
 
 typedef struct		s_map
 {
-	float			x;
-	float			y;
-	float			z;
-	float				x_pix;
-	float			y_pix;
+	int				x;
+	int				y;
+	int				z;
+	int				x_pix;
+	int				y_pix;
 	float			z_pix;
-	float			x_pix_temp;
-	int			color;
+	int				x_pix_temp;
+	int				color;
 }					t_map;
 
 typedef struct		s_win
@@ -100,8 +101,8 @@ typedef struct		s_win
 	int				proj;
 	int				x_max;
 	int				y_max;
-	float				z_max;
-	float				z_min;
+	float			z_max;
+	float			z_min;
 	int				pos_max;
 	float			pix;
 	float			zix;
@@ -113,7 +114,7 @@ typedef struct		s_win
 	int				x1;
 	int				x2;
 	int				y1;
-	int			y2;
+	int				y2;
 	float			z1;
 	float			z2;
 	int				aff_x;
@@ -125,6 +126,7 @@ typedef struct		s_win
 	int				endian;
 	int 			img;
 	float 			z;
+	int				choosecolor;
 }					t_win;
 
 void				ft_usage(void);
@@ -155,7 +157,7 @@ void				ft_init_start(t_win **win, char *av1);
 void				ft_init_refresh(t_win **win);
 int					ft_print_menu_2(t_win **win);
 void				ft_refresh_background(t_win **win);
-int					altitude_color(t_win **win);
+int					altitude_color(t_win **win, int i);
 int					ft_altitude(t_win **win, int a);
 void				ft_display_menu(t_win **win);
 char				*ft_get_file_name(char *av1);
@@ -163,5 +165,6 @@ void				ft_anim_background(t_win **win);
 void                ft_exit_error(int error);
 void                ft_free_n_exit(t_win **win, int error);
 void                ft_free_n_exit_map(char **map, t_win **win, int error);
+void				ft_get_z(t_win **win);
 
 #endif
