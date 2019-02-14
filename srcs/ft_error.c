@@ -40,7 +40,7 @@ void	ft_free_n_exit_map(char **map, t_win **win, int error)
 	int i;
 
 	i = 0;
-	if (map[i])
+	while (map[i])
 		free(map[i++]);
 	free(map);
 	free(*win);
