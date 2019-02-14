@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/13 22:01:47 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:16:59 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_get_color(t_win **win)
 	while (i <= (*win)->pos_max)
 	{
 		if ((*win)->s[i]->color == 0)
-			(*win)->s[i]->color = RGB(255, 0, 255);
+			(*win)->s[i]->color = RGB(255, 255, 255);
 		i++;
 	}
 }
