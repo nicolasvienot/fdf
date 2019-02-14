@@ -31,7 +31,7 @@ static int	ft_draw_line_2(t_win **win, int i)
 		y = (*win)->y1;
 		while (y <= (*win)->y2 && ((*win)->y2 - (*win)->y1) != 0)
 		{
-			(*win)->z = (*win)->z1 + (y - (*win)->y1) * ((*win)->z2 - (*win)->z1) / ((*win)->y2 - (*win)->y1);
+			(*win)->z = (*win)->z2 + (y - (*win)->y2) * ((*win)->z1 - (*win)->z2) / ((*win)->y1 - (*win)->y2);
 			mlx_put_pixel_to_image(win, (*win)->x1 + (((*win)->x2 - (*win)->x1) \
 				* (y - (*win)->y1)) / ((*win)->y2 - (*win)->y1), y, i);
 			y++;
@@ -49,7 +49,7 @@ static int	ft_draw_line_1(t_win **win, int i)
 		x = (*win)->x1;
 		while (x <= (*win)->x2 && ((*win)->x2 - (*win)->x1) != 0)
 		{
-			(*win)->z = (*win)->z1 + (x - (*win)->x1) * ((*win)->z2 - (*win)->z1) / ((*win)->x2 - (*win)->x1);
+			(*win)->z = (*win)->z2 + (x - (*win)->x2) * ((*win)->z1 - (*win)->z2) / ((*win)->x1 - (*win)->x2);
 			mlx_put_pixel_to_image(win, x, (*win)->y1 + (((*win)->y2 - (*win)->y1) \
 				* (x - (*win)->x1)) / ((*win)->x2 - (*win)->x1), i);
 			x++;
@@ -73,18 +73,18 @@ static int	ft_draw_line(t_win **win, int i)
 {
 	(*win)->x1 = (*win)->s[i]->x_pix;
 	(*win)->y1 = (*win)->s[i]->y_pix;
-	(*win)->z1 = (*win)->s[i]->z;
+	(*win)->z1 = (*win)->s[i]->z_pix;
 	if ((*win)->s[i]->x == (((*win)->x_max) - 1))
 	{
 		(*win)->x2 = (*win)->s[i + ((*win)->x_max)]->x_pix;
 		(*win)->y2 = (*win)->s[i + ((*win)->x_max)]->y_pix;
-		(*win)->z2 = (*win)->s[i + ((*win)->x_max)]->z;
+		(*win)->z2 = (*win)->s[i + ((*win)->x_max)]->z_pix;
 	}
 	if ((*win)->s[i]->y == (((*win)->y_max) - 1))
 	{
 		(*win)->x2 = (*win)->s[i + 1]->x_pix;
 		(*win)->y2 = (*win)->s[i + 1]->y_pix;
-		(*win)->z2 = (*win)->s[i + 1]->z;
+		(*win)->z2 = (*win)->s[i + 1]->z_pix;
 	}
 	ft_draw_line_1(win, i);
 	ft_draw_line_2(win, i);
@@ -110,9 +110,11 @@ int			ft_draw(t_win **win)
 		{
 			(*win)->x2 = (*win)->s[i + ((*win)->x_max)]->x_pix;
 			(*win)->y2 = (*win)->s[i + ((*win)->x_max)]->y_pix;
+			(*win)->z2 = (*win)->s[i + ((*win)->x_max)]->z_pix;
 			ft_draw_line(win, i);
 			(*win)->x2 = (*win)->s[i + 1]->x_pix;
 			(*win)->y2 = (*win)->s[i + 1]->y_pix;
+			(*win)->z2 = (*win)->s[i + 1]->z_pix;
 			ft_draw_line(win, i);
 		}
 		i++;

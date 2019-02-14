@@ -67,14 +67,14 @@
 
 typedef struct		s_map
 {
-	int				x;
-	int				y;
-	int				z;
-	int				x_pix;
-	int				y_pix;
-	int 			z_pix;
-	int				x_pix_temp;
-	int				color;
+	float			x;
+	float			y;
+	float			z;
+	float				x_pix;
+	float			y_pix;
+	float			z_pix;
+	float			x_pix_temp;
+	int			color;
 }					t_map;
 
 typedef struct		s_win
@@ -100,8 +100,8 @@ typedef struct		s_win
 	int				proj;
 	int				x_max;
 	int				y_max;
-	int				z_max;
-	int				z_min;
+	float				z_max;
+	float				z_min;
 	int				pos_max;
 	float			pix;
 	float			zix;
@@ -113,9 +113,9 @@ typedef struct		s_win
 	int				x1;
 	int				x2;
 	int				y1;
-	int				y2;
-	int				z1;
-	int				z2;
+	int			y2;
+	float			z1;
+	float			z2;
 	int				aff_x;
 	int				aff_y;
 	int				menu;
@@ -124,7 +124,7 @@ typedef struct		s_win
 	int				bpp;
 	int				endian;
 	int 			img;
-	int 			z;
+	float 			z;
 }					t_win;
 
 void				ft_usage(void);

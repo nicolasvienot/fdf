@@ -125,7 +125,7 @@ void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
 	// if ((*win)->z == 0)
 	// 	a = (*win)->s[i]->color;
 	// else
-		a = altitude_color(win);
+	a = altitude_color(win);
 	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
 	{
 		ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], &a, octet);

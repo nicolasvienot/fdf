@@ -37,10 +37,10 @@ void	get_z(t_win **win)
 	(*win)->z_max = 0;
 	while (i < (*win)->pos_max)
 	{
-		if ((*win)->z_min > (*win)->s[i]->z)
-			(*win)->z_min = (*win)->s[i]->z;
-		if ((*win)->z_max < (*win)->s[i]->z)
-			(*win)->z_max = (*win)->s[i]->z;
+		if ((*win)->z_min > (*win)->s[i]->z_pix)
+			(*win)->z_min = (*win)->s[i]->z_pix;
+		if ((*win)->z_max < (*win)->s[i]->z_pix)
+			(*win)->z_max = (*win)->s[i]->z_pix;
 		i++;
 	}
 }
@@ -49,20 +49,20 @@ int		altitude_color(t_win **win)
 {
 	float		delta;
 	float		deltab;
-	int			g;
+	float			g;
 	int			color;
-	uintmax_t	ret;
+	float	ret;
 
 	get_z(win);
-	delta = (float)(*win)->z - (float)(*win)->z_min;
-	deltab = (float)(*win)->z_max - (float)(*win)->z_min;
+	delta = (*win)->z - (*win)->z_min;
+	deltab = (*win)->z_max - (*win)->z_min;
 	if (deltab <= 0.0)
-		return (RGB(255, 255, 255));
-	delta = (float)delta / deltab;
+		return (RGB(0, 0, 0));
+	delta = delta / deltab;
 	g = 255;
 	g = (255 + delta * g);
 	color = 0xFF;
-	ret = RGB(255, g, (int)(color + delta * (255)));
+	ret = RGB(g, 255, (int)(color + delta * (255)));
 	return (ret);
 }
 
