@@ -141,6 +141,7 @@ void				mlx_put_pixel_to_image(t_win **win, int x, int y, int i);
 int					deal_key(int keycode, t_win **win);
 void				ft_move_pos(t_win **win);
 void				ft_rotate(t_win **win, int i, float a, float b);
+void				ft_rotate_2(t_win **win, int i, float a, float b);
 void				ft_get_color(t_win **win);
 void				free_struct(t_win **win);
 int					ft_draw(t_win **win);

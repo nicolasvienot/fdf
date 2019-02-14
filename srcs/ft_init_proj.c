@@ -31,8 +31,8 @@ void	ft_init_pix_and_pos_orthographic_projection(t_win **win)
 	}
 	if ((*win)->x_max == 1 && (*win)->y_max == 1)
 	{
-		(*win)->hor = (IMG_HOR_SIZE  / 2);
-		(*win)->ver = (IMG_VER_SIZE  / 2);
+		(*win)->hor = (IMG_HOR_SIZE / 2);
+		(*win)->ver = (IMG_VER_SIZE / 2);
 	}
 }
 

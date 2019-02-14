@@ -25,19 +25,32 @@ void	ft_move_pos(t_win **win)
 	}
 }
 
+void	ft_rotate_2(t_win **win, int i, float a, float b)
+{
+	while (i <= (*win)->pos_max)
+	{
+		(*win)->s[i]->x_pix_temp = (*win)->s[i]->x_pix;
+		(*win)->s[i]->x_pix = a + ((*win)->s[i]->x_pix - a)
+			* cos(THETA * (*win)->rota) - ((*win)->s[i]->y_pix - b)
+				* sin(THETA * (*win)->rota);
+		(*win)->s[i]->y_pix = b + ((*win)->s[i]->x_pix_temp - a)
+			* sin(THETA * (*win)->rota) + ((*win)->s[i]->y_pix - b)
+				* cos(THETA * (*win)->rota);
+		i++;
+	}
+}
+
 void	ft_rotate(t_win **win, int i, float a, float b)
 {
 	if ((*win)->rota >= 36 || (*win)->rota <= -36)
 		(*win)->rota = 0;
-	a = 0;
-	b = 0;
 	if ((*win)->proj == 1 && (*win)->pos_max > 0)
 	{
 		if ((*win)->x_max > 1 && (*win)->y_max > 1)
 		{
 			a = ((*win)->s[(*win)->x_max - 1]->x_pix - (*win)->s[0]->x_pix) / 2;
-			b = ((*win)->s[((*win)->pos_max - (*win)->x_max - 1)]->y_pix \
-			- (*win)->s[0]->y_pix) / 2;
+			b = ((*win)->s[((*win)->pos_max - (*win)->x_max - 1)]->y_pix -
+				(*win)->s[0]->y_pix) / 2;
 		}
 	}
 	else if ((*win)->proj == 2 && (*win)->pos_max > 0)
@@ -48,15 +61,7 @@ void	ft_rotate(t_win **win, int i, float a, float b)
 			b = (*win)->s[0]->y;
 		}
 	}
-	while (i <= (*win)->pos_max)
-	{
-		(*win)->s[i]->x_pix_temp = (*win)->s[i]->x_pix;
-		(*win)->s[i]->x_pix = a + ((*win)->s[i]->x_pix - a) * cos(THETA \
-		* (*win)->rota)	- ((*win)->s[i]->y_pix - b) * sin(THETA * (*win)->rota);
-		(*win)->s[i]->y_pix = b + ((*win)->s[i]->x_pix_temp - a) * sin(THETA \
-		* (*win)->rota) + ((*win)->s[i]->y_pix - b) * cos(THETA * (*win)->rota);
-		i++;
-	}
+	ft_rotate_2(win, i, a, b);
 }
 
 void	ft_get_color(t_win **win)

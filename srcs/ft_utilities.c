@@ -49,12 +49,12 @@ int		altitude_color(t_win **win, int i)
 {
 	float		delta;
 	float		deltab;
-	float			g;
-	int			color;
+	float		g;
 	float		ret;
+	int			color;
 
 	if ((*win)->choosecolor == 1)
-		return((*win)->s[i]->color);
+		return ((*win)->s[i]->color);
 	delta = (*win)->z - (*win)->z_min;
 	deltab = (*win)->z_max - (*win)->z_min;
 	if ((*win)->z == (*win)->z_min)
