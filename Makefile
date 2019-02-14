@@ -6,14 +6,15 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/02/13 18:55:00 by nvienot          ###   ########.fr        #
+#    Updated: 2019/02/14 18:40:50 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	fdf
 
-SRCS	=	srcs/main.c srcs/ft_draw.c srcs/ft_parse.c srcs/ft_init_proj.c srcs/ft_get_map.c \
-			srcs/ft_error.c srcs/ft_print.c srcs/ft_init_img.c srcs/ft_deal_key.c \
+SRCS	=	srcs/main.c srcs/ft_draw_para.c srcs/ft_draw_iso.c srcs/ft_parse.c \
+			srcs/ft_init_proj.c srcs/ft_get_map.c srcs/ft_error.c \
+			srcs/ft_print.c srcs/ft_init_img.c srcs/ft_deal_key.c \
 			srcs/ft_transform.c srcs/ft_utilities.c srcs/ft_create_proj.c \
 			srcs/ft_init_win.c
 

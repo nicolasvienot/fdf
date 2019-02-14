@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw.c                                          :+:      :+:    :+:   */
+/*   ft_draw_iso.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 15:14:15 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:42:00 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	ft_draw_line_2(t_win **win, int i)
+int	ft_draw_line_2(t_win **win, int i)
 {
 	int y;
 
@@ -41,7 +41,7 @@ static int	ft_draw_line_2(t_win **win, int i)
 	return (1);
 }
 
-static int	ft_draw_line_1(t_win **win, int i)
+int	ft_draw_line_1(t_win **win, int i)
 {
 	int x;
 
@@ -71,7 +71,7 @@ static int	ft_draw_line_1(t_win **win, int i)
 	return (1);
 }
 
-static int	ft_draw_line(t_win **win, int i)
+static int	ft_draw_line_iso(t_win **win, int i)
 {
 	(*win)->x1 = (*win)->s[i]->x_pix;
 	(*win)->y1 = (*win)->s[i]->y_pix;
@@ -93,7 +93,7 @@ static int	ft_draw_line(t_win **win, int i)
 	return (1);
 }
 
-int			ft_draw(t_win **win)
+int			ft_draw_iso(t_win **win)
 {
 	int i;
 
@@ -104,20 +104,20 @@ int			ft_draw(t_win **win)
 		&& (*win)->s[i]->y <= (((*win)->y_max) - 1))
 	{
 		if ((*win)->s[i]->x == (((*win)->x_max) - 1))
-			ft_draw_line(win, i);
+			ft_draw_line_iso(win, i);
 		if ((*win)->s[i]->y == (((*win)->y_max) - 1))
-			ft_draw_line(win, i);
+			ft_draw_line_iso(win, i);
 		if ((*win)->s[i]->y != (((*win)->y_max) - 1) \
 			&& (*win)->s[i]->x != (((*win)->x_max) - 1))
 		{
 			(*win)->x2 = (*win)->s[i + ((*win)->x_max)]->x_pix;
 			(*win)->y2 = (*win)->s[i + ((*win)->x_max)]->y_pix;
 			(*win)->z2 = (*win)->s[i + ((*win)->x_max)]->z_pix;
-			ft_draw_line(win, i);
+			ft_draw_line_iso(win, i);
 			(*win)->x2 = (*win)->s[i + 1]->x_pix;
 			(*win)->y2 = (*win)->s[i + 1]->y_pix;
 			(*win)->z2 = (*win)->s[i + 1]->z_pix;
-			ft_draw_line(win, i);
+			ft_draw_line_iso(win, i);
 		}
 		i++;
 	}

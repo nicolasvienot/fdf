@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 16:14:51 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:39:26 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,8 @@ void				ft_rotate(t_win **win, int i, float a, float b);
 void				ft_rotate_2(t_win **win, int i, float a, float b);
 void				ft_get_color(t_win **win);
 void				free_struct(t_win **win);
-int					ft_draw(t_win **win);
+int					ft_draw_para(t_win **win);
+int					ft_draw_iso(t_win **win);
 void				ft_refresh_img(t_win **win);
 void				ft_init_img(t_win **win);
 void				ft_init_start(t_win **win, char *av1);
@@ -157,5 +158,7 @@ void				ft_anim_background(t_win **win);
 void				ft_free_n_exit(t_win **win, int error);
 void				ft_free_n_exit_map(char **map, t_win **win, int error);
 void				ft_get_z(t_win **win);
+int					ft_draw_line_1(t_win **win, int i);
+int					ft_draw_line_2(t_win **win, int i);
 
 #endif

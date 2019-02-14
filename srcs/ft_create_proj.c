@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 17:11:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 18:05:53 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/14 18:42:37 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,8 @@ void	ft_init_map(t_win **win)
 	ft_rotate(win, 0, 0, 0);
 	ft_move_pos(win);
 	ft_get_z(win);
-	ft_draw(win);
+	if ((*win)->proj == 2)
+		ft_draw_iso(win);
+	else
+		ft_draw_para(win);
 }
