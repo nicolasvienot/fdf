@@ -42,7 +42,6 @@
 # define RED 16711680
 # define PURPLE RGB(255, 0, 255)
 
-
 # define WIN_HOR_SIZE 1700
 # define WIN_VER_SIZE 1100
 # define IMG_HOR_SIZE 1100
@@ -124,47 +123,38 @@ typedef struct		s_win
 	char			*data;
 	int				bpp;
 	int				endian;
-	int 			img;
-	float 			z;
+	int				img;
+	float			z;
 	int				choosecolor;
 }					t_win;
 
 void				ft_usage(void);
-int 				ft_parse(t_win **win, char *av);
+int					ft_parse(t_win **win, char *av);
 char				*get_map(char *av, t_win **win);
-int					ft_create_isometric_projection_with_z(t_win **win);
-int					ft_create_orthographic_projection_with_z(t_win **win);
-int					ft_init_map(t_win **win);
-int 				ft_init_xypix(t_win **win);
-int 				ft_init_pix_and_pos_orthographic_projection(t_win **win);
-int 				ft_init_pos_isometric_projection(t_win **win);
-int 				ft_init_pix_isometric_projection(t_win **win);
+void				ft_init_map(t_win **win);
+void				ft_init_xypix(t_win **win);
+void				ft_init_pix_and_pos_orthographic_projection(t_win **win);
+void				ft_init_pos_isometric_projection(t_win **win);
+void				ft_init_pix_isometric_projection(t_win **win);
 int					ft_print_menu(t_win **win);
 void				mlx_put_pixel_to_image(t_win **win, int x, int y, int i);
 int					deal_key(int keycode, t_win **win);
-int					ft_move_pos(t_win **win);
-int					ft_rotate(t_win **win, int i, float a, float b);
-int					ft_increase_pix(t_win **win, int pix);
-int					ft_get_color(t_win **win);
+void				ft_move_pos(t_win **win);
+void				ft_rotate(t_win **win, int i, float a, float b);
+void				ft_get_color(t_win **win);
 void				free_struct(t_win **win);
-int					ft_create_isometric_projection_with_z(t_win **win);
-int					ft_create_orthographic_projection_with_z(t_win **win);
-int					ft_init_map(t_win **win);
 int					ft_draw(t_win **win);
 void				ft_refresh_img(t_win **win);
 void				ft_init_img(t_win **win);
 void				ft_init_start(t_win **win, char *av1);
 void				ft_init_refresh(t_win **win);
-int					ft_print_menu_2(t_win **win);
-void				ft_refresh_background(t_win **win);
 int					altitude_color(t_win **win, int i);
-int					ft_altitude(t_win **win, int a);
+void				ft_altitude(t_win **win, int a);
 void				ft_display_menu(t_win **win);
 char				*ft_get_file_name(char *av1);
 void				ft_anim_background(t_win **win);
-void                ft_exit_error(int error);
-void                ft_free_n_exit(t_win **win, int error);
-void                ft_free_n_exit_map(char **map, t_win **win, int error);
+void				ft_free_n_exit(t_win **win, int error);
+void				ft_free_n_exit_map(char **map, t_win **win, int error);
 void				ft_get_z(t_win **win);
 
 #endif

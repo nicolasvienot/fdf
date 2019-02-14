@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-void	ft_exit_error(int error)
+static void	ft_exit_error(int error)
 {
 	if (error == -1)
 		write(1, "wrong map\n", 10);
@@ -23,19 +23,19 @@ void	ft_exit_error(int error)
 	exit(EXIT_FAILURE);
 }
 
-void	ft_usage(void)
+void		ft_usage(void)
 {
 	write(1, "usage: ./fdf file\n", 18);
 	exit(EXIT_FAILURE);
 }
 
-void	ft_free_n_exit(t_win **win, int error)
+void		ft_free_n_exit(t_win **win, int error)
 {
 	free(*win);
 	ft_exit_error(error);
 }
 
-void	ft_free_n_exit_map(char **map, t_win **win, int error)
+void		ft_free_n_exit_map(char **map, t_win **win, int error)
 {
 	int i;
 

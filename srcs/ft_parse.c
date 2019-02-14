@@ -12,41 +12,6 @@
 
 #include "fdf.h"
 
-// static int	count_number(char *map)
-// {
-// 	int		i;
-// 	int		count;
-
-// 	count = 0;
-// 	i = 0;
-// 	while (map && map[i])
-// 	{
-// 		if (map[i] && map[i] == '-')
-// 			i++;
-// 		if (map[i] && ft_isdigit(map[i]))
-// 			count++;
-// 		while (map[i] && (ft_ishexa(map[i]) || map[i] == 'x' || map[i] == ','))
-// 			i++;
-// 		while (map[i] && !ft_isdigit(map[i]))
-// 			i++;
-// 	}
-// 	return (count);
-// }
-
-// static int	check_error(t_win **win, char **map)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (map[i])
-// 	{
-// 		if ((*win)->x_max != count_number(map[i]))
-// 			return (0);
-// 		i++;
-// 	}
-// 	return (1);
-// }
-
 static int	init_struct(t_win **win, int k, int y, int i)
 {
 	if (!((*win)->s[i] = (t_map*)malloc(sizeof(t_map))))

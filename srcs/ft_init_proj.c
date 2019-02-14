@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int		ft_init_pix_and_pos_orthographic_projection(t_win **win)
+void	ft_init_pix_and_pos_orthographic_projection(t_win **win)
 {
 	float a;
 	float b;
@@ -23,12 +23,8 @@ int		ft_init_pix_and_pos_orthographic_projection(t_win **win)
 		(*win)->pix = a;
 	if (b < a)
 		(*win)->pix = b;
-	if ((*win)->x_max == 1 && (*win)->y_max != 1)
-	{
-		(*win)->hor = (IMG_HOR_SIZE - (((*win)->x_max - 1) * (*win)->pix)) / 2;
-		(*win)->ver = (IMG_VER_SIZE - (((*win)->y_max - 1) * (*win)->pix)) / 2;
-	}
-	if ((*win)->y_max == 1 && (*win)->x_max != 1)
+	if (((*win)->x_max == 1 && ((*win)->y_max != 1 || (*win)->x_max != 1)) \
+		|| ((*win)->y_max != 1 || (*win)->x_max != 1))
 	{
 		(*win)->hor = (IMG_HOR_SIZE - (((*win)->x_max - 1) * (*win)->pix)) / 2;
 		(*win)->ver = (IMG_VER_SIZE - (((*win)->y_max - 1) * (*win)->pix)) / 2;
@@ -38,15 +34,9 @@ int		ft_init_pix_and_pos_orthographic_projection(t_win **win)
 		(*win)->hor = (IMG_HOR_SIZE  / 2);
 		(*win)->ver = (IMG_VER_SIZE  / 2);
 	}
-	if ((*win)->x_max != 1 && (*win)->x_max != 1)
-	{
-		(*win)->hor = (IMG_HOR_SIZE - (((*win)->x_max - 1) * (*win)->pix)) / 2;
-		(*win)->ver = (IMG_VER_SIZE - (((*win)->y_max - 1) * (*win)->pix)) / 2;
-	}
-	return (1);
 }
 
-int		ft_init_pix_isometric_projection(t_win **win)
+void	ft_init_pix_isometric_projection(t_win **win)
 {
 	float a;
 	float b;
@@ -57,20 +47,18 @@ int		ft_init_pix_isometric_projection(t_win **win)
 		(*win)->pix = a;
 	if (b < a)
 		(*win)->pix = b;
-	return (1);
 }
 
-int		ft_init_pos_isometric_projection(t_win **win)
+void	ft_init_pos_isometric_projection(t_win **win)
 {
 	(*win)->hor = (IMG_HOR_SIZE - ((*win)->s[(*win)->pos_max]->x_pix \
 		- (*win)->s[0]->x_pix)) / 2;
 	(*win)->ver = (IMG_VER_SIZE - ((*win)->s[((*win)->pos_max \
 		- ((*win)->x_max - 1))]->y_pix) \
 			- (*win)->s[((*win)->x_max - 1)]->y_pix) / 2;
-	return (1);
 }
 
-int		ft_init_xypix(t_win **win)
+void	ft_init_xypix(t_win **win)
 {
 	int i;
 
@@ -81,5 +69,4 @@ int		ft_init_xypix(t_win **win)
 		(*win)->s[i]->y_pix = 0;
 		i++;
 	}
-	return (1);
 }

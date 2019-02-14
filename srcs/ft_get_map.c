@@ -31,12 +31,12 @@ static int	count_number(char *map)
 	return (count);
 }
 
-static int count_nl(char *map)
+static int	count_nl(char *map)
 {
 	int i;
 	int nl;
 	int len;
-	
+
 	i = 0;
 	nl = 1;
 	len = count_number(map);
@@ -50,7 +50,7 @@ static int count_nl(char *map)
 			if (len == count_number(map + i))
 				nl++;
 			else
-				return(nl);
+				return (nl);
 		}
 	}
 	return (nl);
@@ -59,7 +59,6 @@ static int count_nl(char *map)
 static int	check_error(char *map, int i)
 {
 	int len;
-	int len_line;
 
 	while (map[i])
 	{
@@ -78,11 +77,8 @@ static int	check_error(char *map, int i)
 		i++;
 		if (map[i] && map[i + 1])
 		{
-			map += i;
-			len_line = count_number(map);
-			if (len != len_line)
+			if (len != count_number(map + i))
 				return (0);
-			map -= i;
 		}
 	}
 	return (1);
@@ -96,7 +92,10 @@ static char	*read_map(int fd, char *map)
 	while (get_next_line(fd, &line) > 0)
 	{
 		tmp = map;
-		(map == NULL) ? (map = ft_strdup(line)) : (map = ft_strjoin(map, line));
+		if (map == NULL)
+			map = ft_strdup(line);
+		else
+			map = ft_strjoin(map, line);
 		if (tmp)
 			free(tmp);
 		tmp = map;
@@ -112,7 +111,7 @@ static char	*read_map(int fd, char *map)
 char		*get_map(char *av, t_win **win)
 {
 	char	*map;
-	int 	fd;
+	int		fd;
 
 	map = NULL;
 	if ((fd = open(&av[0], O_RDONLY)) < 0)

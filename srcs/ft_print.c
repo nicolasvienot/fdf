@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int			ft_print_menu_2(t_win **win)
+static void	ft_print_menu_2(t_win **win)
 {
 	char *x;
 	char *y;
@@ -31,39 +31,40 @@ int			ft_print_menu_2(t_win **win)
 			"Hold * to get");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1500, 80, PURPLE, \
 			"the animation");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 950, 970, PURPLE, "MAP NAME :");
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 950, 970, PURPLE, \
+		"MAP NAME :");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1060, 970, PURPLE, \
 		(*win)->filename);
 	free(x);
 	free(y);
-	return (1);
 }
 
-int			ft_print_menu_1(t_win **win)
+static void	ft_print_menu_1(t_win **win)
 {
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1520, 390, PURPLE, "MENU ");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 420, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1520, 390, PURPLE, \
+		"MENU ");
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 420, PURPLE, \
 			"Parallel projection : P");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 440, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 440, PURPLE, \
 			"Isometric projection : I");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 460, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 460, PURPLE, \
 			"Restart : O");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 480, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 480, PURPLE, \
 			"Increase alt : Page up");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 500, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 500, PURPLE, \
 			"Decrease alt : Page down");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 520, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 520, PURPLE, \
 			"Zoom in : + / Scroll");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 540, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 540, PURPLE, \
 			"Zoom out : - / Scroll");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 560, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 560, PURPLE, \
 			"Move : Arrow keys");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 580, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 580, PURPLE, \
 			"Rotate : R & T");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 600, PURPLE,\
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 600, PURPLE, \
 			"Change color type : C");
-	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 620, PURPLE, "Quit : Esc");
-	return (1);
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 1440, 620, PURPLE, \
+		"Quit : Esc");
 }
 
 int			ft_print_menu(t_win **win)

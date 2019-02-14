@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int		ft_move_pos(t_win **win)
+void	ft_move_pos(t_win **win)
 {
 	int i;
 
@@ -23,10 +23,9 @@ int		ft_move_pos(t_win **win)
 		(*win)->s[i]->y_pix = ((*win)->s[i]->y_pix + (*win)->ver);
 		i++;
 	}
-	return (1);
 }
 
-int		ft_rotate(t_win **win, int i, float a, float b)
+void	ft_rotate(t_win **win, int i, float a, float b)
 {
 	if ((*win)->rota >= 36 || (*win)->rota <= -36)
 		(*win)->rota = 0;
@@ -58,10 +57,9 @@ int		ft_rotate(t_win **win, int i, float a, float b)
 		* (*win)->rota) + ((*win)->s[i]->y_pix - b) * cos(THETA * (*win)->rota);
 		i++;
 	}
-	return (1);
 }
 
-int		ft_get_color(t_win **win)
+void	ft_get_color(t_win **win)
 {
 	int i;
 
@@ -72,10 +70,9 @@ int		ft_get_color(t_win **win)
 			(*win)->s[i]->color = RGB(255, 0, 255);
 		i++;
 	}
-	return (1);
 }
 
-int		ft_altitude(t_win **win, int a)
+void	ft_altitude(t_win **win, int a)
 {
 	if (a == 1)
 	{
@@ -95,5 +92,4 @@ int		ft_altitude(t_win **win, int a)
 		if ((*win)->zix <= -0.01 && (*win)->zix > MIN_ALT)
 			(*win)->zix = (*win)->zix * COEF_ALT;
 	}
-	return (1);
 }

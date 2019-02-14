@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-int		ft_create_isometric_projection_with_z(t_win **win)
+void	ft_create_isometric_projection_with_z(t_win **win)
 {
 	int i;
 
@@ -25,10 +25,9 @@ int		ft_create_isometric_projection_with_z(t_win **win)
 		+ ((*win)->s[i]->y - (*win)->s[i]->x)) * ((*win)->pix / 2);
 		i++;
 	}
-	return (1);
 }
 
-int		ft_create_orthographic_projection_with_z(t_win **win)
+void	ft_create_orthographic_projection_with_z(t_win **win)
 {
 	int i;
 
@@ -50,10 +49,9 @@ int		ft_create_orthographic_projection_with_z(t_win **win)
 		}
 		i++;
 	}
-	return (1);
 }
 
-int		ft_init_map(t_win **win)
+void	ft_init_map(t_win **win)
 {
 	ft_get_color(win);
 	if ((*win)->proj == 2)
@@ -69,5 +67,4 @@ int		ft_init_map(t_win **win)
 	ft_move_pos(win);
 	ft_get_z(win);
 	ft_draw(win);
-	return (0);
 }
