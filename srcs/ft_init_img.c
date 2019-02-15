@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 19:02:49 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/15 13:38:07 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/15 20:16:14 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void		ft_anim_background(t_win **win)
 		if ((*win)->img == 12)
 			mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 				(*win)->img_background13, 0, 0);
-		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
 }
 
 void		ft_init_img(t_win **win)

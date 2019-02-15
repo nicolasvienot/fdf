@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 15:16:17 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/15 19:52:23 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		deal_mouse(int button, int a, int b, t_win **win)
 
 // int	deal_expose(t_win **win)
 // {
-// 	// ft_anim_background(win);
+// 	ft_anim_background(win);
 // 	return (1);
 // }
 

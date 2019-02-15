@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/15 11:20:46 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/15 19:52:05 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int		altitude_color(t_win **win, int i)
 {
 	float		delta;
 	float		deltab;
-	float		g;
-	float		ret;
-	int			color;
+	float		r;
+	float		b;
+	int			ret;
 
 	if ((*win)->choosecolor == 2)
 		return ((*win)->s[i]->color);
@@ -60,12 +60,9 @@ int		altitude_color(t_win **win, int i)
 	if ((*win)->z == (float)(*win)->z_min && (*win)->choosecolor == 1)
 		return (RGB(255, 255, 255));
 	delta = delta / deltab;
-	g = 255;
-	g = (255 + delta * g);
-	color = 0xFF;
-	ret = RGB(g, 255, (int)(color + delta * (255)));
-	if (ret == RGB(255, 255, 255))
-		return (RGB(0, 0, 0));
+	r = (delta * 255);
+	b = r;
+	ret = RGB((int)r, 0, (int)b);
 	return (ret);
 }
 

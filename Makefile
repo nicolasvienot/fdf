@@ -6,7 +6,7 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/02/14 18:40:50 by nvienot          ###   ########.fr        #
+#    Updated: 2019/02/15 19:50:26 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC		=	gcc
 
 INCLUDES = -I libft/ -I includes -I mlx/
 
-FLAGS	= 	-Wall -Werror -Wextra
+FLAGS	= 	-O2 -Wall -Werror -Wextra
 
 OBJS	=	$(SRCS:.c=.o)
 
