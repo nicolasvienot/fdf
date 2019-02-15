@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/14 16:01:21 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/15 10:44:15 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,14 @@ void	deal_key_2(int keycode, t_win **win)
 	if (keycode == TOUCH_M)
 		ft_display_menu(win);
 	if (keycode == TOUCH_C)
-		((*win)->choosecolor == 0) ? ((*win)->choosecolor = 1) : ((*win)->choosecolor = 0);
+	{	// ((*win)->choosecolor == 0) ? ((*win)->choosecolor = 1) : ((*win)->choosecolor = 0);
+		if ((*win)->choosecolor == 0)
+			(*win)->choosecolor = 1;
+		else if ((*win)->choosecolor == 1)
+			(*win)->choosecolor = 2;
+		else if ((*win)->choosecolor == 2)
+			(*win)->choosecolor = 0;
+	}
 	if (keycode == TOUCH_STAR)
 	{
 		if ((*win)->img == 12)
