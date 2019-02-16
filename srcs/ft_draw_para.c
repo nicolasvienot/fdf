@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-static int	ft_draw_line_para(t_win **win, int i)
+static void	ft_draw_line_para(t_win **win, int i)
 {
 	(*win)->x1 = (*win)->s[i]->x_pix;
 	(*win)->y1 = (*win)->s[i]->y_pix;
@@ -31,7 +31,18 @@ static int	ft_draw_line_para(t_win **win, int i)
 	}
 	ft_draw_line_1(win, i);
 	ft_draw_line_2(win, i);
-	return (1);
+}
+
+static void	ft_draw_para_2(t_win **win, int i)
+{
+	(*win)->x2 = (*win)->s[i - ((*win)->x_max)]->x_pix;
+	(*win)->y2 = (*win)->s[i - ((*win)->x_max)]->y_pix;
+	(*win)->z2 = (*win)->s[i - ((*win)->x_max)]->z_pix;
+	ft_draw_line_para(win, i);
+	(*win)->x2 = (*win)->s[i - 1]->x_pix;
+	(*win)->y2 = (*win)->s[i - 1]->y_pix;
+	(*win)->z2 = (*win)->s[i - 1]->z_pix;
+	ft_draw_line_para(win, i);
 }
 
 int			ft_draw_para(t_win **win)
@@ -40,7 +51,8 @@ int			ft_draw_para(t_win **win)
 
 	i = (*win)->pos_max;
 	if (i == 0)
-		mlx_put_pixel_to_image(win, (*win)->s[i]->x_pix, (*win)->s[i]->y_pix, i);
+		mlx_put_pixel_to_image(win, (*win)->s[i]->x_pix, \
+			(*win)->s[i]->y_pix, i);
 	while (i > 0 && (*win)->s[i]->x <= (((*win)->x_max) - 1) \
 		&& (*win)->s[i]->y <= (((*win)->y_max) - 1))
 	{
@@ -49,16 +61,7 @@ int			ft_draw_para(t_win **win)
 		if ((*win)->s[i]->y == 0)
 			ft_draw_line_para(win, i);
 		if ((*win)->s[i]->y != 0 && (*win)->s[i]->x != 0)
-		{
-			(*win)->x2 = (*win)->s[i - ((*win)->x_max)]->x_pix;
-			(*win)->y2 = (*win)->s[i - ((*win)->x_max)]->y_pix;
-			(*win)->z2 = (*win)->s[i - ((*win)->x_max)]->z_pix;
-			ft_draw_line_para(win, i);
-			(*win)->x2 = (*win)->s[i - 1]->x_pix;
-			(*win)->y2 = (*win)->s[i - 1]->y_pix;
-			(*win)->z2 = (*win)->s[i - 1]->z_pix;
-			ft_draw_line_para(win, i);
-		}
+			ft_draw_para_2(win, i);
 		i--;
 	}
 	return (1);
