@@ -12,14 +12,14 @@
 
 #include "fdf.h"
 
-void			ft_refresh_img(t_win **win)
+void		ft_refresh_img(t_win **win)
 {
 	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_ptr);
 	(*win)->img_ptr = mlx_new_image((*win)->mlx_ptr, \
 		IMG_HOR_SIZE, IMG_VER_SIZE);
 }
 
-void			ft_anim_background_2(t_win **win)
+void		ft_anim_background_2(t_win **win)
 {
 	if ((*win)->img == 4)
 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
@@ -38,7 +38,7 @@ void			ft_anim_background_2(t_win **win)
 			(*win)->img_back9, 0, 0);
 }
 
-void			ft_anim_background(t_win **win)
+void		ft_anim_background(t_win **win)
 {
 	if ((*win)->img == 0)
 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
@@ -54,10 +54,9 @@ void			ft_anim_background(t_win **win)
 			(*win)->img_back4, 0, 0);
 	else
 		ft_anim_background_2(win);
-	
 }
 
-static void		ft_fill_imgs(t_win **win, int a, int b)
+static void	ft_fill_imgs(t_win **win, int a, int b)
 {
 	(*win)->img_back1 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
 		"imgs/fdf_img_0.xpm", &a, &b);
@@ -81,7 +80,7 @@ static void		ft_fill_imgs(t_win **win, int a, int b)
 		&(*win)->sizeline, &(*win)->endian);
 }
 
-void			ft_new_imgs(t_win **win)
+void		ft_new_imgs(t_win **win)
 {
 	int		a;
 	int		b;

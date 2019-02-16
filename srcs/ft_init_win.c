@@ -28,6 +28,7 @@ void	ft_init_start(t_win **win, char *av1)
 	(*win)->img = 0;
 	(*win)->choosecolor = 0;
 	ft_init_pix_and_pos_orthographic_projection(win);
+	ft_get_color(win);
 }
 
 void	ft_init_refresh(t_win **win)

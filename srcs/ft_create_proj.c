@@ -53,7 +53,6 @@ void	ft_create_orthographic_projection_with_z(t_win **win)
 
 void	ft_init_map(t_win **win)
 {
-	ft_get_color(win);
 	if ((*win)->proj == 2)
 	{
 		ft_create_isometric_projection_with_z(win);
