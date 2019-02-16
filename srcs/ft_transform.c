@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 19:23:16 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:30:07 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_move_pos(t_win **win)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	while (i <= (*win)->pos_max)
@@ -33,11 +33,11 @@ void	ft_rotate_2(t_win **win, int i, float a, float b)
 	while (i <= (*win)->pos_max)
 	{
 		(*win)->s[i]->x_pix_temp = (*win)->s[i]->x_pix;
-		(*win)->s[i]->x_pix = a + ((*win)->s[i]->x_pix - a)
-			* cos(theta * (*win)->rota) - ((*win)->s[i]->y_pix - b)
+		(*win)->s[i]->x_pix = a + ((*win)->s[i]->x_pix - a) \
+			* cos(theta * (*win)->rota) - ((*win)->s[i]->y_pix - b) \
 				* sin(theta * (*win)->rota);
-		(*win)->s[i]->y_pix = b + ((*win)->s[i]->x_pix_temp - a)
-			* sin(theta * (*win)->rota) + ((*win)->s[i]->y_pix - b)
+		(*win)->s[i]->y_pix = b + ((*win)->s[i]->x_pix_temp - a) \
+			* sin(theta * (*win)->rota) + ((*win)->s[i]->y_pix - b) \
 				* cos(theta * (*win)->rota);
 		i++;
 	}
@@ -52,8 +52,8 @@ void	ft_rotate(t_win **win, int i, float a, float b)
 		if ((*win)->x_max > 1 && (*win)->y_max > 1)
 		{
 			a = ((*win)->s[(*win)->x_max - 1]->x_pix - (*win)->s[0]->x_pix) / 2;
-			b = ((*win)->s[((*win)->pos_max - (*win)->x_max - 1)]->y_pix -
-				(*win)->s[0]->y_pix) / 2;
+			b = ((*win)->s[((*win)->pos_max - (*win)->x_max - 1)]->y_pix \
+				- (*win)->s[0]->y_pix) / 2;
 		}
 	}
 	else if ((*win)->proj == 2 && (*win)->pos_max > 0)
