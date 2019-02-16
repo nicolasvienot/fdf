@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/15 19:52:23 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:20:26 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,27 @@ int		deal_mouse(int button, int a, int b, t_win **win)
 	if (button == 4 && (*win)->pix > MIN_ZOOM)
 		(*win)->pix = (*win)->pix / COEF_ZOOM;
 	ft_init_map(win);
-	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, (*win)->img_ptr, 300, 150);
+	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+		(*win)->img_ptr, 300, 150);
 	return (1);
 }
 
-// int	deal_expose(t_win **win)
-// {
-// 	ft_anim_background(win);
-// 	return (1);
-// }
+int	deal_expose(t_win **win)
+{
+	ft_refresh_img(win);
+	ft_anim_background(win);
+	ft_print_menu(win);
+	ft_init_map(win);
+	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+	(*win)->img_ptr, 300, 150);
+	return (1);
+}
 
 void	ft_hook(t_win **win)
 {
 	mlx_hook((*win)->win_ptr, 2, 1L << 0, deal_key, win);
-	// ajouter fonction pour gerer seulement x touches
 	mlx_mouse_hook((*win)->win_ptr, deal_mouse, win);
-	// mlx_expose_hook((*win)->win_ptr, deal_expose, win);
+	mlx_expose_hook((*win)->win_ptr, deal_expose, win);
 	// mlx_hook(env->win, 17, 1l > 17, ft_exit, env);
 	mlx_loop((*win)->mlx_ptr);
 }
@@ -54,13 +59,8 @@ int		main(int ac, char **av)
 		return (0);
 	ft_parse(&win, av[1]);
 	ft_init_start(&win, av[1]);
-	ft_init_img(&win);
-	ft_init_map(&win);
-	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-		win->img_background, 0, 0);
-	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img_ptr, 300, 150);
-	ft_print_menu(&win);
+	ft_new_imgs(&win);
 	ft_hook(&win);
-	free_struct(&win);
+	// free_struct(&win);
 	return (0);
 }

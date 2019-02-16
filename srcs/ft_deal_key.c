@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/15 20:24:30 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:17:31 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	deal_key_2(int keycode, t_win **win)
 	}
 	else if (keycode == TOUCH_STAR)
 	{
-		if ((*win)->img == 12)
+		if ((*win)->img == 9)
 			(*win)->img = 0;
 		else
 			(*win)->img = (*win)->img + 1;
@@ -119,8 +119,6 @@ int			deal_key(int keycode, t_win **win)
 		deal_key_2(keycode, win);
 	else if (keycode == TOUCH_P || keycode == TOUCH_I || keycode == TOUCH_O)
 		deal_key_p_i_o(keycode, win);
-	if (keycode == TOUCH_STAR)
-		ft_print_menu(win);
 	ft_init_map(win);
 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr,
 		(*win)->img_ptr, 300, 150);

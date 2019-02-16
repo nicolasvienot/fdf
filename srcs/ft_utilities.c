@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/15 19:52:05 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:22:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,15 @@ void	free_struct(t_win **win)
 
 	i = 0;
 	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_ptr);
-	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background);
-	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_background2);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back1);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back2);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back3);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back4);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back5);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back6);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back7);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back8);
+	mlx_destroy_image((*win)->mlx_ptr, (*win)->img_back9);
 	mlx_destroy_window((*win)->mlx_ptr, (*win)->win_ptr);
 	while (i <= ((*win)->pos_max))
 		free((*win)->s[i++]);

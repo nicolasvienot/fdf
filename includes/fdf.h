@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/15 20:22:58 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:05:02 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,15 @@ typedef struct		s_win
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
-	void			*img_background;
-	void			*img_background2;
-	void			*img_background3;
-	void			*img_background4;
-	void			*img_background5;
-	void			*img_background6;
-	void			*img_background7;
-	void			*img_background8;
-	void			*img_background9;
-	void			*img_background10;
-	void			*img_background11;
-	void			*img_background12;
-	void			*img_background13;
+	void			*img_back1;
+	void			*img_back2;
+	void			*img_back3;
+	void			*img_back4;
+	void			*img_back5;
+	void			*img_back6;
+	void			*img_back7;
+	void			*img_back8;
+	void			*img_back9;
 	int				color;
 	int				proj;
 	int				x_max;
@@ -147,7 +143,7 @@ void				free_struct(t_win **win);
 int					ft_draw_para(t_win **win);
 int					ft_draw_iso(t_win **win);
 void				ft_refresh_img(t_win **win);
-void				ft_init_img(t_win **win);
+void				ft_new_imgs(t_win **win);
 void				ft_init_start(t_win **win, char *av1);
 void				ft_init_refresh(t_win **win);
 int					altitude_color(t_win **win, int i);
