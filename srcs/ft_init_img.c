@@ -53,23 +53,23 @@ void			ft_anim_background(t_win **win)
 static void		ft_fill_imgs(t_win **win, int a, int b)
 {
 	(*win)->img_back1 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf.xpm", &a, &b);
+		"imgs/fdf_img_0.xpm", &a, &b);
 	(*win)->img_back2 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf2.xpm", &a, &b);
+		"imgs/fdf_img_1.xpm", &a, &b);
 	(*win)->img_back3 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf3.xpm", &a, &b);
+		"imgs/fdf_img_2.xpm", &a, &b);
 	(*win)->img_back4 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf4.xpm", &a, &b);
+		"imgs/fdf_img_3.xpm", &a, &b);
 	(*win)->img_back5 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf5.xpm", &a, &b);
+		"imgs/fdf_img_4.xpm", &a, &b);
 	(*win)->img_back6 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf6.xpm", &a, &b);
+		"imgs/fdf_img_5.xpm", &a, &b);
 	(*win)->img_back7 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf7.xpm", &a, &b);
+		"imgs/fdf_img_6.xpm", &a, &b);
 	(*win)->img_back8 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf8.xpm", &a, &b);
+		"imgs/fdf_img_7.xpm", &a, &b);
 	(*win)->img_back9 = mlx_xpm_file_to_image((*win)->mlx_ptr, \
-		"imgs/fdf9.xpm", &a, &b);
+		"imgs/fdf_img_8.xpm", &a, &b);
 	(*win)->data = mlx_get_data_addr((*win)->img_ptr, &(*win)->bpp, \
 		&(*win)->sizeline, &(*win)->endian);
 }
