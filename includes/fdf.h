@@ -160,5 +160,6 @@ void				ft_free_n_exit_map(char **map, t_win **win, int error);
 void				ft_get_z(t_win **win);
 int					ft_draw_line_1(t_win **win, int i);
 int					ft_draw_line_2(t_win **win, int i);
+void				ft_free_n_exit_win(t_win **win, int error);
 
 #endif

@@ -14,7 +14,9 @@
 
 static void	ft_exit_error(int error)
 {
-	if (error == -1)
+	if (error == 0)
+		exit(EXIT_FAILURE);
+	else if (error == -1)
 		write(1, "wrong map\n", 10);
 	else if (error == -2)
 		write(1, "error\n", 6);
@@ -44,5 +46,11 @@ void		ft_free_n_exit_map(char **map, t_win **win, int error)
 		free(map[i++]);
 	free(map);
 	free(*win);
+	ft_exit_error(error);
+}
+
+void		ft_free_n_exit_win(t_win **win, int error)
+{
+	free_struct(win);
 	ft_exit_error(error);
 }
