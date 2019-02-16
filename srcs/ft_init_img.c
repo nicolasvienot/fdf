@@ -19,35 +19,42 @@ void			ft_refresh_img(t_win **win)
 		IMG_HOR_SIZE, IMG_VER_SIZE);
 }
 
+void			ft_anim_background_2(t_win **win)
+{
+	if ((*win)->img == 4)
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+			(*win)->img_back5, 0, 0);
+	else if ((*win)->img == 5)
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+			(*win)->img_back6, 0, 0);
+	else if ((*win)->img == 6)
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+			(*win)->img_back7, 0, 0);
+	else if ((*win)->img == 7)
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+			(*win)->img_back8, 0, 0);
+	else if ((*win)->img == 8)
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
+			(*win)->img_back9, 0, 0);
+}
+
 void			ft_anim_background(t_win **win)
 {
 	if ((*win)->img == 0)
 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 			(*win)->img_back1, 0, 0);
-	if ((*win)->img == 1)
+	else if ((*win)->img == 1)
 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 			(*win)->img_back2, 0, 0);
-	if ((*win)->img == 2)
+	else if ((*win)->img == 2)
 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 			(*win)->img_back3, 0, 0);
-	if ((*win)->img == 3)
+	else if ((*win)->img == 3)
 		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 			(*win)->img_back4, 0, 0);
-	if ((*win)->img == 4)
-		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-			(*win)->img_back5, 0, 0);
-	if ((*win)->img == 5)
-		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-			(*win)->img_back6, 0, 0);
-	if ((*win)->img == 6)
-		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-			(*win)->img_back7, 0, 0);
-	if ((*win)->img == 7)
-		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-			(*win)->img_back8, 0, 0);
-	if ((*win)->img == 8)
-		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
-			(*win)->img_back9, 0, 0);
+	else
+		ft_anim_background_2(win);
+	
 }
 
 static void		ft_fill_imgs(t_win **win, int a, int b)
@@ -93,17 +100,4 @@ void			ft_new_imgs(t_win **win)
 	(*win)->img_ptr = mlx_new_image((*win)->mlx_ptr, \
 		IMG_HOR_SIZE, IMG_VER_SIZE);
 	ft_fill_imgs(win, a, b);
-}
-
-void			mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
-{
-	int		octet;
-	int		a;
-
-	octet = (*win)->bpp / 8;
-	a = ft_altitude_color(win, i);
-	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
-	{
-		ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], &a, octet);
-	}
 }

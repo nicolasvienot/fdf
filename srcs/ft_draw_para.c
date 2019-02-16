@@ -12,6 +12,19 @@
 
 #include "fdf.h"
 
+void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
+{
+	int		octet;
+	int		a;
+
+	octet = (*win)->bpp / 8;
+	a = ft_altitude_color(win, i);
+	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
+	{
+		ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], &a, octet);
+	}
+}
+
 static void	ft_draw_line_para(t_win **win, int i)
 {
 	(*win)->x1 = (*win)->s[i]->x_pix;
