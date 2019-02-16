@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 17:05:02 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:26:41 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,14 +139,14 @@ void				ft_move_pos(t_win **win);
 void				ft_rotate(t_win **win, int i, float a, float b);
 void				ft_rotate_2(t_win **win, int i, float a, float b);
 void				ft_get_color(t_win **win);
-void				free_struct(t_win **win);
+void				ft_free_struct(t_win **win);
 int					ft_draw_para(t_win **win);
 int					ft_draw_iso(t_win **win);
 void				ft_refresh_img(t_win **win);
 void				ft_new_imgs(t_win **win);
 void				ft_init_start(t_win **win, char *av1);
 void				ft_init_refresh(t_win **win);
-int					altitude_color(t_win **win, int i);
+int					ft_altitude_color(t_win **win, int i);
 void				ft_altitude(t_win **win, int a);
 void				ft_display_menu(t_win **win);
 char				*ft_get_file_name(char *av1);

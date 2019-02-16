@@ -6,13 +6,13 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 18:42:00 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:28:08 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	ft_draw_line_2(t_win **win, int i)
+int			ft_draw_line_2(t_win **win, int i)
 {
 	int y;
 
@@ -41,7 +41,7 @@ int	ft_draw_line_2(t_win **win, int i)
 	return (1);
 }
 
-int	ft_draw_line_1(t_win **win, int i)
+int			ft_draw_line_1(t_win **win, int i)
 {
 	int x;
 

@@ -6,13 +6,13 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 17:22:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:26:41 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	free_struct(t_win **win)
+void	ft_free_struct(t_win **win)
 {
 	int i;
 
@@ -52,7 +52,7 @@ void	ft_get_z(t_win **win)
 	}
 }
 
-int		altitude_color(t_win **win, int i)
+int		ft_altitude_color(t_win **win, int i)
 {
 	float		delta;
 	float		deltab;

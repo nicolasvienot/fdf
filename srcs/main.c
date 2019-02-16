@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 17:20:26 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 17:27:27 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		deal_mouse(int button, int a, int b, t_win **win)
 	return (1);
 }
 
-int	deal_expose(t_win **win)
+int		deal_expose(t_win **win)
 {
 	ft_refresh_img(win);
 	ft_anim_background(win);
@@ -61,6 +61,6 @@ int		main(int ac, char **av)
 	ft_init_start(&win, av[1]);
 	ft_new_imgs(&win);
 	ft_hook(&win);
-	// free_struct(&win);
+	// ft_free_struct(&win);
 	return (0);
 }
