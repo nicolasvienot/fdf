@@ -104,6 +104,7 @@ static char	*read_map(int fd, char *map)
 		if (tmp)
 			free(tmp);
 	}
+	free(line);
 	close(fd);
 	return (map);
 }
