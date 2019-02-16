@@ -6,13 +6,13 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 14:10:45 by nvienot           #+#    #+#              #
-#    Updated: 2019/02/08 15:30:47 by nvienot          ###   ########.fr        #
+#    Updated: 2019/02/16 16:32:10 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
-FLAGS = -O3 -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 SRCS = ft_atoi.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_strcat.c ft_strchr.c \
 ft_strcmp.c ft_strcpy.c ft_strdup.c ft_strlcat.c ft_strlen.c ft_strncat.c \
 ft_strncmp.c ft_strncpy.c ft_strstr.c ft_memset.c ft_bzero.c ft_memcpy.c \
