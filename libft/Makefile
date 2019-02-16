@@ -12,7 +12,7 @@
 
 NAME = libft.a
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -O3 -Wall -Wextra -Werror
 SRCS = ft_atoi.c ft_putchar.c ft_putnbr.c ft_putstr.c ft_strcat.c ft_strchr.c \
 ft_strcmp.c ft_strcpy.c ft_strdup.c ft_strlcat.c ft_strlen.c ft_strncat.c \
 ft_strncmp.c ft_strncpy.c ft_strstr.c ft_memset.c ft_bzero.c ft_memcpy.c \
@@ -26,7 +26,7 @@ ft_isnumber.c ft_lstiter.c ft_lstdel.c ft_lstdelone.c ft_lstmap.c ft_swap.c \
 ft_lstnew.c ft_iswhitespace.c ft_strlcpy.c ft_sortinttab.c ft_strndup.c \
 ft_str_is_alpha.c ft_str_is_lowercase.c ft_str_is_numeric.c ft_ishexa.c \
 ft_str_is_printable.c ft_str_is_uppercase.c ft_strcapitalize.c \
-ft_strupcase.c ft_strlowcase.c ft_isupper.c ft_islower.c \
+ft_strupcase.c ft_strlowcase.c ft_isupper.c ft_islower.c ft_data_in_tab.c \
 ft_strsplit_at_first_c.c get_next_line.c ft_atoi_base.c ft_is_present.c 
 
 OBJS = $(SRCS:.c=.o)
