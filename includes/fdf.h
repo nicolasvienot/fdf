@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 19:10:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:26:51 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # define BUF_SIZE 1000
 
 # define PI 3.14
-# define THETA (10 * PI / 180)
 # define COEF_ZOOM 1.2
 # define COEF_ROTA 1
 # define SIZE_MOV 10
@@ -35,12 +34,12 @@
 # define MAX_ALT 10
 # define MIN_ALT -10
 
-# define RGB(r, g, b)(256 * 256 * (int)(r) + 256 * (int)(g) + (int)(b))
-
+# define BLACK 0
 # define BLUE 255
 # define GREEN 65280
 # define RED 16711680
-# define PURPLE RGB(255, 0, 255)
+# define PURPLE 16711935
+# define WHITE 16777215
 
 # define WIN_HOR_SIZE 1700
 # define WIN_VER_SIZE 1100

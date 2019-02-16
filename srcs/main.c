@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 19:10:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:14:46 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	ft_hook(t_win **win)
 	mlx_hook((*win)->win_ptr, 2, 1L << 0, deal_key, win);
 	mlx_mouse_hook((*win)->win_ptr, deal_mouse, win);
 	mlx_expose_hook((*win)->win_ptr, deal_expose, win);
-	// mlx_hook(env->win, 17, 1l > 17, ft_exit, env);
 	mlx_loop((*win)->mlx_ptr);
 }
 
@@ -61,6 +60,5 @@ int		main(int ac, char **av)
 	ft_init_start(&win, av[1]);
 	ft_new_imgs(&win);
 	ft_hook(&win);
-	// ft_free_struct(&win);
 	return (0);
 }

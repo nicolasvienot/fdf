@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 18:16:59 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:23:16 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_move_pos(t_win **win)
 {
-	int i;
+	int 	i;
 
 	i = 0;
 	while (i <= (*win)->pos_max)
@@ -27,15 +27,18 @@ void	ft_move_pos(t_win **win)
 
 void	ft_rotate_2(t_win **win, int i, float a, float b)
 {
+	float	theta;
+
+	theta = 10 * PI / 180;
 	while (i <= (*win)->pos_max)
 	{
 		(*win)->s[i]->x_pix_temp = (*win)->s[i]->x_pix;
 		(*win)->s[i]->x_pix = a + ((*win)->s[i]->x_pix - a)
-			* cos(THETA * (*win)->rota) - ((*win)->s[i]->y_pix - b)
-				* sin(THETA * (*win)->rota);
+			* cos(theta * (*win)->rota) - ((*win)->s[i]->y_pix - b)
+				* sin(theta * (*win)->rota);
 		(*win)->s[i]->y_pix = b + ((*win)->s[i]->x_pix_temp - a)
-			* sin(THETA * (*win)->rota) + ((*win)->s[i]->y_pix - b)
-				* cos(THETA * (*win)->rota);
+			* sin(theta * (*win)->rota) + ((*win)->s[i]->y_pix - b)
+				* cos(theta * (*win)->rota);
 		i++;
 	}
 }
@@ -72,7 +75,7 @@ void	ft_get_color(t_win **win)
 	while (i <= (*win)->pos_max)
 	{
 		if ((*win)->s[i]->color == 0)
-			(*win)->s[i]->color = RGB(255, 255, 255);
+			(*win)->s[i]->color = WHITE;
 		i++;
 	}
 }

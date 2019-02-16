@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 17:26:41 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:26:20 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ int		ft_altitude_color(t_win **win, int i)
 	delta = (*win)->z - (*win)->z_min;
 	deltab = (*win)->z_max - (*win)->z_min;
 	if ((*win)->z == (float)(*win)->z_min && (*win)->choosecolor == 1)
-		return (RGB(255, 255, 255));
+		return (WHITE);
 	delta = delta / deltab;
 	r = (delta * 255);
 	b = r;
-	ret = RGB((int)r, 0, (int)b);
+	ret = 256 * 256 * (int)r + 256 * 0 + (int)b;
 	return (ret);
 }
 
