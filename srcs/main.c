@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 17:27:27 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:10:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		deal_mouse(int button, int a, int b, t_win **win)
 		(*win)->pix = (*win)->pix * COEF_ZOOM;
 	if (button == 4 && (*win)->pix > MIN_ZOOM)
 		(*win)->pix = (*win)->pix / COEF_ZOOM;
-	ft_init_map(win);
+	ft_create_proj(win);
 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 		(*win)->img_ptr, 300, 150);
 	return (1);
@@ -34,7 +34,7 @@ int		deal_expose(t_win **win)
 	ft_refresh_img(win);
 	ft_anim_background(win);
 	ft_print_menu(win);
-	ft_init_map(win);
+	ft_create_proj(win);
 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 	(*win)->img_ptr, 300, 150);
 	return (1);

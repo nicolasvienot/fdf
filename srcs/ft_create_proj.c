@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 17:11:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 18:44:18 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:10:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_create_orthographic_projection_with_z(t_win **win)
 	}
 }
 
-void	ft_init_map(t_win **win)
+void	ft_create_proj(t_win **win)
 {
 	if ((*win)->proj == 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 17:26:41 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/16 19:10:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ typedef struct		s_win
 void				ft_usage(void);
 int					ft_parse(t_win **win, char *av);
 char				*get_map(char *av, t_win **win);
-void				ft_init_map(t_win **win);
+void				ft_create_proj(t_win **win);
 void				ft_init_xypix(t_win **win);
 void				ft_init_pix_and_pos_orthographic_projection(t_win **win);
 void				ft_init_pos_isometric_projection(t_win **win);
