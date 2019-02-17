@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/17 20:13:31 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 20:23:14 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,10 @@ static void	deal_key_2(int keycode, t_win **win)
 		ft_display_menu(win);
 	else if (keycode == TOUCH_C)
 	{
-		if ((*win)->choosecolor == 0)
-			(*win)->choosecolor = 1;
-		else if ((*win)->choosecolor == 1)
-			(*win)->choosecolor = 2;
-		else if ((*win)->choosecolor == 2)
+		if ((*win)->choosecolor == 2)
 			(*win)->choosecolor = 0;
+		else
+			(*win)->choosecolor = (*win)->choosecolor + 1;
 		ft_anim_background(win);
 		ft_print_menu(win);
 	}
