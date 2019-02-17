@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/16 19:10:34 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 18:28:49 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	deal_key_2(int keycode, t_win **win)
 
 static void	deal_key_1(int keycode, t_win **win)
 {
-	if (keycode == TOUCH_PLUS)
+	if (keycode == TOUCH_PLUS && (*win)->pix < MAX_ZOOM)
 		(*win)->pix = (*win)->pix * COEF_ZOOM;
 	else if (keycode == TOUCH_LESS && (*win)->pix > MIN_ZOOM)
 		(*win)->pix = (*win)->pix / COEF_ZOOM;
@@ -109,13 +109,20 @@ int			deal_key(int keycode, t_win **win)
 {
 	if (!tab_init(keycode))
 		return (0);
+	if (keycode == TOUCH_M || keycode == TOUCH_STAR)
+	{
+		deal_key_2(keycode, win);
+		mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr,
+		(*win)->img_ptr, 300, 150);
+		return (1);
+	}
 	ft_refresh_img(win);
 	if (keycode == TOUCH_PLUS || keycode == TOUCH_LESS || keycode == TOUCH_T
 		|| keycode == TOUCH_R || keycode == ARROW_RIGHT || keycode == ARROW_LEFT
 		|| keycode == ARROW_UP || keycode == ARROW_DOWN)
 		deal_key_1(keycode, win);
 	else if (keycode == PAGE_UP || keycode == PAGE_DOWN || keycode == TOUCH_ESC
-		|| keycode == TOUCH_M || keycode == TOUCH_C || keycode == TOUCH_STAR)
+		|| keycode == TOUCH_C)
 		deal_key_2(keycode, win);
 	else if (keycode == TOUCH_P || keycode == TOUCH_I || keycode == TOUCH_O)
 		deal_key_p_i_o(keycode, win);
