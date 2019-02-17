@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/14 17:01:18 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 19:14:46 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 19:52:03 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		deal_mouse(int button, int a, int b, t_win **win)
 	ft_refresh_img(win);
 	ft_anim_background(win);
 	ft_print_menu(win);
-	if (button == 5)
+	if (button == 5 && (*win)->pix < MAX_ZOOM)
 		(*win)->pix = (*win)->pix * COEF_ZOOM;
 	if (button == 4 && (*win)->pix > MIN_ZOOM)
 		(*win)->pix = (*win)->pix / COEF_ZOOM;
@@ -31,10 +31,8 @@ int		deal_mouse(int button, int a, int b, t_win **win)
 
 int		deal_expose(t_win **win)
 {
-	ft_refresh_img(win);
 	ft_anim_background(win);
 	ft_print_menu(win);
-	ft_create_proj(win);
 	mlx_put_image_to_window((*win)->mlx_ptr, (*win)->win_ptr, \
 	(*win)->img_ptr, 300, 150);
 	return (1);
@@ -59,6 +57,7 @@ int		main(int ac, char **av)
 	ft_parse(&win, av[1]);
 	ft_init_start(&win, av[1]);
 	ft_new_imgs(&win);
+	ft_create_proj(&win);
 	ft_hook(&win);
 	return (0);
 }
