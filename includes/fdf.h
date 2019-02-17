@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 19:26:51 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 17:08:21 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ char				*ft_get_file_name(char *av1);
 void				ft_anim_background(t_win **win);
 void				ft_free_n_exit(t_win **win, int error);
 void				ft_free_n_exit_map(char **map, t_win **win, int error);
+void				ft_exit_error(int error);
 void				ft_get_z(t_win **win);
 int					ft_draw_line_1(t_win **win, int i);
 int					ft_draw_line_2(t_win **win, int i);

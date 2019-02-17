@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:30:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/16 19:26:20 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 17:05:03 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_get_file_name(char *av1)
 		str++;
 	}
 	else
-		str = av1;
+		str = av1; 
 	return (ft_strsub(str, 0, ft_strlen(str) - 4));
 }
 

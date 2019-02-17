@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 11:55:30 by auguyon           #+#    #+#             */
-/*   Updated: 2019/01/30 16:25:00 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 17:08:44 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,15 @@ static char	*read_map(int fd, char *map)
 		if (map == NULL)
 			map = ft_strdup(line);
 		else
-			map = ft_strjoin(map, line);
+			if (!(map = ft_strjoin(map, line)))
+				ft_exit_error(-42);
+		if (!map)
+			ft_exit_error(-42);
 		if (tmp)
 			free(tmp);
 		tmp = map;
-		map = ft_strjoin(map, "\n");
+		if(!(map = ft_strjoin(map, "\n")))
+			ft_exit_error(-42);
 		free(line);
 		if (tmp)
 			free(tmp);

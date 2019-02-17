@@ -6,13 +6,13 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 11:48:56 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/16 17:26:03 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 17:08:08 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void	ft_exit_error(int error)
+void		ft_exit_error(int error)
 {
 	if (error == 0)
 		exit(EXIT_FAILURE);
