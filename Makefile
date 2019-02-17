@@ -6,7 +6,7 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/02/15 19:50:26 by nvienot          ###   ########.fr        #
+#    Updated: 2019/02/17 17:13:47 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS	=	srcs/main.c srcs/ft_draw_para.c srcs/ft_draw_iso.c srcs/ft_parse.c \
 
 CC		=	gcc
 
-INCLUDES = -I libft/ -I includes -I mlx/
+INC.	=	-I libft/ -I includes/ -I mlx/
 
 FLAGS	= 	-O2 -Wall -Werror -Wextra
 
@@ -56,7 +56,6 @@ $(NAME)	:	$(OBJS)
 			make -C mlx/
 			$(CC) -o $(NAME) $(OBJS) $(LIB) $(F.WORK)
 			
-			echo "\n"
 			echo "$(_RED)    ______ ______ ______    _        ______                   _          _ 	"
 			echo "$(_RED)    |  ___||  _  \|  ___|  (_)       | ___ \                 | |        | | 	"
 			echo "$(_BLUE)    | |_   | | | || |_      _  ___   | |_/ /  ___   __ _   __| | _   _  | | 	"
@@ -68,7 +67,7 @@ $(NAME)	:	$(OBJS)
 			echo "\n"
 
 $(OBJS)	: 	%.o: %.c
-			$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+			$(CC) $(FLAGS) $(INC.) -c $< -o $@
 
 clean	:
 			@$(RM) $(OBJS)

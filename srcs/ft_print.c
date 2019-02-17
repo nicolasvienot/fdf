@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:29:22 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/14 16:15:48 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 17:31:33 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ static void	ft_print_menu_2(t_win **win)
 	char *x;
 	char *y;
 
-	x = ft_itoa((*win)->aff_x - (WIN_HOR_SIZE - IMG_HOR_SIZE) / 2);
-	y = ft_itoa((*win)->aff_y - (WIN_VER_SIZE - IMG_VER_SIZE) / 2);
+	if (!(x = ft_itoa((*win)->aff_x - (WIN_HOR_SIZE - IMG_HOR_SIZE) / 2)))
+		ft_exit_error(-42);
+	if (!(y = ft_itoa((*win)->aff_y - (WIN_VER_SIZE - IMG_VER_SIZE) / 2)))
+		ft_exit_error(-42);
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 195, 440, PURPLE, "X = ");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 235, 440, PURPLE, x);
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 195, 465, PURPLE, "Y = ");
