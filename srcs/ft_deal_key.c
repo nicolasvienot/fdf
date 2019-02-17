@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/17 18:28:49 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 20:06:26 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	deal_key_2(int keycode, t_win **win)
 	}
 	else if (keycode == TOUCH_STAR)
 	{
-		if ((*win)->img == 9)
+		if ((*win)->img == 8)
 			(*win)->img = 0;
 		else
 			(*win)->img = (*win)->img + 1;

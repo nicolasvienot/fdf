@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/17 20:00:21 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 20:04:10 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@
 # define RED 16711680
 # define PURPLE 16711935
 # define WHITE 16777215
+# define GREY 6908265
 
 # define WIN_HOR_SIZE 1700
 # define WIN_VER_SIZE 1100
