@@ -21,7 +21,8 @@ void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
 	a = ft_altitude_color(win, i);
 	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
 	{
-		if (!(ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], &a, octet)))
+		if (!(ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], \
+			&a, octet)))
 			ft_exit_error(-42);
 	}
 }

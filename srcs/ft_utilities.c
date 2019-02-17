@@ -84,7 +84,7 @@ char	*ft_get_file_name(char *av1)
 		str++;
 	}
 	else
-		str = av1; 
+		str = av1;
 	return (ft_strsub(str, 0, ft_strlen(str) - 4));
 }
 

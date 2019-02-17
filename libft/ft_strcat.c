@@ -12,20 +12,15 @@
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *dest, const char *src)
 {
-	int i1;
-	int i2;
+	char	*d;
 
-	i1 = 0;
-	i2 = 0;
-	while (s1[i1])
-		i1++;
-	while (s2[i2])
-	{
-		s1[i1 + i2] = s2[i2];
-		i2++;
-	}
-	s1[i1 + i2] = '\0';
-	return (s1);
+	d = dest;
+	while (*d)
+		d++;
+	while (*src)
+		*d++ = *src++;
+	*d = '\0';
+	return (dest);
 }

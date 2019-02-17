@@ -92,17 +92,12 @@ static char	*read_map(int fd, char *map)
 	while (get_next_line(fd, &line) > 0)
 	{
 		tmp = map;
-		if (map == NULL)
-			map = ft_strdup(line);
-		else
-			if (!(map = ft_strjoin(map, line)))
-				ft_exit_error(-42);
-		if (!map)
+		if (!(map = ((map == NULL) ? ft_strdup(line) : ft_strjoin(map, line))))
 			ft_exit_error(-42);
 		if (tmp)
 			free(tmp);
 		tmp = map;
-		if(!(map = ft_strjoin(map, "\n")))
+		if (!(map = ft_strjoin(map, "\n")))
 			ft_exit_error(-42);
 		free(line);
 		if (tmp)

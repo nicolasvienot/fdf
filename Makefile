@@ -16,7 +16,7 @@ SRCS	=	srcs/main.c srcs/ft_draw_para.c srcs/ft_draw_iso.c srcs/ft_parse.c \
 			srcs/ft_init_proj.c srcs/ft_get_map.c srcs/ft_error.c \
 			srcs/ft_print.c srcs/ft_init_img.c srcs/ft_deal_key.c \
 			srcs/ft_transform.c srcs/ft_utilities.c srcs/ft_create_proj.c \
-			srcs/ft_init_win.c
+			srcs/ft_init_win.c srcs/ft_draw_iso_2.c
 
 CC		=	gcc
 
