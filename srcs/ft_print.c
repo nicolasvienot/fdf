@@ -6,11 +6,25 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:29:22 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/17 17:31:33 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 20:15:37 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static void	ft_print_menu_3(t_win **win)
+{
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 285, 970, PURPLE, \
+			"Color type :");
+	if ((*win)->choosecolor == 0)
+		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, "1");
+	else if ((*win)->choosecolor == 1)
+		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, "2");
+	else if ((*win)->choosecolor == 2)
+		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, "3");
+	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 10, 1075, PURPLE, \
+			"auguyon & nvienot");
+}
 
 static void	ft_print_menu_2(t_win **win)
 {
@@ -74,5 +88,6 @@ int			ft_print_menu(t_win **win)
 	if ((*win)->menu == 1)
 		ft_print_menu_1(win);
 	ft_print_menu_2(win);
+	ft_print_menu_3(win);
 	return (1);
 }
