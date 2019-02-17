@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:19:26 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/17 19:47:48 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 19:53:59 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # define EOL '\n'
+# define BUF_SIZE 1000
 # define BUFF_SIZE 9999
 # include <string.h>
 

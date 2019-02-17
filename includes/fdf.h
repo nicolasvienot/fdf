@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 11:41:57 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/17 18:30:54 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 20:00:21 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include "libft.h"
 # include "mlx.h"
 # include <fcntl.h>
-# include <stdlib.h>
-# include <math.h>
 # include <stdio.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <math.h>
 
 # define BUFF_SIZE 9999
 # define BUF_SIZE 1000
@@ -32,8 +32,8 @@
 # define COEF_Z 0.2
 # define MIN_ZOOM 0.01
 # define MAX_ZOOM 150
-# define MAX_ALT 10
-# define MIN_ALT -10
+# define MAX_ALT 15
+# define MIN_ALT -15
 
 # define BLACK 0
 # define BLUE 255
@@ -52,9 +52,9 @@
 # define ARROW_DOWN 125
 # define ARROW_RIGHT 124
 # define ARROW_UP 126
-# define TOUCH_O 31
 # define TOUCH_PLUS 69
 # define TOUCH_LESS 78
+# define TOUCH_O 31
 # define TOUCH_P 35
 # define TOUCH_I 34
 # define TOUCH_R 15
@@ -92,36 +92,35 @@ typedef struct		s_win
 	void			*img_back7;
 	void			*img_back8;
 	void			*img_back9;
-	int				color;
-	int				proj;
-	int				x_max;
-	int				y_max;
-	float			z_max;
-	float			z_min;
-	int				pos_max;
-	float			pix;
-	float			zix;
-	int				hor;
-	int				ver;
+	char			*filename;
+	char			*data;
+	int				choosecolor;
 	int				rota;
 	int				start;
-	int				sizeline;
+	int				proj;
+	int				menu;
+	int				img;
+	int				x_max;
+	int				y_max;
+	float			z_min;
+	float			z_max;
+	int				pos_max;
 	int				x1;
 	int				x2;
 	int				y1;
 	int				y2;
+	float			z;
 	float			z1;
 	float			z2;
 	int				aff_x;
 	int				aff_y;
-	int				menu;
-	char			*filename;
-	char			*data;
+	float			pix;
+	float			zix;
+	int				hor;
+	int				ver;
+	int				sizeline;
 	int				bpp;
 	int				endian;
-	int				img;
-	float			z;
-	int				choosecolor;
 }					t_win;
 
 void				ft_usage(void);
