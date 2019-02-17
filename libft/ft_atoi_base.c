@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/21 15:02:50 by nvienot           #+#    #+#             */
-/*   Updated: 2019/01/25 15:40:57 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/17 19:45:22 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 static int	ft_base(int nb, int base)
 {
-	char	*base1 = "0123456789abcdef";
-	char	*base2 = "0123456789ABCDEF";
+	char	*base1;
+	char	*base2;
 	int		i;
 
+	base1 = "0123456789abcdef";
+	base2 = "0123456789ABCDEF";
 	i = 0;
 	while (i < base)
 	{
@@ -28,7 +30,7 @@ static int	ft_base(int nb, int base)
 	return (-1);
 }
 
-int	ft_atoi_base(const char *str, int base)
+int			ft_atoi_base(const char *str, int base)
 {
 	int	nb;
 	int	neg;
