@@ -6,26 +6,11 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/18 14:33:57 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:41:08 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
-{
-	int		octet;
-	int		a;
-
-	octet = (*win)->bpp / 8;
-	a = ft_altitude_color(win, i);
-	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
-	{
-		if (!(ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], \
-			&a, octet)))
-			ft_exit(-42);
-	}
-}
 
 static void	ft_draw_line_para(t_win **win, int i)
 {
