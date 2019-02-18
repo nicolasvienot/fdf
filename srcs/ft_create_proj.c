@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 17:11:02 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/18 14:36:52 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:59:01 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,4 @@ void	ft_create_proj(t_win **win)
 		ft_draw_iso(win);
 	else
 		ft_draw_para(win);
-}
-
-void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
-{
-	int		octet;
-	int		a;
-
-	octet = (*win)->bpp / 8;
-	a = ft_altitude_color(win, i);
-	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
-	{
-		if (!(ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], \
-			&a, octet)))
-			ft_exit(-42);
-	}
 }

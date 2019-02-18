@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw_iso_2.c                                    :+:      :+:    :+:   */
+/*   ft_draw_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: auguyon <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 18:03:22 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/17 18:03:33 by auguyon          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:59:34 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_draw_line_2_1(t_win **win, int i)
 	}
 }
 
-int			ft_draw_line_2(t_win **win, int i)
+static void	ft_draw_line_2(t_win **win, int i)
 {
 	int y;
 
@@ -49,7 +49,6 @@ int			ft_draw_line_2(t_win **win, int i)
 		}
 	}
 	ft_draw_line_2_1(win, i);
-	return (1);
 }
 
 static void	ft_draw_line_1_1(t_win **win, int i)
@@ -71,9 +70,10 @@ static void	ft_draw_line_1_1(t_win **win, int i)
 			x++;
 		}
 	}
+	ft_draw_line_2(win, i);
 }
 
-int			ft_draw_line_1(t_win **win, int i)
+void		ft_draw_line(t_win **win, int i)
 {
 	int x;
 
@@ -92,5 +92,19 @@ int			ft_draw_line_1(t_win **win, int i)
 		}
 	}
 	ft_draw_line_1_1(win, i);
-	return (1);
+}
+
+void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
+{
+	int		octet;
+	int		a;
+
+	octet = (*win)->bpp / 8;
+	a = ft_altitude_color(win, i);
+	if (x >= 0 && y >= 0 && x < IMG_HOR_SIZE && y < IMG_VER_SIZE)
+	{
+		if (!(ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], \
+			&a, octet)))
+			ft_exit(-42);
+	}
 }

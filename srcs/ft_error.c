@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 11:48:56 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/18 14:33:01 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 15:00:27 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void		ft_free_n_exit_map(char **map, t_win **win, int error)
 	ft_exit(error);
 }
 
-int		ft_free_n_exit_win(t_win **win)
+int			ft_free_n_exit_win(t_win **win)
 {
 	ft_free_struct(win);
 	ft_exit(0);
-	return (0);
+	return (1);
 }
