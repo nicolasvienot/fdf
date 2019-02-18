@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:29:22 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/18 14:33:57 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 16:58:07 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ static void	ft_print_menu_3(t_win **win)
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 285, 970, PURPLE, \
 			"Color type :");
 	if ((*win)->choosecolor == 0)
-		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, "1");
+		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, \
+			"Color gradient w/ z_min -> GREY");
 	else if ((*win)->choosecolor == 1)
-		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, "2");
+		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, \
+			"Color gradient w/ z_min -> BLACK");
 	else if ((*win)->choosecolor == 2)
-		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, "3");
+		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, \
+			"Colors from file");
 	mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 10, 1075, PURPLE, \
 			"auguyon & nvienot");
 }
