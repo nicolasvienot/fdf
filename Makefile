@@ -50,7 +50,7 @@ _END=\x1b[0m
 
 all		:	$(NAME)
 
-$(NAME)	:	$(OBJS)
+$(NAME)	:	$(OBJS) Makefile includes/fdf.h
 			make -C libft/
 			echo "$(_RED)Libft ! $(_GREEN)OK$(_END)"
 			make -C mlx/

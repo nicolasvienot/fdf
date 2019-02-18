@@ -62,7 +62,7 @@ int			ft_parse(t_win **win, char *av)
 	if ((str = get_map(&av[0], win)) == NULL)
 		ft_free_n_exit(win, -2);
 	if (!(map = ft_strsplit(str, '\n')))
-		ft_exit(-42);
+		ft_free_n_exit(win, -42);
 	free(str);
 	if (!((*win)->s = (t_map**)malloc(sizeof(t_map*) * ((*win)->pos_max + 1))))
 		ft_free_n_exit_map(map, win, -42);

@@ -88,8 +88,9 @@ static char	*read_map(int fd, char *map)
 {
 	char	*line;
 	char	*tmp;
+	int		ret;
 
-	while (get_next_line(fd, &line) > 0)
+	while ((ret = get_next_line(fd, &line)) > 0)
 	{
 		tmp = map;
 		if (!(map = ((map == NULL) ? ft_strdup(line) : ft_strjoin(map, line))))
@@ -103,6 +104,8 @@ static char	*read_map(int fd, char *map)
 		if (tmp)
 			free(tmp);
 	}
+	if (ret < 0)
+		return (NULL);
 	free(line);
 	close(fd);
 	return (map);
@@ -116,7 +119,8 @@ char		*get_map(char *av, t_win **win)
 	map = NULL;
 	if ((fd = open(&av[0], O_RDONLY)) < 0)
 		return (NULL);
-	map = read_map(fd, map);
+	if (!(map = read_map(fd, map)))
+		return (NULL);
 	if (!check_error(map, 0))
 		return (NULL);
 	(*win)->x_max = count_number(map);

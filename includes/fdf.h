@@ -153,7 +153,7 @@ char				*ft_get_file_name(char *av1);
 void				ft_anim_background(t_win **win);
 void				ft_free_n_exit(t_win **win, int error);
 void				ft_free_n_exit_map(char **map, t_win **win, int error);
-void				ft_exit(int error);
+void				ft_exit(int code);
 void				ft_get_z(t_win **win);
 void				ft_draw_line(t_win **win, int i);
 int					ft_free_n_exit_win(t_win **win);
