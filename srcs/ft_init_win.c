@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 15:46:19 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/17 17:09:18 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:33:57 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_init_start(t_win **win, char *av1)
 	(*win)->win_ptr = mlx_new_window((*win)->mlx_ptr, WIN_HOR_SIZE, \
 		WIN_VER_SIZE, "FDF");
 	if (!((*win)->filename = ft_get_file_name(av1)))
-		ft_exit_error(-42);
+		ft_exit(-42);
 	(*win)->start = 0;
 	(*win)->proj = 1;
 	(*win)->rota = 0;

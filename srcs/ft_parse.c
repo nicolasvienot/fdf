@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 11:57:44 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/17 17:28:45 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:33:57 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			ft_parse(t_win **win, char *av)
 	if ((str = get_map(&av[0], win)) == NULL)
 		ft_free_n_exit(win, -2);
 	if (!(map = ft_strsplit(str, '\n')))
-		ft_exit_error(-42);
+		ft_exit(-42);
 	free(str);
 	if (!((*win)->s = (t_map**)malloc(sizeof(t_map*) * ((*win)->pos_max + 1))))
 		ft_free_n_exit_map(map, win, -42);

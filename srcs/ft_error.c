@@ -6,16 +6,16 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 11:48:56 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/17 17:08:08 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:33:01 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void		ft_exit_error(int error)
+void		ft_exit(int error)
 {
 	if (error == 0)
-		exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
 	else if (error == -1)
 		write(1, "wrong map\n", 10);
 	else if (error == -2)
@@ -34,7 +34,7 @@ void		ft_usage(void)
 void		ft_free_n_exit(t_win **win, int error)
 {
 	free(*win);
-	ft_exit_error(error);
+	ft_exit(error);
 }
 
 void		ft_free_n_exit_map(char **map, t_win **win, int error)
@@ -46,11 +46,12 @@ void		ft_free_n_exit_map(char **map, t_win **win, int error)
 		free(map[i++]);
 	free(map);
 	free(*win);
-	ft_exit_error(error);
+	ft_exit(error);
 }
 
-void		ft_free_n_exit_win(t_win **win, int error)
+int		ft_free_n_exit_win(t_win **win)
 {
 	ft_free_struct(win);
-	ft_exit_error(error);
+	ft_exit(0);
+	return (0);
 }

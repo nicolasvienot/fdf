@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 15:11:27 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/17 17:25:55 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:33:57 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		mlx_put_pixel_to_image(t_win **win, int x, int y, int i)
 	{
 		if (!(ft_memcpy(&(*win)->data[octet * x + (*win)->sizeline * y], \
 			&a, octet)))
-			ft_exit_error(-42);
+			ft_exit(-42);
 	}
 }
 

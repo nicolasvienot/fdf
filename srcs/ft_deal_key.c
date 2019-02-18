@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 02:16:39 by auguyon           #+#    #+#             */
-/*   Updated: 2019/02/17 20:23:14 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 14:33:23 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	deal_key_p_i_o(int keycode, t_win **win)
 
 static void	deal_key_2(int keycode, t_win **win)
 {
-	(keycode == TOUCH_ESC) ? ft_free_n_exit(win, 0) : 0;
+	(keycode == TOUCH_ESC) ? ft_free_n_exit_win(win) : 0;
 	if (keycode == PAGE_UP)
 		ft_altitude(win, 1);
 	else if (keycode == PAGE_DOWN)
