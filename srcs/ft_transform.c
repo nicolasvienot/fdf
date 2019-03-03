@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 16:29:59 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/17 19:24:05 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 17:31:50 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_rotate(t_win **win, int i, float a, float b)
 		if ((*win)->x_max > 1 && (*win)->y_max > 1)
 		{
 			a = ((*win)->s[(*win)->x_max - 1]->x_pix - (*win)->s[0]->x_pix) / 2;
-			b = ((*win)->s[((*win)->pos_max - (*win)->x_max - 1)]->y_pix \
+			b = ((*win)->s[(*win)->pos_max - (*win)->x_max - 1]->y_pix \
 				- (*win)->s[0]->y_pix) / 2;
 		}
 	}

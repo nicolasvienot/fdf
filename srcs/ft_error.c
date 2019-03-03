@@ -29,13 +29,13 @@ void		ft_usage(void)
 	exit(EXIT_FAILURE);
 }
 
-void		ft_free_n_exit(t_win **win, int error)
+void		ft_free_n_exit(t_win **win, int code)
 {
 	free(*win);
-	ft_exit(error);
+	ft_exit(code);
 }
 
-void		ft_free_n_exit_map(char **map, t_win **win, int error)
+void		ft_free_n_exit_map(char **map, t_win **win, int code)
 {
 	int i;
 
@@ -44,7 +44,7 @@ void		ft_free_n_exit_map(char **map, t_win **win, int error)
 		free(map[i++]);
 	free(map);
 	free(*win);
-	ft_exit(error);
+	ft_exit(code);
 }
 
 int			ft_free_n_exit_win(t_win **win)

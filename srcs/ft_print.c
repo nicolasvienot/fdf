@@ -6,7 +6,7 @@
 /*   By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/22 21:29:22 by nvienot           #+#    #+#             */
-/*   Updated: 2019/02/18 16:58:07 by nvienot          ###   ########.fr       */
+/*   Updated: 2019/02/18 17:18:03 by nvienot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	ft_print_menu_3(t_win **win)
 			"Color type :");
 	if ((*win)->choosecolor == 0)
 		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, \
-			"Color gradient w/ z_min -> GREY");
+			"Color gradient w/ GREY");
 	else if ((*win)->choosecolor == 1)
 		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, \
-			"Color gradient w/ z_min -> BLACK");
+			"Color gradient");
 	else if ((*win)->choosecolor == 2)
 		mlx_string_put((*win)->mlx_ptr, (*win)->win_ptr, 415, 970, PURPLE, \
 			"Colors from file");
