@@ -6,7 +6,7 @@
 #    By: nvienot <nvienot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/14 15:52:13 by nvienot           #+#    #+#              #
-#    Updated: 2019/02/18 14:57:25 by nvienot          ###   ########.fr        #
+#    Updated: 2019/04/19 22:30:03 by nvienot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ $(NAME)	:	$(OBJS) Makefile includes/fdf.h
 			echo "$(_CYAN)    | |    | |/ / | |      | |\__ \  | |\ \ |  __/| (_| || (_| || |_| | |_|	"
 			echo "$(_GREEN)    \_|    |___/  \_|      |_||___/  \_| \_| \___| \__,_| \__,_| \__, | (_)	"
 			echo "$(_YELLOW)                                                                  __/ |		"
-			echo "$(_WHITE)    $(_RED)By $(_PURPLE)auguyon $(_BLUE)&& $(_CYAN)nvienot $(_GREEN)2019 $(_YELLOW)!$(_WHITE)!$(_END)		  	         |___/"
+			echo "$(_WHITE)    $(_RED)By $(_PURPLE)auguyon $(_BLUE)&& $(_CYAN)nvienot $(_GREEN)2019 $(_YELLOW)!$(_WHITE)!$(_END)		            	         |___/"
 			echo "\n"
 
 $(OBJS)	: 	%.o: %.c
